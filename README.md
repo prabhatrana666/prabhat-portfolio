@@ -112,7 +112,7 @@ The project follows modern React architecture with reusable components, responsi
 
 ---
 
-# 🏗 Architecture
+<!-- # 🏗 Architecture
 
 ```text
 src
@@ -225,7 +225,7 @@ src
 <p align="center">
   <img src="./screenshots/mob 1.png" width="260">
   <img src="./screenshots/rent mob.png" width="260">
-</p>
+</p> -->
 
 # 🚀 Getting Started
 
