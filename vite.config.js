@@ -17,41 +17,48 @@ export default defineConfig({
       ],
 
       manifest: {
-        "name": "Hello11 Cab Booking",
-        "short_name": "Hello11",
-        "description": "Book taxis and rental cars with Hello11.",
-        "start_url": "/",
-        "display": "standalone",
-        "background_color": "#ffffff",
-        "theme_color": "#0d6efd",
-        "lang": "en",
-        "scope": "/",
-        "orientation": "portrait",
+        name: "Prabhat Rana Portfolio",
+        short_name: "Prabhat Rana",
+        description:
+          "Frontend Developer Portfolio showcasing modern React.js projects, UI/UX design, and full-stack web development skills.",
 
-        "icons": [
+        start_url: "/",
+        scope: "/",
+        display: "standalone",
+        orientation: "portrait",
+        lang: "en",
+
+        background_color: "#0f172a",
+        theme_color: "#0f172a",
+
+        categories: ["portfolio", "developer", "technology"],
+
+        icons: [
           {
-            "src": "/pwa-192x192.png",
-            "sizes": "192x192",
-            "type": "image/png",
-            "purpose": "any"
+            src: "/pwa-192x192.png",
+            sizes: "192x192",
+            type: "image/png",
+            purpose: "any",
           },
           {
-            "src": "/pwa-512x512.png",
-            "sizes": "512x512",
-            "type": "image/png",
-            "purpose": "any"
+            src: "/pwa-512x512.png",
+            sizes: "512x512",
+            type: "image/png",
+            purpose: "any",
           },
           {
-            "src": "/maskable-icon-512x512.png",
-            "sizes": "512x512",
-            "type": "image/png",
-            "purpose": "maskable any"
-          }
-        ]
+            src: "/maskable-icon-512x512.png",
+            sizes: "512x512",
+            type: "image/png",
+            purpose: "maskable any",
+          },
+        ],
       },
 
       workbox: {
-        globPatterns: ["**/*.{js,css,html,ico,png,svg,jpg,jpeg,webp}"],
+        globPatterns: [
+          "**/*.{js,css,html,ico,png,svg,jpg,jpeg,webp,woff,woff2}",
+        ],
 
         cleanupOutdatedCaches: true,
         clientsClaim: true,
@@ -69,12 +76,11 @@ export default defineConfig({
               },
             },
           },
-
           {
             urlPattern: ({ request }) =>
               request.destination === "style" ||
-              request.destination === "script",
-
+              request.destination === "script" ||
+              request.destination === "font",
             handler: "StaleWhileRevalidate",
             options: {
               cacheName: "assets-cache",
