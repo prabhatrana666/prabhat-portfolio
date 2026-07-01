@@ -1,0 +1,354 @@
+/* ===== SECTION WRAPPER ===== */
+.testimonials-section {
+    padding: 80px 20px;
+    background: #ffffff;
+    position: relative;
+}
+
+/* Optional subtle dotted background like your design */
+.testimonials-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(#e6e6e6 1px, transparent 1px);
+    background-size: 18px 18px;
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.feedback-description {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-top: 10px;
+    color: #49556b;
+    text-align: center;
+}
+
+/* ===== SWIPER NAVIGATION BUTTONS ===== */
+.swiper-button-next,
+.swiper-button-prev {
+    width: 42px;
+    height: 42px;
+    background: #111;
+    border-radius: 50%;
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    background: #ffb800;
+    color: #111;
+    transform: scale(1.1);
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* ===== CARD DESIGN ===== */
+.feedback-card {
+    background: #0b0b0b;
+    color: #fff;
+    border-radius: 41px;
+    padding: 28px;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* Hover premium lift */
+.feedback-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 60px rgba(255, 184, 0, 0.15);
+}
+
+/* Decorative glow effect */
+.feedback-card::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(255, 184, 0, 0.25), transparent 70%);
+    filter: blur(20px);
+}
+
+/* ===== STAR RATING ===== */
+.rating {
+    color: #ffb800;
+    font-size: 20px;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+}
+
+/* ===== REVIEW TEXT ===== */
+.feedback-card p {
+    font-size: 17.5px;
+    line-height: 1.6;
+    color: #d6d6d6;
+    margin-bottom: 22px;
+    font-style: italic;
+}
+
+.imagesss {
+    background: var(--primary);
+    width: 19%;
+    height: 60px;
+    border-radius: 47%;
+    padding: 3px;
+}
+
+/* ===== USER NAME ===== */
+.feedback-card h4 {
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: #ffffff;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.elite-feedback-carousel {
+    background-color: white;
+}
+
+/* Navigation buttons (left & right arrows) */
+.elite-feedback-carousel .swiper-button-next,
+.elite-feedback-carousel .swiper-button-prev {
+    width: 45px;
+    height: 45px;
+    background: #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+/* Arrow icon color */
+.elite-feedback-carousel .swiper-button-next::after,
+.elite-feedback-carousel .swiper-button-prev::after {
+    font-size: 16px;
+    font-weight: bold;
+    color: #111;
+}
+
+/* Hover effect */
+.elite-feedback-carousel .swiper-button-next:hover,
+.elite-feedback-carousel .swiper-button-prev:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+/* Position tweak (optional fine-tuning) */
+.elite-feedback-carousel .swiper-button-prev {
+    left: -10px;
+}
+
+.elite-feedback-carousel .swiper-button-next {
+    right: -10px;
+}
+
+/* Control SVG size inside swiper buttons */
+.swiper-button-prev svg,
+.swiper-button-next svg {
+    width: 18px;
+    /* change this */
+    height: 18px;
+    /* change this */
+}
+
+/* Optional: control color */
+.swiper-button-prev svg path,
+.swiper-button-next svg path {
+    fill: #111;
+    /* arrow color */
+}
+
+/* Optional: hide default disabled fade */
+.elite-feedback-carousel .swiper-button-disabled {
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+/* Control arrow icon size */
+.elite-feedback-carousel .swiper-button-next::after,
+.elite-feedback-carousel .swiper-button-prev::after {
+    font-size: 22px;
+    /* increase/decrease this */
+}
+
+/* Optional: control button box size */
+.elite-feedback-carousel .swiper-button-next,
+.elite-feedback-carousel .swiper-button-prev {
+    width: 50px;
+    /* button size */
+    height: 50px;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* small top label */
+.small-label {
+    display: inline-block;
+    font-size: 14px;
+    letter-spacing: 3px;
+    font-weight: 700;
+    color: #111;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.small-label::before,
+.small-label::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 30px;
+    height: 2px;
+    background: #111;
+}
+
+.small-label::before {
+    left: -40px;
+}
+
+.small-label::after {
+    right: -40px;
+}
+
+/* main title */
+.main-title {
+    font-size: 70px;
+    font-weight: 900;
+    font-style: italic;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 0;
+    color: #000;
+}
+
+/* yellow highlighted word */
+.main-title span {
+    color: #f7b500;
+    /* elite yellow */
+    position: relative;
+}
+
+/* underline effect under FEEDBACK */
+.main-title span::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 6px;
+    width: 100%;
+    height: 6px;
+    background: #000;
+    z-index: -1;
+}
+
+/* responsive */
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 40px;
+    }
+}
+
+/* ===== RESPONSIVE SPACING ===== */
+@media (max-width: 768px) {
+    .feedback-card {
+        padding: 22px;
+        margin: 23px;
+    }
+
+    .elite-prev {
+        left: 1% !important;
+        top: 3em !important;
+    }
+
+    .elite-next {
+        left: 86% !important;
+        top: 3em !important;
+    }
+}
+
+/* position control */
+.elite-prev {
+    z-index: 999;
+    position: absolute;
+    z-index: 999;
+    height: 50px !important;
+    width: 50px;
+    position: relative;
+    left: 5%;
+    font-size: 47px;
+    background: var(--primary);
+    border-radius: 50%;
+    top: 5em;
+    border: 2px solid var(--primary);
+    ;
+    background: white;
+}
+
+.elite-prev:hover,
+.elite-next:hover {
+    cursor: pointer;
+}
+
+.arrows {
+    position: relative;
+    top: -16px;
+}
+
+.elite-next {
+    z-index: 999;
+    position: absolute;
+    z-index: 999;
+    height: 50px !important;
+    width: 50px;
+    position: relative;
+    right: 5% !important;
+    font-size: 47px;
+    background: var(--primary);
+    border-radius: 50%;
+    top: 4.1em;
+    border: 2px solid var(--primary);
+    ;
+    background: white;
+}
+
+/* new wrapper */
+.elite-carousel-wrapper {
+    position: relative;
+}
+
+.elite-prev,
+.elite-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.elite-prev {
+    left: 5%;
+    top: 50%;
+}
+
+.elite-next {
+    right: 0;
+}

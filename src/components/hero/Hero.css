@@ -1,0 +1,391 @@
+.hero {
+  min-height: 70vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  padding: 120px 20px 60px;
+}
+.garage-description{
+      font-size: 1.3rem;
+    font-weight: 700;
+    margin-top: 10px;
+    color: #49556b;
+    text-align: center;
+}
+.hero-badge {
+  padding: 7px 28px;
+
+  border: 1px solid #e6d8a8;
+  border-radius: 999px;
+
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 3px;
+
+  color: #7b5b00;
+  background: #fffdf6;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hero h1 {
+  margin-top: 30px;
+  font-style: italic;
+  font-size: 70px;
+  font-weight: 900;
+  line-height: 1;
+
+  color: #081128;
+
+  text-transform: uppercase;
+}
+
+.hero h1 span {
+  color: #f4c400;
+}
+
+.hero p {
+  max-width: 700px;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-top: 10px;
+  color: #49556b;
+}
+
+/* booking form style */
+
+.booking-form {
+  display: flex;
+  align-items: center;
+  background: var(--white);
+  border-radius: 80px;
+  width: 75%;
+  height: 6em;
+  padding: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, .08);
+  gap: 10px;
+}
+
+.form-group {
+  flex: 1;
+  padding: 0 20px;
+  border-right: 1px solid #eaeaea;
+}
+
+.form-group:last-of-type {
+  border-right: none;
+}
+
+.form-group label {
+  display: block;
+  font-size: 16px;
+  font-weight: 800;
+  color: #555;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+  text-align: left;
+}
+
+.input-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.input-box input,
+.input-box select {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.book-btn2 {
+  background: black;
+  color: white;
+  border: none;
+  border-radius: 60px;
+  padding: 26px 45px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: .3s ease;
+}
+
+.book-btn:hover {
+  transform: translateY(-2px);
+}
+
+/* Mobile Responsive */
+
+@media (max-width: 768px) {
+  .booking-form {
+    width: 100%;
+    height: auto;
+    margin-top: 16px !important;
+    flex-direction: column;
+    align-items: stretch;
+
+    padding: 20px;
+    border-radius: 30px;
+
+    gap: 20px;
+  }
+
+  .hero h1 {
+    font-size: 40px;
+  }
+
+  .form-group {
+    width: 100%;
+
+    padding: 0;
+    padding-bottom: 15px;
+
+    border-right: none;
+    border-bottom: 1px solid #eaeaea;
+  }
+
+  .form-group:last-of-type {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .form-group label {
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+
+  .input-box {
+    width: 100%;
+  }
+
+  .input-box input,
+  .input-box select {
+    font-size: 16px;
+  }
+
+  .book-btn {
+    width: 100%;
+    justify-content: center;
+
+    padding: 18px;
+    border-radius: 20px;
+
+    font-size: 15px;
+  }
+}
+
+/* Dropdown suggestion */
+
+.form-group {
+  position: relative;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+
+
+.input-box input::placeholder {
+  color: #999;
+}
+
+/* Suggestions dropdown - PERFECTED */
+.suggestions-list {
+  position: absolute;
+  top: calc(100% + 5px);
+  left: 0;
+  right: 0;
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  margin: 0;
+  padding: 8px 0;
+  max-height: 250px;
+  overflow-y: auto;
+  list-style: none;
+  z-index: 9999;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  animation: slideDown 0.2s ease;
+}
+
+/* Smooth animation */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Scrollbar styling */
+.suggestions-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.suggestions-list::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.suggestions-list::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 10px;
+}
+
+.suggestions-list::-webkit-scrollbar-thumb:hover {
+  background: #aaa;
+}
+
+/* Suggestion item */
+.suggestion-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.suggestion-item:last-child {
+  border-bottom: none;
+}
+
+.suggestion-item:hover {
+  background-color: #f8f9fa;
+}
+
+.suggestion-item:active {
+  background-color: #f0f0f0;
+}
+
+.suggestion-item svg {
+  flex-shrink: 0;
+  color: #f4c400;
+}
+
+.suggestion-item span {
+  font-size: 14px;
+  color: #333;
+  line-height: 1.4;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Suggestion loading & no results */
+.suggestion-loading,
+.suggestion-no-results {
+  padding: 12px 16px;
+  color: #888;
+  font-size: 14px;
+  text-align: center;
+}
+
+.suggestion-loading {
+  color: #f4c400;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .suggestions-list {
+    max-height: 200px;
+  }
+
+  .suggestion-item {
+    padding: 8px 12px;
+  }
+
+  .suggestion-item span {
+    font-size: 13px;
+  }
+}
+
+/* Stats.css */
+.car-showcase {
+  position: relative;
+  width: 100%;
+  text-align: center;
+}
+
+.car-image {
+  width: 100%;
+  max-width: 850px;
+  transition: all .5s ease;
+  animation: floatCar 4s ease-in-out infinite;
+  cursor: pointer;
+}
+
+/* Hover Effect */
+.car-image:hover {
+  transform: translateY(-12px) scale(1.03);
+  filter: drop-shadow(0 30px 40px rgba(0, 0, 0, .18));
+}
+
+/* Floating Animation */
+@keyframes floatCar {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.feature-badges {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.badge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: white;
+  padding: 8px 22px;
+  border-radius: 50px;
+  color: black;
+  font-weight: 700;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, .08);
+  transition: .3s ease;
+}
+
+.badge:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, .12);
+}
+
+.badge svg {
+  color: var(--yellow);
+}
+
+.car-image:hover {
+  transform: translateY(-12px) scale(1.03) rotate(-1deg);
+}

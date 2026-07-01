@@ -1,0 +1,68 @@
+.road-section {
+    position: relative;
+    height: 260px;
+    overflow: hidden;
+    background: #050b1e;
+    border-top: 5px solid var(--primary);
+}
+
+.car-wrapper {
+    position: absolute;
+    top: 20%;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+.running-car {
+    width: 320px;
+}
+
+.headlight {
+    position: absolute;
+    right: -180px;
+    top: 25px;
+
+    width: 280px;
+    height: 120px;
+
+    background: rgba(244, 196, 0, 0.25);
+
+    clip-path: polygon(0 50%,
+            100% 0,
+            100% 100%);
+
+    filter: blur(25px);
+}
+
+.road-title {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: clamp(4rem, 10vw, 10rem);
+    font-weight: 900;
+    letter-spacing: 8px;
+
+    color: rgba(255, 255, 255, .9);
+}
+
+.road-title span {
+    color: var(--yellow);
+}
+
+@media (max-width:798px) {
+    .road-section {
+        height: 200px;
+    }
+
+    .car-wrapper {
+        top: 16%;
+    }
+
+    .running-car {
+        width: 270px;
+    }
+}

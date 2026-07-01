@@ -1,0 +1,354 @@
+.h11-garage-section {
+    padding: 100px 0;
+    /* background: #fff; */
+}
+
+.h11-garage-header {
+    margin-bottom: 60px;
+    text-align: center;
+}
+
+.h11-garage-subtitle {
+    color: #f5b400;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.h11-garage-title {
+    font-size: 70px;
+    line-height: 0.9;
+    font-weight: 900;
+    font-style: italic;
+    color: #000;
+    margin-bottom: 20px;
+}
+
+.h11-garage-title span {
+    color: #f5b400;
+}
+
+.h11-garage-desc {
+    color: #9aa3b5;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.h11-car-card {
+    background: #fff;
+    border: 2px solid #f5c518;
+    border-radius: 40px;
+    padding: 25px;
+    height: 100%;
+    transition: .35s ease;
+}
+
+.h11-car-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 50px rgba(245, 181, 0, .18);
+}
+
+.h11-car-image-wrap {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.h11-car-image {
+    width: 100%;
+    max-width: 320px;
+    object-fit: contain;
+    transition: .4s;
+}
+
+.h11-car-card:hover .h11-car-image {
+    transform: scale(1.05);
+}
+
+.h11-car-name {
+    font-size: 34px;
+    font-weight: 900;
+    font-style: italic;
+    color: #000;
+    margin-bottom: 8px;
+}
+
+.h11-car-price {
+    color: #f5b400;
+    font-size: 32px;
+    font-weight: 900;
+}
+
+.h11-car-price span {
+    color: #8b95a7;
+    font-size: 13px;
+    margin-left: 5px;
+}
+
+.h11-arrow-btn {
+    width: 58px;
+    height: 58px;
+    border: none;
+    border-radius: 18px;
+    background: #000;
+    color: #fff;
+    transition: .3s;
+}
+
+.h11-arrow-btn:hover {
+    background: #f5b400;
+    color: #000;
+    transform: translateX(10px);
+}
+
+.h11-car-specs {
+    margin-top: 25px;
+    border-radius: 20px;
+    background: #faf8f0;
+    display: flex;
+    justify-content: space-between;
+    padding: 18px 10px;
+}
+
+.h11-spec {
+    flex: 1;
+    text-align: center;
+    border-right: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.h11-spec:last-child {
+    border-right: none;
+}
+
+.h11-spec svg {
+    color: #9aa3b5;
+}
+
+.h11-spec span {
+    font-size: 12px;
+    font-weight: 700;
+    color: #000;
+}
+
+@media (max-width:798px) {
+
+    .h11-garage-title {
+        font-size: 40px;
+        text-align: center;
+    }
+}
+
+/* Bottom Section */
+
+/* RentalSection.css */
+
+.rental-section {
+    padding: 40px 20px;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+}
+
+.rental-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.rental-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 40px 50px;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+    border-radius: 16px;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Gold Accent Line */
+.rental-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #d4af37, #f5d76e, #d4af37);
+}
+
+.rental-content::after {
+    content: '✦';
+    position: absolute;
+    right: -20px;
+    bottom: -30px;
+    font-size: 120px;
+    color: rgba(212, 175, 55, 0.05);
+}
+
+/* Left Side - Text */
+.rental-text {
+    flex: 1;
+    min-width: 200px;
+}
+
+.rental-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 5px 0;
+    letter-spacing: 1px;
+}
+
+.rental-subtitle {
+    font-size: 18px;
+    color: #d4af37;
+    margin: 0;
+    letter-spacing: 4px;
+    font-weight: 300;
+}
+
+/* Right Side - Buttons */
+.rental-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.rental-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 28px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-icon {
+    flex-shrink: 0;
+}
+
+/* WhatsApp Button */
+.whatsapp-btn {
+    background: #25D366;
+    color: #ffffff;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+}
+
+.whatsapp-btn:hover {
+    background: #20b85a;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(37, 211, 102, 0.4);
+}
+
+/* Call Button */
+.call-btn {
+    background: transparent;
+    color: #ffffff;
+    border: 2px solid #d4af37;
+}
+
+.call-btn:hover {
+    background: #d4af37;
+    color: #1a1a1a;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(212, 175, 55, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .rental-content {
+        padding: 30px 35px;
+    }
+
+    .rental-title {
+        font-size: 24px;
+    }
+
+    .rental-subtitle {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .rental-content {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px 25px;
+    }
+
+    .rental-buttons {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .rental-btn {
+        flex: 1;
+        justify-content: center;
+        min-width: 200px;
+        padding: 12px 20px;
+        font-size: 13px;
+    }
+
+    .rental-title {
+        font-size: 22px;
+    }
+
+    .rental-subtitle {
+        font-size: 15px;
+        letter-spacing: 3px;
+    }
+}
+
+@media (max-width: 480px) {
+    .rental-content {
+        padding: 25px 20px;
+    }
+
+    .rental-title {
+        font-size: 18px;
+    }
+
+    .rental-subtitle {
+        font-size: 13px;
+        letter-spacing: 2px;
+    }
+
+    .rental-buttons {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .rental-btn {
+        width: 100%;
+        min-width: unset;
+        font-size: 12px;
+        padding: 10px 16px;
+    }
+}
+
+.rtr-instant-card {
+    background: #111;
+    border: 1px solid #262626;
+    border-radius: 35px;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 3em;
+}

@@ -1,0 +1,117 @@
+.booking-overlay {
+    background: rgba(0,0,0,.65);
+    backdrop-filter: blur(6px);
+}
+
+.booking-modal{
+    background:#111111;
+    border-radius:28px;
+    padding:35px;
+    color:#fff;
+    position:relative;
+}
+
+.booking-close{
+    position:absolute;
+    right:22px;
+    top:22px;
+    opacity:.7;
+}
+
+.booking-close:hover{
+    opacity:1;
+}
+
+.booking-tag{
+    color:#FFC400;
+    font-size:14px;
+    font-weight:700;
+    letter-spacing:1px;
+    margin:0;
+}
+
+.booking-title{
+    font-size:44px;
+    font-weight:900;
+    font-style:italic;
+    margin:6px 0;
+    line-height:1;
+}
+
+.booking-price{
+    color:#FFC400;
+    font-size:38px;
+    font-weight:800;
+}
+
+.booking-price span{
+    color:#7f8795;
+    font-size:22px;
+    font-weight:600;
+}
+
+.custom-input{
+    border:1px solid #343434;
+    border-radius:18px;
+    overflow:hidden;
+    background:#1d1d1d;
+}
+
+.custom-input .input-group-text{
+    background:#1d1d1d;
+    border:none;
+    color:#FFC400;
+    padding-left:18px;
+}
+
+.custom-input .form-control{
+    background:#1d1d1d;
+    border:none;
+    color:#fff;
+    padding:18px;
+    font-size:17px;
+}
+
+.custom-input .form-control::placeholder{
+    color:#7e8595;
+}
+
+.custom-input .form-control:focus{
+    background:#1d1d1d;
+    color:#fff;
+    box-shadow:none;
+}
+
+.booking-btn{
+    background:#FFC400;
+    color:#000;
+    border-radius:20px;
+    padding:18px;
+    font-size:22px;
+    font-weight:800;
+    letter-spacing:.5px;
+    transition:.3s;
+}
+
+.booking-btn:hover{
+    background:#ffd84d;
+    transform:translateY(-2px);
+}
+.booking-modal h2 {
+    text-align: left;
+}.booking-modal p {
+    text-align: left;
+}
+.custom-input {
+    overflow: visible;
+}
+.input-group {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    width: 100%;
+}
+.cxx_dats{
+    flex-wrap: nowrap !important;
+}

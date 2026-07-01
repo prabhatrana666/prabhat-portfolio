@@ -1,0 +1,175 @@
+.floating-social {
+    position: fixed;
+    right: 20px;
+    bottom: 100px;
+    z-index: 9999;
+
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+
+.social-btn {
+    width: 60px;
+    height: 60px;
+
+    border-radius: 18px;
+    border: none;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 28px;
+    color: white;
+
+    text-decoration: none;
+    cursor: pointer;
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+
+    transition: all 0.3s ease;
+}
+
+.social-btn:hover {
+    transform: translateY(-4px);
+}
+
+.whatsapp {
+    background: #25d366;
+}
+
+.instagram {
+    background: linear-gradient(45deg,
+            #f58529,
+            #dd2a7b,
+            #8134af,
+            #515bd4);
+}
+.twitter {
+  background: #000;
+}
+
+.facebook {
+  background: #1877f2;
+}
+.playstore {
+    background: #11a8e8;
+}
+
+.close-btn {
+    background: #050b18;
+}
+
+
+/* New Css */
+.floating-social {
+    position: fixed;
+    right: 20px;
+    bottom: 100px;
+    z-index: 9999;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Social Links */
+
+.social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+
+    margin-bottom: 14px;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: translateY(20px);
+
+    transition:
+        opacity .35s ease,
+        transform .35s ease,
+        visibility .35s;
+}
+
+.social-links.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.social-btn {
+    width: 58px;
+    height: 58px;
+
+    border-radius: 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-decoration: none;
+    color: white;
+    font-size: 26px;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, .18);
+
+    transition: transform .3s ease;
+}
+
+.social-btn:hover {
+    transform: translateY(-4px);
+}
+
+.whatsapp {
+    background: #25d366;
+}
+
+.instagram {
+    background: linear-gradient(45deg,
+            #f58529,
+            #dd2a7b,
+            #8134af,
+            #515bd4);
+}
+
+.playstore {
+    background: #12a7e7;
+}
+
+/* Toggle Button */
+
+.toggle-btn {
+    width: 64px;
+    height: 64px;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--primary);
+    color: black;
+    cursor: pointer;
+    font-size: 34px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .2);
+    transition: all .4s ease;
+}
+
+.toggle-btn svg {
+    transition: transform .4s ease;
+    font-size: 85%;
+}
+
+/* Active State */
+
+.toggle-btn.active {
+    background: #050b18;
+    color: white;
+}
+
+.toggle-btn.active svg {
+    transform: rotate(135deg);
+}

@@ -1,0 +1,345 @@
+/* Section */
+
+
+
+/* Card */
+
+.pf-card {
+    background: #fff;
+    border: 2px solid #f2bc18;
+    border-radius: 50px;
+    text-align: center;
+    padding: 35px 28px;
+    transition: .4s;
+    height: 100%;
+}
+
+.pf-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 18px 35px rgba(0,0,0,.08);
+}
+
+/* Icon */
+
+.pf-icon {
+    width: 58px;
+    height: 58px;
+    background: #f2bc18;
+    color: #111;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto auto 22px;
+}
+
+/* Heading */
+
+.pf-card h5 {
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 12px;
+    letter-spacing: .5px;
+    font-style: italic;
+}
+/* Card */
+.pf-card{
+    position: relative;
+    overflow: hidden;
+    transition: all .4s ease;
+}
+.hl-section{
+    text-align:center;
+    margin-top: 6em;
+}
+
+/* Heading */
+.pf-card h5{
+    position: relative;
+    display: inline-block;
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 12px;
+    letter-spacing: .5px;
+    font-style: italic;
+    color: #111;
+    transition: all .35s ease;
+}
+
+/* Animated Underline */
+.pf-card h5::after{
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -6px;
+    width: 0;
+    height: 3px;
+    background: #f2bc18;
+    border-radius: 20px;
+    transform: translateX(-50%);
+    transition: width .35s ease;
+}
+
+/* Hover */
+.pf-card:hover h5{
+    color: #f2bc18;
+    letter-spacing: 1px;
+    transform: translateY(-2px);
+}
+
+.pf-card:hover h5::after{
+    width: 100%;
+}
+/* Text */
+
+.pf-card p {
+    color: #777;
+    font-size: 14px;
+    line-height: 1.8;
+    margin: 0;
+}
+
+/* Mission */
+
+.pf-mission {
+    position: relative;
+    margin-top: 70px;
+    border: 2px solid #f2bc18;
+    border-radius: 50px;
+    padding: 40px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.pf-mission::after {
+    content: "";
+    position: absolute;
+    top: -18px;
+    right: -18px;
+    width: 70px;
+    height: 70px;
+    background: #f8d55c;
+    border-radius: 50%;
+}
+
+.pf-mission span {
+    font-size: 30px;
+    font-style: italic;
+    font-weight: 500;
+    color: #333;
+    line-height: 1.7;
+}
+
+.pf-mission strong {
+    color: #000;
+    font-weight: 800;
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+
+.pf-card{
+    padding:30px 20px;
+}
+
+.pf-mission{
+    padding:30px 20px;
+}
+
+.pf-mission span{
+    font-size:16px;
+}
+
+}
+.my_title{
+    font-style: italic;
+}
+.small_texts{
+    color: #b1aaaa;
+    margin-bottom: 27px !important;
+}
+.rtr-instant-title {
+    color: #fff;
+    font-size: 50px;
+    font-weight: 900;
+    margin-bottom: 30px;
+}
+
+
+
+
+/*==========================
+      HERO SECTION
+==========================*/
+
+.hl-section{
+    background:#f8f8f8;
+    overflow:hidden;
+}
+
+/*==========================
+      CONTENT
+==========================*/
+
+.hl-content{
+    max-width:560px;
+}
+
+.hl-subtitle{
+    display:flex;
+    align-items:center;
+    gap:14px;
+
+    color:#d79b00;
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:6px;
+    text-transform:uppercase;
+
+    margin-bottom:25px;
+}
+
+.hl-subtitle span{
+    width:45px;
+    height:2px;
+    background:#f2bc18;
+}
+
+.hl-title{
+    font-size:92px;
+    line-height:.95;
+    font-weight:900;
+    font-style:italic;
+    text-transform:uppercase;
+    color:#000;
+    margin-bottom:35px;
+    text-align: left;
+}
+
+.hl-title span{
+    color:#f2b400;
+}
+
+.hl-description{
+    font-size:34px;
+    font-style:italic;
+    line-height:1.8;
+    color:#667085;
+    max-width:540px;
+}
+
+/*==========================
+      IMAGE
+==========================*/
+
+.hl-image-wrapper{
+    display:flex;
+    justify-content:center;
+}
+
+.hl-image{
+    max-width:500px;
+    width:100%;
+    border-radius:28px;
+    transition:.45s;
+}
+
+.hl-image:hover{
+    transform:translateY(-10px) scale(1.02);
+    filter:drop-shadow(0 18px 35px rgba(0,0,0,.18));
+}
+
+/*==========================
+      RESPONSIVE
+==========================*/
+
+@media (max-width:992px){
+
+.hl-section{
+    text-align:center;
+    margin-top: 7em;
+}
+
+.hl-content{
+    margin:auto;
+}
+
+.hl-subtitle{
+    justify-content:center;
+}
+
+.hl-title{
+    font-size:62px;
+}
+
+.hl-description{
+    font-size:20px;
+    margin:auto;
+    margin-bottom:45px;
+}
+
+.hl-image{
+    max-width:360px;
+}
+
+}
+
+@media (max-width:576px){
+
+.hl-title{
+    font-size:48px;
+            text-align: center;
+}
+.rtr-instant-card {
+    width: 94%;
+}
+.hl-description{
+    font-size:18px;
+}
+
+.hl-subtitle{
+    letter-spacing:4px;
+}
+
+}
+.hl-description
+ {
+    font-size: 20px;
+}
+.hl-image-wrapper {
+    position: relative;
+    display: inline-block;
+    border-radius: 28px;
+    overflow: hidden;
+    margin-top: 25px;
+}
+
+.hl-image {
+    display: block;
+    max-width: 500px;
+    width: 100%;
+    border-radius: 28px;
+    transition: transform .45s ease;
+}
+
+/* Dark Overlay */
+.hl-image-wrapper::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.28); /* Adjust darkness here */
+    border-radius: 28px;
+    transition: .4s ease;
+    pointer-events: none;
+}
+
+/* Hover Effect */
+.hl-image-wrapper:hover::after {
+    background: rgba(0, 0, 0, 0.12);
+}
+
+.hl-image-wrapper:hover .hl-image {
+    transform: scale(1.03);
+}
