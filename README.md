@@ -230,9 +230,9 @@ src
 # 🚀 Getting Started
 
 ```bash
-git clone https://github.com/prabhatrana666/hello11-cab-booking.git
+git clone https://github.com/prabhatrana666/prabhat-portfolio.git
 
-cd hello11-cab-booking
+cd prabhat-portfolio
 
 npm install
 
