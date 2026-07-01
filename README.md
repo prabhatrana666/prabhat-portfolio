@@ -28,11 +28,11 @@ https://hello11cabbooking.netlify.app/
 ---
 
 # ✨ Overview
+Prabhat Portfolio is a modern, responsive, and production-ready frontend application designed to showcase my skills, projects, and experience as a Frontend Developer.
 
-Hello11 Cab Booking is a modern, production-ready frontend application designed to provide a premium digital experience for taxi and cab booking services.
+The portfolio is built using React.js with a component-based architecture, clean UI design, and smooth animations to deliver a professional and interactive user experience across all devices.
 
-The project follows modern React architecture with reusable components, responsive layouts, polished animations, and Progressive Web App capabilities to ensure excellent usability across desktop, tablet, and mobile devices.
-
+It focuses on performance, responsiveness, and modern web development practices to present real-world frontend engineering capabilities.
 ---
 
 # 🎯 Key Highlights
