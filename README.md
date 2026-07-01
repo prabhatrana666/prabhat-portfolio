@@ -1,7 +1,8 @@
-# 🚖 Hello11 Cab Booking
+#  👨‍💻 Prabhat Rana | Frontend Developer Portfolio
+
 
 <p align="center">
-  <strong>A premium Progressive Web Application (PWA) built with React.js, featuring a modern taxi booking experience, responsive UI, smooth micro-interactions, third-party API integration for location autocomplete, and performance-focused frontend architecture.</strong>
+  <strong>Modern React.js Portfolio showcasing projects, skills, and experience in Frontend Development, UI/UX, and Web Development.</strong>
 </p>
 
 <p align="center">
