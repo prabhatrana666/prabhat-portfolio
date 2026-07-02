@@ -16,7 +16,7 @@ import {
     Ellipsis
 } from "lucide-react";
 
-function Navbar() {
+function Navbar({ darkMode, setDarkMode }) {
     const [open, setOpen] = useState(false);
     const navigate = useNavigate();
 
@@ -43,7 +43,7 @@ function Navbar() {
             <ul className="navbar-nav mx-auto gap-3 d-none d-lg-flex ">
 
                 <li className="nav-item main_nav">
-                    <a className="nav-link" href="/holidays">
+                    <a className="nav-link" href="/">
                         <House size={18} className="me-2" />
                         Home
                     </a>
@@ -132,13 +132,17 @@ function Navbar() {
             </ul>
             {/* 
             toggle theme */}
-            {/* <button
+            <button
                 className="btn theme-btn"
-                onClick={toggleTheme}
                 aria-label="Toggle Theme"
+                onClick={() => setDarkMode(prev => !prev)}
             >
-                {darkMode ? <Sun size={20} /> : <Moon size={20} />}
-            </button> */}
+                {darkMode ? (
+                    <Moon size={20} />
+                ) : (
+                    <Sun size={20} />
+                )}
+            </button>
 
             {/* Desktop Sign In (VISIBLE ONLY LG+) */}
             <div className="d-none d-lg-block">

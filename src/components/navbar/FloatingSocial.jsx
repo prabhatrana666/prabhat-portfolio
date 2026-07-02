@@ -12,23 +12,42 @@ import {
     FaTimes,
 } from "react-icons/fa";
 import "./FloatingSocial.css";
+import { sendTelegramEnquiry } from "../api/telegramApi";
 
 function FloatingSocial() {
     const [open, setOpen] = useState(false);
-    const {
-        register,
-        handleSubmit,
-        formState: { errors },
-        reset,
-    } = useForm();
+    const [loading, setLoading] = useState(false);
+    const [formData, setFormData] = useState({
+        name: "",
+        email: "",
+        mobile: "",
+        message: "",
+    });
 
-    const onSubmit = (data) => {
-        console.log(data);
+    const handleChange = (e) => {
+        const { name, value } = e.target;
 
-        // API Call Here
-
-        reset();
+        setFormData((prev) => ({
+            ...prev,
+            [name]: value,
+        }));
     };
+    const handleSubmitForm = async (e) => {
+        e.preventDefault();
+
+        await sendTelegramEnquiry(
+            formData,
+            setLoading,
+            () =>
+                setFormData({
+                    name: "",
+                    email: "",
+                    mobile: "",
+                    message: "",
+                })
+        );
+    };
+
     return (
         <div className="floating-social">
 
@@ -41,7 +60,13 @@ function FloatingSocial() {
                 >
                     <FaWhatsapp />
                 </a>
-
+  <button
+                    className="social-btn query message"
+                    data-bs-toggle="modal"
+                    data-bs-target="#enquiryModal"
+                >
+                    <FaRegMessage />
+                </button>
                 <a
                     href="https://github.com/prabhatrana666"
                     target="_blank"
@@ -50,7 +75,7 @@ function FloatingSocial() {
                 >
                     <FaGithub />
                 </a>
-
+              
                 <a
                     href="https://www.linkedin.com/in/prabhat-rana/"
                     target="_blank"
@@ -60,13 +85,7 @@ function FloatingSocial() {
                     <FaLinkedin />
                 </a>
 
-                <button
-                    className="social-btn query message"
-                    data-bs-toggle="modal"
-                    data-bs-target="#enquiryModal"
-                >
-                    <FaRegMessage />
-                </button>
+
             </div>
 
             <button
@@ -116,59 +135,77 @@ function FloatingSocial() {
                         </div>
 
                         <div className="modal-body">
+                            <form onSubmit={handleSubmitForm}>
 
-                            <div className="mb-3 position-relative">
-                                <FaUser className="portfolio-enquiry-icon" />
-                                <input
-                                    type="text"
-                                    className="form-control portfolio-enquiry-input"
-                                    required
-                                    placeholder="Full Name"
-                                    onInput={(e) => {
-                                        e.target.value = e.target.value.replace(/[0-9]/g, "");
-                                    }}
-                                />
-                            </div>
+                                <div className="mb-3 position-relative">
+                                    <FaUser className="portfolio-enquiry-icon" />
+                                    <input
+                                        type="text"
+                                        className="form-control portfolio-enquiry-input"
+                                        required
+                                        placeholder="Full Name"
+                                        value={formData.name}
+                                        name="name"
+                                        onChange={handleChange}
+                                        onInput={(e) => {
+                                            e.target.value = e.target.value.replace(/[0-9]/g, "");
+                                        }}
+                                    />
+                                </div>
 
-                            <div className="mb-3 position-relative">
-                                <FaEnvelope className="portfolio-enquiry-icon" />
-                                <input
-                                    type="email"
-                                    className="form-control portfolio-enquiry-input"
-                                    placeholder="Email Address"
-                                    required
-                                />
-                            </div>
+                                <div className="mb-3 position-relative">
+                                    <FaEnvelope className="portfolio-enquiry-icon" />
+                                    <input
+                                        type="email"
+                                        className="form-control portfolio-enquiry-input"
+                                        value={formData.email}
+                                        onChange={handleChange}
+                                        name="email"
+                                        placeholder="Email Address"
+                                        required
+                                    />
+                                </div>
 
-                            <div className="mb-3 position-relative">
-                                <FaPhone className="portfolio-enquiry-icon" />
-                                <input
-                                    type="tel"
-                                    className="form-control portfolio-enquiry-input"
-                                    placeholder="Mobile Number"
-                                    required
-                                    maxLength={10}
-                                    pattern="[0-9]{10}"
-                                    onInput={(e) => {
-                                        e.target.value = e.target.value.replace(/\D/g, "").slice(0, 10);
-                                    }}
-                                />
-                            </div>
+                                <div className="mb-3 position-relative">
+                                    <FaPhone className="portfolio-enquiry-icon" />
+                                    <input
+                                        type="tel"
+                                        className="form-control portfolio-enquiry-input"
+                                        placeholder="Mobile Number"
+                                        required
+                                        value={formData.mobile}
+                                        onChange={handleChange}
+                                        maxLength={10}
+                                        name="mobile"
+                                        pattern="[0-9]{10}"
+                                        onInput={(e) => {
+                                            e.target.value = e.target.value.replace(/\D/g, "").slice(0, 10);
+                                        }}
+                                    />
+                                </div>
 
-                            <div className="mb-4 position-relative">
-                                <FaCommentDots className="portfolio-enquiry-icon portfolio-enquiry-textarea-icon" />
-                                <textarea
-                                    rows="4"
-                                    required
-                                    className="form-control portfolio-enquiry-input portfolio-enquiry-textarea"
-                                    placeholder="Write your message..."
-                                ></textarea>
-                            </div>
+                                <div className="mb-4 position-relative">
+                                    <FaCommentDots className="portfolio-enquiry-icon portfolio-enquiry-textarea-icon" />
+                                    <textarea
+                                        rows="4"
+                                        required
+                                        name="message"
+                                        onChange={handleChange}
+                                        value={formData.message}
+                                        className="form-control portfolio-enquiry-input portfolio-enquiry-textarea"
+                                        placeholder="Write your message..."
+                                    ></textarea>
+                                </div>
 
-                            <button className="portfolio-enquiry-btn w-100">
-                                Submit Enquiry
-                            </button>
+                                <button
+                                    type="submit"
+                                    className="portfolio-enquiry-btn w-100"
+                                    disabled={loading}
+                                >
+                                    {loading ? "Sending..." : "Submit Enquiry"}
+                                </button>
 
+                            </form>
                         </div>
 
                     </div>

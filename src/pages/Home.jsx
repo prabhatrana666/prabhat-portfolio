@@ -6,17 +6,29 @@ import Footer from "../components/footer/Footer";
 import AnimationCar from "../components/hero/AnimationCar";
 import OurGarage from "../components/ourgarage/OurGarage";
 import ReadyToRoll from "../components/readytoroll/ReadyToRoll";
+import { useState ,useEffect} from "react";
 
 function Home() {
+  const [darkMode, setDarkMode] = useState(false);
+
+  // Apply theme globally
+  useEffect(() => {
+    if (darkMode) {
+      document.body.classList.add("dark");
+    } else {
+      document.body.classList.remove("dark");
+    }
+  }, [darkMode]);
+
   return (
     <>
-      <Navbar />
+      <Navbar darkMode={darkMode} setDarkMode={setDarkMode}/>
       <Hero />
       <AnimationCar />
-      <OurGarage/>
+      <OurGarage />
       <Testimonials />
       <ReadyToRoll />
-      <Footer /> 
+      <Footer />
     </>
   );
 }
