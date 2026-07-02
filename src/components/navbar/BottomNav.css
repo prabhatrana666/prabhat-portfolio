@@ -15,7 +15,7 @@
     border-radius: 36px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
 
-    z-index: 9999;
+    z-index: 111;
 
     transition: transform 0.35s ease, opacity 0.35s ease;
 }
@@ -54,8 +54,8 @@
 
 /* ACTIVE STATE (IMPORTANT) */
 .nav-item.active {
-    color: #000;
-    background: linear-gradient(135deg, #ffd000, #ffb300);
+    color: white;
+    background: linear-gradient(135deg, #2a59c1 0%, #4F46E5 100%);
     transform: translateY(-8px);
     box-shadow: 0 10px 20px rgba(255, 200, 0, 0.25);
     border-radius: 75px;

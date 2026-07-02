@@ -16,7 +16,7 @@ function Home() {
       <OurGarage/>
       <Testimonials />
       <ReadyToRoll />
-      <Footer />
+      <Footer /> 
     </>
   );
 }

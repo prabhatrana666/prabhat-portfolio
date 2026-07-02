@@ -161,6 +161,7 @@
 .toggle-btn svg {
     transition: transform .4s ease;
     font-size: 85%;
+    color: white;
 }
 
 /* Active State */
@@ -172,4 +173,131 @@
 
 .toggle-btn.active svg {
     transform: rotate(135deg);
+}.social-btn.github {
+    background: #181717;
+    color: #fff;
+}
+
+.social-btn.linkedin {
+    background: #0A66C2;
+    color: #fff;
+}
+
+.social-btn.github:hover,
+.social-btn.linkedin:hover {
+    transform: translateY(-3px);
+}
+
+.social-btn.message {
+    background: linear-gradient(135deg, #2b284f, #524caf);
+    color: #fff;
+}
+
+.social-btn.message:hover {
+    background: linear-gradient(135deg, #524caf, #2b284f);
+}
+
+/* Enquiry Modal */
+
+
+/* Modal */
+.portfolio-enquiry-modal {
+    border: none;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+/* Input Wrapper */
+.portfolio-enquiry-input {
+    height: 56px;
+    border-radius: 12px;
+    padding-left: 48px;
+    border: 1px solid #d9d9d9;
+    font-size: 15px;
+    transition: all 0.3s ease;
+}
+
+.portfolio-enquiry-input:focus {
+    border-color: #524caf;
+    box-shadow: 0 0 0 0.2rem rgba(82, 76, 175, 0.15);
+}
+
+/* Textarea */
+.portfolio-enquiry-textarea {
+    height: 130px !important;
+    padding-top: 16px;
+    resize: none;
+}
+
+/* Icons */
+.portfolio-enquiry-icon {
+    position: absolute;
+    left: 16px;
+    top: 18px;
+    color: #6b7280;
+    z-index: 2;
+    font-size: 16px;
+}
+
+.portfolio-enquiry-textarea-icon {
+    top: 18px;
+}
+
+/* Submit Button */
+.portfolio-enquiry-btn {
+    height: 55px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #2b284f, #524caf);
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+.portfolio-enquiry-btn:hover {
+    background: linear-gradient(135deg, #524caf, #2b284f);
+    transform: translateY(-2px);
+}
+
+.portfolio-enquiry-btn:active {
+    transform: translateY(0);
+}.portfolio-enquiry-header {
+    position: relative;
+    padding: 30px 30px 10px;
+}
+
+.portfolio-enquiry-header .btn-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.portfolio-enquiry-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.portfolio-enquiry-logo {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+    margin-bottom: 15px;
+}
+
+.portfolio-enquiry-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #2b284f;
+    margin-bottom: 8px;
+}
+
+.portfolio-enquiry-subtitle {
+    font-size: 14px;
+    color: #6c757d;
+    max-width: 340px;
+    line-height: 1.6;
+    margin-bottom: 0;
 }
