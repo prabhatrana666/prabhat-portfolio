@@ -4,28 +4,20 @@ import { motion } from "framer-motion";
 import { ArrowRight, Users, Fuel, Settings, Phone, MessageCircle } from "lucide-react";
 import poster from "../assets/my_images.png";
 import {
-SiReact,
-SiReactrouter,
-SiRedux,
-SiJavascript,
-SiTypescript,
-SiHtml5,
-SiCss3,
-SiBootstrap,
-SiTailwindcss,
-SiNodedotjs,
-SiExpress,
-SiMongodb,
-SiFirebase,
-SiSupabase,
-SiGit,
-SiGithub,
-SiPostman,
-SiFigma,
-SiVercel,
-SiNetlify,
-SiSocketdotio
-} from "react-icons/si";
+  UserRound,
+  Laptop2,
+  ServerCog,
+  Database,
+  Wrench,
+  CheckCircle2,
+  Rocket,
+  Code2,
+  Sparkles,
+  LayoutDashboard,
+  BriefcaseBusiness,
+  Smartphone 
+} from "lucide-react";
+
 import {
   ShieldCheck,
   Crosshair,
@@ -83,9 +75,7 @@ function About() {
                   <span>RANA</span>
                 </h1>
 
-                {/* <p className="hl-description">
-                  I'm a passionate Frontend Developer with <strong>1.5+ years of professional experience</strong> building responsive, scalable, and high-performance web applications. <br />I specialize in React.js, JavaScript, Redux Toolkit, and modern frontend technologies, transforming ideas into intuitive digital experiences through clean architecture, reusable components, and user-centric design.
-                </p> */}
+
                 <p className="hl-description">
                   I'm a passionate Frontend Developer with <strong>1.5+ years of professional experience</strong> building responsive, scalable, and high-performance web and mobile applications.
                   <br />
@@ -156,16 +146,237 @@ function About() {
           {/* Technology I work with */}
 
 
-          <p className="section-subtitle">TECH STACK</p>
+          <section className="about-section section-padding mt-5" id="about">
 
-          <h2 className="section-title">
-            Technologies <span>I Work With</span>
-          </h2>
+            <div className="container">
 
-          <p className="section-description">
-            A carefully selected set of modern technologies I use to build scalable, high-performance web and mobile applications—from intuitive user interfaces to secure backend services and seamless deployments.
-          </p>
+              <div className="row align-items-center g-5">
 
+                {/* LEFT */}
+
+                <div className="col-lg-6">
+
+                  <p className="section-subtitle mytech_title">
+                    MY TECH STACK
+                  </p>
+
+                  <h2 className="section-title mb-4 aboutus-title">
+                    Passionate Developer Building
+                    <span> Modern Web Experiences</span>
+                  </h2>
+
+                  <p className="about-text">
+                    I specialize in creating fast, scalable and responsive
+                    web applications using modern JavaScript technologies.
+                    My focus is on writing clean, reusable code while
+                    delivering seamless user experiences with beautiful UI
+                    and optimized performance.
+                  </p>
+
+                  <div className="feature-list mt-5">
+
+                    <div className="feature-item">
+                      <Rocket size={18} />
+                      Fast Performance
+                    </div>
+
+                    <div className="feature-item">
+                      <ShieldCheck size={18} />
+                      Secure Applications
+                    </div>
+
+                    <div className="feature-item">
+                      <LayoutDashboard size={18} />
+                      Responsive Design
+                    </div>
+
+                    <div className="feature-item">
+                      <Sparkles size={18} />
+                      Pixel Perfect UI
+                    </div>
+
+                    <div className="feature-item">
+                      <Code2 size={18} />
+                      Clean Architecture
+                    </div>
+
+                    <div className="feature-item">
+                      <CheckCircle2 size={18} />
+                      SEO Friendly
+                    </div>
+                    <div className="feature-item">
+                      <Smartphone size={18} />
+                      Progressive Web Apps
+                    </div>
+                  </div>
+
+                </div>
+
+                {/* RIGHT */}
+
+                <div className="col-lg-6">
+
+                  <div className="row g-4">
+
+                    <div className="col-md-6">
+
+                      <div className="about-card">
+
+                        <Laptop2 className="card-icon" />
+
+                        <h4>Frontend</h4>
+
+                        <div className="tech-tags">
+
+                          <span>React</span>
+                          <span>React Native</span>
+                          <span>Redux Toolkit</span>
+                          <span>JavaScript</span>
+                          <span>PWA</span>
+                          <span>Framer Motion</span>
+                        </div>
+
+                      </div>
+
+                    </div>
+
+                    <div className="col-md-6">
+
+                      <div className="about-card">
+
+                        <ServerCog className="card-icon" />
+
+                        <h4>Backend</h4>
+
+                        <div className="tech-tags">
+                          <span>Node.js</span>
+                          <span>Express.js</span>
+                          <span>REST API</span>
+                          <span>JWT</span>
+                          <span>Bcrypt</span>
+                          <span>OAuth 2.0</span>
+                        </div>
+
+                      </div>
+
+                    </div>
+
+                    <div className="col-md-6">
+
+                      <div className="about-card">
+
+                        <Database className="card-icon" />
+
+                        <h4>Database</h4>
+
+                        <div className="tech-tags">
+
+                          <span>MongoDB</span>
+                          <span>Firebase</span>
+                          <span>Supabase</span>
+
+                        </div>
+
+                      </div>
+
+                    </div>
+
+                    <div className="col-md-6">
+
+                      <div className="about-card">
+
+                        <Wrench className="card-icon" />
+
+                        <h4>Tools</h4>
+
+                        <div className="tech-tags">
+
+                          <span>Git</span>
+                          <span>GitHub</span>
+                          <span>Netlify</span>
+                          <span>Figma</span>
+                          <span>Visual Studio (C#)</span>
+                          <span>Postman</span>
+                          <span>Heroku</span>
+
+
+                        </div>
+
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+              {/* STATS */}
+
+              <div className="row g-4 mt-5">
+
+                <div className="col-lg-3 col-md-6">
+
+                  <div className="stat-box">
+
+                    <BriefcaseBusiness />
+
+                    <h2>25+</h2>
+
+                    <p>Projects Completed</p>
+
+                  </div>
+
+                </div>
+
+                <div className="col-lg-3 col-md-6">
+
+                  <div className="stat-box">
+
+                    <Laptop2 />
+
+                    <h2>15+</h2>
+
+                    <p>Technologies</p>
+
+                  </div>
+
+                </div>
+
+                <div className="col-lg-3 col-md-6">
+
+                  <div className="stat-box">
+
+                    <Rocket />
+
+                    <h2>100%</h2>
+
+                    <p>Responsive</p>
+
+                  </div>
+
+                </div>
+
+                <div className="col-lg-3 col-md-6">
+
+                  <div className="stat-box">
+
+                    <UserRound />
+
+                    <h2>Clean</h2>
+
+                    <p>Code Quality</p>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </section>
 
           {/* Mission Box */}
           <motion.div
