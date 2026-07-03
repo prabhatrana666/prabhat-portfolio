@@ -13,17 +13,29 @@ import {
     FaLinkedinIn,
 } from "react-icons/fa";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import logo from "../../../public/logo.png";
 
 const Footer2 = () => {
+    const navigate = useNavigate();
+
+    const handleNavigate = (path) => {
+        navigate(path);
+
+        setTimeout(() => {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth",
+            });
+        }, 50);
+    };
     const quickLinks = [
         { name: "Home", link: "/" },
-        { name: "About", link: "/" },
+        { name: "About", link: "/about" },
         { name: "Projects", link: "/" },
-        { name: "Gallery", link: "/" },
-        { name: "Services", link: "/" },
+        { name: "Contact", link: "/contact" },
+        { name: "Services", link: "/services" },
     ];
     const featuredProjects = [
         {
@@ -106,10 +118,18 @@ const Footer2 = () => {
 
                         <ul className="list-unstyled">
                             {quickLinks.map((item) => (
+                                // <li key={item.name}>
+                                //     <Link to={item.link} className="footer-link">
+                                //         {item.name}
+                                //     </Link>
+                                // </li>
                                 <li key={item.name}>
-                                    <Link to={item.link} className="footer-link">
+                                    <button
+                                        className="footer-link border-0 bg-transparent p-0"
+                                        onClick={() => handleNavigate(item.link)}
+                                    >
                                         {item.name}
-                                    </Link>
+                                    </button>
                                 </li>
                             ))}
                         </ul>

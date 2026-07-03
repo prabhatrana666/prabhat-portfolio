@@ -1,7 +1,7 @@
 import React from "react";
 import "./ContactUs.css";
 import Navbar from "../navbar/Navbar";
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import Swal from "sweetalert2";
 import {
     MapPin,
@@ -14,7 +14,8 @@ import {
 } from "lucide-react";
 import LazyGoogleMap from "../footer/LazyGoogleMap";
 import Footer2 from "../footer/Footer2";
-
+import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const ContactUs = () => {
     const [loading, setLoading] = useState(false);
@@ -105,13 +106,78 @@ const ContactUs = () => {
         }
     };
 
+
+    // Motion Effect
+    const container = {
+        hidden: {},
+        show: {
+            transition: {
+                staggerChildren: 0.15,
+            },
+        },
+    };
+
+    const fadeUp = {
+        hidden: {
+            opacity: 0,
+            y: 70,
+        },
+        show: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                duration: 1,
+                ease: "easeOut",
+            },
+        },
+    };
+    const fadeLeft = {
+        hidden: {
+            opacity: 0,
+            x: -80,
+        },
+        show: {
+            opacity: 1,
+            x: 0,
+            transition: {
+                duration: 0.8,
+                ease: "easeOut",
+            },
+        },
+    };
+
+    const fadeRight = {
+        hidden: {
+            opacity: 0,
+            x: 80,
+        },
+        show: {
+            opacity: 1,
+            x: 0,
+            transition: {
+                duration: 0.8,
+                ease: "easeOut",
+            },
+        },
+    };
     return (
         <>
             <Navbar />
-            <section className="contact-section py-5" id="contact">
+            {/* <section className="contact-section py-5" id="contact"> */}
+            <motion.section
+                className="contact-section py-5"
+                id="contact"
+                variants={container}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, amount: 0.2 }}
+            >
                 <div className="container">
                     {/* Heading */}
-                    <div className="text-center mb-5">
+                    <motion.div
+                        className="text-center mb-5"
+                        variants={fadeUp}
+                    >
                         <span className="contact-subtitle">
                             Get In Touch
                         </span>
@@ -126,10 +192,12 @@ const ContactUs = () => {
                         <div className="availability-badge">
                             🟢 Available for Freelance Projects
                         </div>
-                    </div>
-
+                    </motion.div>
                     {/* Contact Cards */}
-                    <div className="row g-4 mb-5">
+
+
+                    <motion.div className="row g-4 mb-5"
+                        variants={fadeUp}>
                         <div className="col-lg-4 col-md-6">
                             <div className="contact-card">
                                 <div className="contact-icon">
@@ -172,12 +240,22 @@ const ContactUs = () => {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </motion.div>
 
                     {/* Form + Map */}
                     <div className="row g-5 align-items-stretch">
                         {/* Contact Form */}
-                        <div className="col-lg-7">
+
+                        <motion.div
+                            className="col-lg-7"
+                            variants={fadeLeft}
+                            initial="hidden"
+                            whileInView="show"
+                            viewport={{
+                                once: true,
+                                amount: 0.4,
+                            }}
+                        >
                             <div className="contact-form-wrapper">
                                 <h3 className="mb-4">
                                     Send Me a Message
@@ -253,9 +331,9 @@ const ContactUs = () => {
                                                     <option value="">Choose Project Type</option>
                                                     <option value="Frontend Development">Frontend Development</option>
                                                     <option value="Full Stack Website">Full Stack Website</option>
-                                                    <option value="Portfolio Website">Portfolio Website</option>
                                                     <option value="Mobile App">Mobile App</option>
                                                     <option value="Freelance Collaboration">Freelance Collaboration</option>
+                                                    <option value="Other Purpose">Other Purpose</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -293,10 +371,20 @@ const ContactUs = () => {
                                     </div>
                                 </form>
                             </div>
-                        </div>
+                        </motion.div>
 
                         {/* Google Map */}
-                        <div className="col-lg-5 maps">
+
+                        <motion.div
+                            className="col-lg-5 maps"
+                            variants={fadeRight}
+                            initial="hidden"
+                            whileInView="show"
+                            viewport={{
+                                once: true,
+                                amount: 0.4,
+                            }}
+                        >
                             <div className="map-wrapper">
 
                                 {showMap && (
@@ -313,13 +401,15 @@ const ContactUs = () => {
                                         allowFullScreen
                                     />
                                 )}
-                            <div className="working-hours mt-4"> <h5>Problem Solver Mode</h5> <p className="mb-2"> I turn complex ideas into simple digital solutions </p> <span> Logic • Design • Execution </span> <hr /> <h6 className="mb-2"> ⚡ Core Strength </h6> <p className="mb-0"> Breaking problems into clean and scalable frontend solutions. </p> </div>
+                                <div className="working-hours mt-4"> <h5>Problem Solver Mode</h5> <p className="mb-2"> I turn complex ideas into simple digital solutions </p> <span> Logic • Design • Execution </span> <hr /> <h6 className="mb-2"> ⚡ Core Strength </h6> <p className="mb-0"> Breaking problems into clean and scalable frontend solutions. </p> </div>
                             </div>
-                        </div>
+
+                        </motion.div>
                     </div>
                 </div>
-            </section>
-            <Footer2 />
+            </motion.section >
+            {/* </section> */}
+            < Footer2 />
         </>
     );
 };

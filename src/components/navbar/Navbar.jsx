@@ -20,7 +20,7 @@ import {
 import { FiPhone } from "react-icons/fi";
 import logo from "../../../public/logo.png";
 import useScrollDirection from "../../hooks/useScrollDirection";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 
@@ -35,6 +35,15 @@ function Navbar({ darkMode, setDarkMode }) {
         setOpen(false);
         navigate(path);
     };
+    // const handleNavigate = (path) => {
+    //     navigate(path);
+
+    //     window.scrollTo({
+    //         top: 0,
+    //         left: 0,
+    //         behavior: "smooth",
+    //     });
+    // };
 
     return (
         <nav className="main-navbar navbar navbar-expand-lg bg-white shadow-sm px-3">
@@ -60,6 +69,9 @@ function Navbar({ darkMode, setDarkMode }) {
                     </a>
                 </li>
 
+
+
+
                 <li className="nav-item main_nav">
                     <a className="nav-link" href="/projects">
                         <FolderKanban size={18} className="me-2" />
@@ -75,10 +87,10 @@ function Navbar({ darkMode, setDarkMode }) {
                     </a>
                 </li>
                 <li className="nav-item main_nav">
-                    <Link className="nav-link" to="/contact">
+                    <a className="nav-link" href="/contact">
                         <Phone size={18} className="me-2" />
                         Contact
-                    </Link>
+                    </a>
                 </li>
                 <li className="nav-item main_nav">
                     <a className="nav-link" href="/gallery">
@@ -95,7 +107,7 @@ function Navbar({ darkMode, setDarkMode }) {
                 </li>
                 <li className="nav-item main_nav">
                     <a className="nav-link" href="/pay">
-                        <CreditCard  size={18} className="me-2" />
+                        <CreditCard size={18} className="me-2" />
                         Pay Now
                     </a>
                 </li>
@@ -216,7 +228,7 @@ function Navbar({ darkMode, setDarkMode }) {
                         <BriefcaseBusiness size={18} />
                         <span>Services</span>
                     </li>
-                    <li onClick={() => handleNavigate("/services")}>
+                    <li onClick={() => handleNavigate("/pay")}>
                         <CreditCard size={18} />
                         <span>Pay Now</span>
                     </li>
