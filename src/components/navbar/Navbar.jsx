@@ -1,20 +1,31 @@
 import "./Navbar.css";
-import { FiPhone } from "react-icons/fi";
-import logo from "../../../public/logo.png";
-import useScrollDirection from "../../hooks/useScrollDirection";
-import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
-import { Menu, Smartphone, Download, QrCode, House } from "lucide-react";
-import { Sun, Moon, Eye } from "lucide-react";
 import {
     FolderKanban,
     Images,
     Users,
     Phone,
     BriefcaseBusiness,
-    Ellipsis
+    Ellipsis,
+    Menu,
+    Smartphone,
+    Download,
+    QrCode,
+    House,
+    Sun,
+    Moon,
+    Eye,
+    ShieldCheck,
+    CreditCard
 } from "lucide-react";
+import { FiPhone } from "react-icons/fi";
+import logo from "../../../public/logo.png";
+import useScrollDirection from "../../hooks/useScrollDirection";
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+
+
+
 
 function Navbar({ darkMode, setDarkMode }) {
     const [open, setOpen] = useState(false);
@@ -56,6 +67,19 @@ function Navbar({ darkMode, setDarkMode }) {
                     </a>
                 </li>
 
+
+                <li className="nav-item main_nav">
+                    <a className="nav-link" href="/about">
+                        <Users size={18} className="me-2" />
+                        About
+                    </a>
+                </li>
+                <li className="nav-item main_nav">
+                    <Link className="nav-link" to="/contact">
+                        <Phone size={18} className="me-2" />
+                        Contact
+                    </Link>
+                </li>
                 <li className="nav-item main_nav">
                     <a className="nav-link" href="/gallery">
                         <Images size={18} className="me-2" />
@@ -64,25 +88,17 @@ function Navbar({ darkMode, setDarkMode }) {
                 </li>
 
                 <li className="nav-item main_nav">
-                    <a className="nav-link" href="/about">
-                        <Users size={18} className="me-2" />
-                        About Us
-                    </a>
-                </li>
-                <li className="nav-item main_nav">
-                    <Link className="nav-link" to="/contact">
-                        <Phone size={18} className="me-2" />
-                        Contact Us
-                    </Link>
-                </li>
-
-                <li className="nav-item main_nav">
                     <a className="nav-link" href="/services">
                         <BriefcaseBusiness size={18} className="me-2" />
                         Services
                     </a>
                 </li>
-
+                <li className="nav-item main_nav">
+                    <a className="nav-link" href="/pay">
+                        <CreditCard  size={18} className="me-2" />
+                        Pay Now
+                    </a>
+                </li>
                 <li className="nav-item dropdown main_nav">
                     <a
                         className="nav-link dropdown-toggle d-flex align-items-center"
@@ -115,9 +131,9 @@ function Navbar({ darkMode, setDarkMode }) {
                             </a>
                         </li>
 
-                        <li>
+                        {/* <li>
                             <hr className="dropdown-divider" />
-                        </li>
+                        </li> */}
 
                         <li>
                             <a className="dropdown-item" href="/privacy-policy">
@@ -191,26 +207,6 @@ function Navbar({ darkMode, setDarkMode }) {
 
                 <ul className="mobile-nav">
 
-                    <li onClick={() => handleNavigate("/")}>
-                        <House size={18} />
-                        <span>Home</span>
-                    </li>
-
-                    <li onClick={() => handleNavigate("/projects")}>
-                        <FolderKanban size={18} />
-                        <span>Projects</span>
-                    </li>
-
-                    <li onClick={() => handleNavigate("/gallery")}>
-                        <Images size={18} />
-                        <span>Gallery</span>
-                    </li>
-
-                    <li onClick={() => handleNavigate("/about")}>
-                        <Users size={18} />
-                        <span>About Us</span>
-                    </li>
-
                     <li onClick={() => handleNavigate("/contact")}>
                         <Phone size={18} />
                         <span>Contact Us</span>
@@ -221,6 +217,10 @@ function Navbar({ darkMode, setDarkMode }) {
                         <span>Services</span>
                     </li>
                     <li onClick={() => handleNavigate("/services")}>
+                        <CreditCard size={18} />
+                        <span>Pay Now</span>
+                    </li>
+                    <li onClick={() => handleNavigate("/services")}>
                         <Ellipsis size={18} />
                         <span>More</span>
                     </li>
@@ -228,9 +228,9 @@ function Navbar({ darkMode, setDarkMode }) {
 
                 <button
                     className="btn login-btn w-100 mt-3"
-                    onClick={() => handleNavigate("/login")}
+                    onClick={() => handleNavigate("/admin/login")}
                 >
-                    Sign In / Register
+                    Admin Login
                 </button>
 
             </div>

@@ -1,19 +1,23 @@
-import first from "../assets/gallery/1.webp"
-import second from "../assets/gallery/2.webp"
-import third from "../assets/gallery/3.webp"
-import fourth from "../assets/gallery/4.webp"
-import five from "../assets/gallery/5.webp"
-import six from "../assets/gallery/6.webp"
-import seven from "../assets/gallery/7.webp"
-import eight from "../assets/gallery/8.webp"
-import nine from "../assets/gallery/9.webp"
-import ten from "../assets/gallery/10.webp"
-import eleven from "../assets/gallery/11.webp"
-import twelve from "../assets/gallery/12.webp"
+import first from "../assets/certificates/reacts.png"
+import second from "../assets/certificates/mastercss.jpeg"
+import third from "../assets/certificates/masterjs.jpeg"
+import fourth from "../assets/certificates/ducat.jpeg"
+import five from "../assets/certificates/cyberpeace.jpeg"
+import six from "../assets/certificates/figma.jpeg"
+import seven from "../assets/certificates/prompt.jpeg"
+import eight from "../assets/certificates/isro.jpeg"
+// import nine from "../assets/certificates/9.webp"
+// import ten from "../assets/certificates/10.webp"
+// import eleven from "../assets/certificates/11.webp"
+// import twelve from "../assets/certificates/12.webp"
 
 const GalleryData = [
     {
         image: first,
+    },
+    ,
+    {
+        image: second,
     },
     {
         image: third,
@@ -31,23 +35,20 @@ const GalleryData = [
         image: seven,
     },
     {
-        image: ten,
-    },
-    {
-        image: eleven,
-    },
-    {
-        image: twelve,
-    },
-     {
         image: eight,
     },
-    {
-        image: nine,
-    },
-    {
-        image: second,
-    },
+    // {
+    //     image: eleven,
+    // },
+    // {
+    //     image: twelve,
+    // },
+    // {
+    //     image: eight,
+    // },
+    // {
+    //     image: nine,
+    // }
 ];
 
 export default GalleryData;

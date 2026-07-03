@@ -51,22 +51,21 @@ function Rent() {
       <Navbar />
 
       {/* ===== GARAGE SECTION ===== */}
-      <section className="h11-gallery-section mt-5">
+      <section className="h11-gallery-section mt-4">
         <div className="container">
 
           {/* HEADER */}
           <div className="h11-gallery-header">
-            <p className="h11-gallery-subtitle">OUR COLLECTION</p>
+            <p className="h11-gallery-subtitle">CERTIFICATIONS</p>
 
             <h2 className="h11-gallery-title">
-              PREMIUM <span>FLEET</span>
+              MY <span>CERTIFICATES</span>
             </h2>
 
             <p className="h11-gallery-desc">
-              EXPLORE OUR DIVERSE RANGE OF VEHICLES, PERFECTLY MAINTAINED TO ENSURE COMFORT, LUXURY, AND RELIABILITY FOR EVERY JOURNEY
+              A collection of industry-recognized certifications showcasing my continuous learning, technical expertise, and commitment to staying up to date with modern web development technologies.
             </p>
           </div>
-
           {/* CAR GRID WITH ANIMATION */}
           <motion.div
             className="row g-4"
