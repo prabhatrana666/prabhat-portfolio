@@ -240,7 +240,7 @@ function Navbar({ darkMode, setDarkMode }) {
 
                 <button
                     className="btn login-btn w-100 mt-3"
-                    onClick={() => handleNavigate("/admin/login")}
+                    onClick={() => handleNavigate("/admin")}
                 >
                     Admin Login
                 </button>

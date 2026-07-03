@@ -13,6 +13,7 @@ import PayNow from "../components/paynow/PayNow";
 import ScrollToTop from "../hooks/ScrollToTop";
 import { Toaster } from "react-hot-toast";
 import Services from "../components/services/Services";
+import AdminLogin from "../components/adminlogin/AdminLogin";
 
 function AppRoutes() {
   return (
@@ -34,6 +35,7 @@ function AppRoutes() {
         <Route path="/pay" element={<PayNow />} />
          <Route path="/Services" element={<Services />} />
         <Route path="/refund" element={<RefundPolicy />} />
+        <Route path="/admin" element={<AdminLogin />} />
         <Route path="/insurance" element={<InsurancePolicy />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<TermsandCond />} />
