@@ -8,6 +8,7 @@ import RefundPolicy from "../components/footer/RefundPolicy"
 import InsurancePolicy from "../components/footer/InsurancePolicy"
 import PrivacyPolicy from "../components/footer/PrivacyPolicy"
 import TermsandCond from "../components/footer/TermsandCond"
+import ContactUs from "../components/contactus/ContactUs";
 
 function AppRoutes() {
   return (
@@ -16,6 +17,7 @@ function AppRoutes() {
       <Route path="/about" element={<About />} />
       <Route path="/gallery" element={<Gallery />} />
       <Route path="/rent" element={<Rent />} />
+      <Route path="/contact" element={<ContactUs />} />
       <Route path="/refund" element={<RefundPolicy />} />
       <Route path="/insurance" element={<InsurancePolicy />} />
       <Route path="/privacy" element={<PrivacyPolicy />} />

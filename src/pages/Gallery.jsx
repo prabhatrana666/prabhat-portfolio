@@ -7,6 +7,7 @@ import { useState } from "react";
 import BookingModal from "./BookingModal";
 import { motion } from "framer-motion";
 import { Maximize2, X } from "lucide-react";
+import Footer2 from "../components/footer/Footer2";
 
 function Rent() {
   const [showModal, setShowModal] = useState(false);
@@ -130,7 +131,7 @@ function Rent() {
           />
         </div>
       )}
-      <Footer />
+      <Footer2 />
     </>
   );
 }

@@ -1,0 +1,338 @@
+/* ==========================================
+   Contact Section
+========================================== */
+
+.contact-section {
+    padding: 90px 0;
+    background: #f8fafc;
+}
+
+.contact-subtitle {
+       display: inline-block;
+    color: var(--primary);
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 3em;
+}
+
+.contact-title {
+    font-size: 42px;
+    font-weight: 700;
+    color: #1f2937;
+}
+
+.contact-description {
+    max-width: 650px;
+    color: #6b7280;
+    line-height: 1.8;
+    margin-top: 15px;
+    font-size: 16px;
+}
+
+.availability-badge {
+    display: inline-block;
+    margin-top: 25px;
+    background: rgba(25,135,84,.12);
+    color: #198754;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-weight: 600;
+}
+
+/* ==========================================
+   Contact Cards
+========================================== */
+
+.contact-card {
+    background: #fff;
+    border-radius: 18px;
+    padding: 28px;
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+    box-shadow: 0 10px 30px rgba(0,0,0,.08);
+    transition: 2s;
+    height: 100%;
+}
+
+.contact-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 45px rgba(0,0,0,.12);
+    background: var(--secondary);
+    color: white;
+}
+
+.contact-icon {
+    width: 65px;
+    height: 65px;
+    background: var(--primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    flex-shrink: 0;
+}
+
+.contact-card h5 {
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.contact-card p,
+.contact-card a {
+    margin: 0;
+    color: #6b7280;
+    text-decoration: none;
+    line-height: 1.7;
+}
+
+.contact-card a:hover {
+    color: var(--primary);
+}
+
+/* ==========================================
+   Contact Form
+========================================== */
+
+.contact-form-wrapper {
+    background: #fff;
+        border: 1px solid var(--primary);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 12px 35px rgba(0,0,0,.08);
+}
+
+.contact-form-wrapper h3 {
+    font-weight: 700;
+    color: #1f2937;
+}
+
+.input-group {
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.input-group-text {
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    padding: 0 18px;
+}
+
+.form-control {
+    border: none;
+    box-shadow: none !important;
+    padding: 15px;
+    font-size: 15px;
+    background: #f8f9fa;
+}
+
+.form-control:focus {
+    background: #fff !important;
+}
+
+textarea.form-control {
+    resize: none;
+    min-height: 6em;
+}/* ==========================================
+   Button
+========================================== */
+
+.contact-btn {
+    background: var(--primary);
+    color: #fff;
+    padding: 14px 35px;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: .35s;
+    border: none;
+}
+
+.contact-btn:hover {
+    transform: translateY(-4px);
+    background: #111827;
+    color: #fff;
+}
+
+/* ==========================================
+   Google Map
+========================================== */
+
+.map-wrapper {
+    background: #fff;
+    border-radius: 20px;
+        border: 1px solid var(--primary);
+    padding: 20px;
+    height: 100%;
+    box-shadow: 0 12px 35px rgba(0,0,0,.08);
+}
+
+.map-wrapper iframe {
+    width: 100%;
+    border-radius: 16px;
+}
+
+/* ==========================================
+   Working Hours
+========================================== */
+
+.working-hours {
+    margin-top: 25px;
+}
+
+.working-hours h5 {
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.working-hours span {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.working-hours p {
+    color: #6b7280;
+}
+
+.working-hours hr {
+    margin: 20px 0;
+}
+
+/* ==========================================
+   Hover Effects
+========================================== */
+
+.contact-card,
+.contact-form-wrapper,
+.map-wrapper {
+    transition: all .35s ease;
+}
+
+.contact-form-wrapper:hover,
+.map-wrapper:hover {
+    transform: translateY(-5px);
+}
+
+/* ==========================================
+   Responsive
+========================================== */
+
+@media (max-width: 991px) {
+
+    .contact-section {
+        padding: 70px 0;
+    }
+
+    .contact-title {
+        font-size: 34px;
+    }
+
+    .contact-form-wrapper {
+        margin-bottom: 35px;
+    }
+
+}
+
+@media (max-width: 767px) {
+
+    .contact-title {
+        font-size: 28px;
+    }
+
+    .contact-description {
+        font-size: 15px;
+    }
+
+    .contact-card {
+        padding: 22px;
+    }
+
+    .contact-icon {
+        width: 55px;
+        height: 55px;
+    }
+
+    .contact-form-wrapper {
+        padding: 25px;
+    }
+
+    .map-wrapper {
+        margin-top: 10px;
+    }
+
+}
+
+@media (max-width: 576px) {
+
+    .contact-section {
+        padding: 60px 0;
+    }
+.contact-subtitle {
+    font-size: 2em;
+}
+.mobile_view{
+    margin-top: 10px;
+}
+.maps{
+    margin-top: 0px;
+}
+    .contact-title {
+        font-size: 24px;
+    }
+
+    .contact-description {
+        font-size: 14px;
+    }
+
+    .availability-badge {
+        font-size: 13px;
+    }
+
+    .contact-btn {
+        width: 100%;
+    }
+
+}.contact-card svg {
+    color: white;
+    flex-shrink: 0;
+    margin-top: 3px;
+}
+
+/* Contact-Us Form */
+
+.contact-form .form-label {
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #1f2937;
+}
+
+.custom-input .input-group-text {
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    border-radius: 10px 0 0 10px;
+}
+
+.custom-input .form-control {
+    border-radius: 0 10px 10px 0;
+    padding: 12px;
+    background-color: white;
+    color: var(--secondary) !important;
+    border: 1px solid #e5e7eb;
+}
+
+.custom-input .form-control:focus {
+    box-shadow: none;
+    border-color: var(--primary);
+}
+
+.textarea-box textarea {
+    resize: none;
+}
+
+.form-note {
+    font-size: 13px;
+    color: #6b7280;
+}

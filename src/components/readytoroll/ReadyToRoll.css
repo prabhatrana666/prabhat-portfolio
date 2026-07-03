@@ -6,7 +6,7 @@
 }
 
 .rtr-subtitle {
-    color: #facc15;
+    color: var(--primary);
     text-transform: uppercase;
     letter-spacing: 4px;
     font-size: 12px;
@@ -23,7 +23,7 @@
 }
 
 .rtr-title span {
-    color: #facc15;
+    color: var(--primary);
 }
 
 .rtr-card {
@@ -114,7 +114,7 @@
 }
 
 .rtr-instant-card {
-    background: #111;
+    background: var(--secondary);
     border: 1px solid #262626;
     border-radius: 35px;
     overflow: hidden;
@@ -142,7 +142,7 @@
 }
 
 .rtr-instant-title span {
-    color: #facc15;
+    color: var(--primary);
 }
 
 .rtr-whatsapp-btn,
@@ -160,24 +160,28 @@
 }
 
 .rtr-whatsapp-btn {
-    background: #facc15;
-    color: #000;
+    background: var(--primary);
+    color: #fff;
 }
 
 .rtr-whatsapp-btn:hover {
     transform: translateY(-2px);
-    color: #000;
+    color: white;
+    background-color: var(--secondary);
+    border: 1px solid white;
 }
 
 .rtr-call-btn {
     background: rgba(255,255,255,.03);
-    border: 1px solid #333;
+    border: 1px solid white;
     color: #fff;
 }
 
 .rtr-call-btn:hover {
-    border-color: #facc15;
+    border-color: var(--primary);
     color: #fff;
+      transform: translateY(-2px);
+    background: var(--primary);
 }
 
 .react-datepicker-wrapper,

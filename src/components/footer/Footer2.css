@@ -1,0 +1,437 @@
+/* ===========================
+   Footer
+=========================== */
+
+.footer-section {
+    background: #1f2937;
+    color: #fff;
+    padding: 80px 0 25px;
+}
+
+/* ===========================
+   Logo
+=========================== */
+
+.footer-logo {
+       height: 4em;
+    width: auto;
+    background: white;
+    border-radius: 50%;
+}
+
+/* ===========================
+   Tagline
+=========================== */
+
+.footer-tagline {
+    color: #c9c9c9;
+    line-height: 1.9;
+    font-size: 15px;
+    margin-bottom: 0;
+}
+
+/* ===========================
+   Titles
+=========================== */
+
+.footer-title {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.footer-title::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 45px;
+    height: 3px;
+    background: var(--primary);
+    border-radius: 10px;
+}
+
+/* ===========================
+   Links
+=========================== */
+
+.footer-link {
+    display: inline-block;
+    color: #d2d2d2;
+    text-decoration: none;
+    margin-bottom: 14px;
+    transition: all .3s ease;
+    font-size: 15px;
+}
+
+.footer-link:hover {
+    color: var(--primary);
+    transform: translateX(8px);
+}
+
+/* ===========================
+   Social Icons
+=========================== */
+
+.footer-social a {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .08);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: white;
+    text-decoration: none;
+
+    transition: .3s;
+}
+
+.footer-social a svg {
+    font-size: 18px;
+}
+
+.footer-social a:hover {
+    background: var(--primary);
+    color: #fff;
+    transform: rotate(360deg);
+}
+
+/* ===========================
+   Contact Card
+=========================== */
+
+.contact-card {
+
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+
+    padding: 18px;
+
+    background: #2b3547;
+
+    border-radius: 14px;
+
+    margin-bottom: 18px;
+
+    transition: .35s;
+}
+
+.contact-card:hover {
+
+    transform: translateY(-6px);
+
+    background: #344056;
+}
+
+.contact-card svg {
+
+    color: var(--primary);
+
+    flex-shrink: 0;
+
+    margin-top: 3px;
+}
+
+.contact-card small {
+
+    color: #9fa7b5;
+
+    display: block;
+
+    margin-bottom: 4px;
+}
+
+.contact-card p {
+
+    margin: 0;
+
+    color: #fff;
+
+    font-size: 15px;
+
+    line-height: 1.6;
+}
+
+/* ===========================
+   Map
+=========================== */
+
+.footer-map {
+
+    width: 100%;
+
+    height: 250px;
+
+    border: none;
+
+    border-radius: 15px;
+
+    overflow: hidden;
+
+    box-shadow: 0 12px 30px rgba(0, 0, 0, .25);
+}
+
+/* ===========================
+   WhatsApp
+=========================== */
+
+.whatsapp-btn {
+
+    width: 100%;
+
+    background: #25D366;
+
+    color: #fff;
+
+    padding: 13px;
+
+    border-radius: 10px;
+
+    text-align: center;
+
+    text-decoration: none;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    font-weight: 600;
+
+    margin-top: 20px;
+
+    transition: .3s;
+}
+
+.whatsapp-btn:hover {
+
+    color: #fff;
+
+    background: #1ebe5d;
+
+    transform: translateY(-3px);
+}
+
+/* ===========================
+   Divider
+=========================== */
+
+.footer-section hr {
+
+    border-color: rgba(255, 255, 255, .08);
+    border-top: 1px solid #fff;
+    margin: 60px 0 30px;
+}
+
+/* ===========================
+   Copyright
+=========================== */
+
+.footer-bottom {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 20px;
+}
+
+.footer-bottom p {
+
+    margin: 0;
+
+    color: #bdbdbd;
+}
+
+/* ===========================
+   Developer Link
+=========================== */
+
+.developer-link {
+
+    color: var(--primary);
+
+    text-decoration: none;
+
+    transition: .3s;
+
+    font-weight: 700;
+}
+
+.developer-link:hover {
+
+    color: #fff;
+}
+
+/* ===========================
+   Scroll Button
+=========================== */
+
+.scroll-btn {
+
+    width: 50px;
+
+    height: 50px;
+
+    border-radius: 50%;
+
+    border: none;
+
+    background: var(--primary);
+
+    color: #fff;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    transition: .3s;
+}
+
+.scroll-btn:hover {
+    transform: rotate(360deg);
+}
+
+/* ===========================
+   Responsive
+=========================== */
+
+@media(max-width:991px) {
+
+    .footer-section {
+
+        text-align: center;
+
+    }
+    .foot_mob{
+        text-align: left !important;
+    }
+
+    .footer-title::after {
+
+        left: 17%;
+
+        transform: translateX(-50%);
+
+    }
+
+    .footer-social {
+
+        justify-content: center;
+
+    }
+
+    .footer-bottom {
+
+        justify-content: center;
+
+    }
+
+    .contact-card {
+
+        text-align: left;
+
+    }
+
+    .footer-map {
+
+        margin-top: 25px;
+
+    }
+
+}
+
+@media(max-width:576px) {
+
+    .footer-section {
+
+        padding: 60px 0 20px;
+
+    }
+
+    .footer-logo {
+
+        height: 50px;
+
+    }
+
+    .footer-title {
+
+        font-size: 18px;
+
+    }
+
+    .footer-tagline {
+
+        font-size: 14px;
+
+    }
+
+}
+
+.footer-contact li {
+    list-style: none;
+}
+
+.footer-contact .footer-link {
+    color: #d2d2d2;
+    text-decoration: none;
+    transition: 0.3s ease;
+    line-height: 1.6;
+}
+
+.footer-contact .footer-link svg {
+    color: var(--primary);
+}
+
+.footer-contact .footer-link:hover {
+    color: var(--primary);
+    transform: translateX(5px);
+}
+
+.footer-map iframe {
+    width: 100%;
+    height: 220px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+.developer-link {
+    color: var(--primary);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.developer-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0;
+    height: 2px;
+    background: var(--primary);
+    transition: width 0.3s ease;
+}
+
+.developer-link:hover {
+    color: #fff;
+}
+
+.developer-link:hover::after {
+    width: 100%;
+}

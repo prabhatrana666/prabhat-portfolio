@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Menu, Smartphone, Download, QrCode, House } from "lucide-react";
-import { Sun, Moon } from "lucide-react";
+import { Sun, Moon, Eye } from "lucide-react";
 import {
     FolderKanban,
     Images,
@@ -70,10 +70,10 @@ function Navbar({ darkMode, setDarkMode }) {
                     </a>
                 </li>
                 <li className="nav-item main_nav">
-                    <a className="nav-link" href="/contact">
+                    <Link className="nav-link" to="/contact">
                         <Phone size={18} className="me-2" />
                         Contact Us
-                    </a>
+                    </Link>
                 </li>
 
                 <li className="nav-item main_nav">
@@ -132,7 +132,7 @@ function Navbar({ darkMode, setDarkMode }) {
             </ul>
             {/* 
             toggle theme */}
-            <button
+            {/* <button
                 className="btn theme-btn"
                 aria-label="Toggle Theme"
                 onClick={() => setDarkMode(prev => !prev)}
@@ -142,23 +142,40 @@ function Navbar({ darkMode, setDarkMode }) {
                 ) : (
                     <Sun size={20} />
                 )}
-            </button>
+            </button> */}
 
             {/* Desktop Sign In (VISIBLE ONLY LG+) */}
             <div className="d-none d-lg-block">
-                <button className="btn login-btn">
-                    <Download size={18} className="me-2" />
-                    Download App
-                </button>
+                <a
+                    href="https://drive.google.com/file/d/1sDM388sgdufORMyjtF4nRxLo8JvxkTJi/view"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn login-btn d-flex align-items-center"
+                >
+                    <Eye size={18} className="me-2" />
+                    View Resume
+                </a>
             </div>
-
             {/* Mobile Right Side */}
             <div className="d-flex align-items-center ms-auto gap-2 d-lg-none">
 
                 {/* Mobile Sign In */}
-                <button className="btn login-btn">
+                {/* <button className="btn login-btn">
                     <Download className="me-1" size={18} />Get App
-                </button>
+                </button> */}
+                {/* <button className="btn login-btn">
+                    <Eye  className="me-1" size={18} />View Resume 
+                </button> */}
+                <a
+                    href="https://drive.google.com/file/d/1sDM388sgdufORMyjtF4nRxLo8JvxkTJi/view"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <button className="btn login-btn">
+                        <Eye size={18} className="me-1" />
+                        View Resume
+                    </button>
+                </a>
 
             </div>
 
