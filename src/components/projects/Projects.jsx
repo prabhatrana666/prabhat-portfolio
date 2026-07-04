@@ -79,11 +79,11 @@ function Projects() {
                     <span className="why-label">FEATURED WORK</span>
 
                     <h2 className="why-title">
-                        RECENT <span>PROJECTS</span>
+                        FEATURED  <span>PROJECTS</span>
                     </h2>
 
                     <p className="why-description">
-                        Explore a selection of real-world web applications showcasing modern frontend development, full-stack solutions, responsive design, and seamless API integrations.
+                        A collection of projects built with modern technologies, clean architecture, responsive design, and scalable solutions to solve real-world challenges.
                     </p>
                 </div>
                 <div className="container mt-5">
@@ -145,6 +145,117 @@ function Projects() {
                     </div>
                 </div>
             </div>
+
+
+
+            {/* My Form */}
+            <div className="section-header text-center mb-5 mt-5">
+                <span className="why-label">START A PROJECT</span>
+
+                <h2 className="why-title">
+                    LET'S BUILD  <span>SOMETHING AMAZING</span>
+                </h2>
+
+                <p className="why-description">
+                   Have a project in mind? Share your requirements and I'll get back to you with the best solution tailored to your goals.
+                </p>
+             
+
+              
+            </div>
+
+            <form className="project-inquiry-form mb-5">
+
+                <div className="row g-4">
+
+                    <div className="col-lg-4">
+                        <label>Full Name</label>
+                        <input
+                            type="text"
+                            placeholder="Enter your full name"
+                        />
+                    </div>
+
+                    <div className="col-lg-4">
+                        <label>Email Address</label>
+                        <input
+                            type="email"
+                            placeholder="Enter your email"
+                        />
+                    </div>
+
+                    <div className="col-lg-4">
+                        <label>Company (Optional)</label>
+                        <input
+                            type="text"
+                            placeholder="Company or Organization"
+                        />
+                    </div>
+
+                    <div className="col-lg-6">
+                        <label>Project Type</label>
+
+                        <select>
+                            <option>Select Project Type</option>
+                            <option>Business Website</option>
+                            <option>Portfolio Website</option>
+                            <option>E-Commerce</option>
+                            <option>Admin Dashboard</option>
+                            <option>Landing Page</option>
+                            <option>Full Stack Application</option>
+                            <option>UI Development</option>
+                            <option>Website Redesign</option>
+                            <option>Bug Fixes</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+
+                    <div className="col-lg-6">
+                        <label>Estimated Budget</label>
+
+                        <select>
+                            <option>Select Budget</option>
+                            <option>$100 - $300</option>
+                            <option>$300 - $700</option>
+                            <option>$700 - $1500</option>
+                            <option>$1500+</option>
+                        </select>
+                    </div>
+
+                    <div className="col-lg-6">
+                        <label>Timeline</label>
+
+                        <select>
+                            <option>Select Timeline</option>
+                            <option>ASAP</option>
+                            <option>1 Week</option>
+                            <option>2-4 Weeks</option>
+                            <option>1-2 Months</option>
+                            <option>Flexible</option>
+                        </select>
+                    </div>
+
+                    <div className="col-12">
+                        <label>Project Requirements</label>
+
+                        <textarea
+                            rows="6"
+                            placeholder="Tell me about your project, features, goals, preferred technologies, or any other requirements..."
+                        ></textarea>
+                    </div>
+
+                    <div className="col-12 text-center">
+
+                        <button className="send-btn">
+                            Send Project Inquiry
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </form>
+
             <Footer2 />
 
         </>
