@@ -1,12 +1,14 @@
 import "../techandprojects/MyTech.css";
 import "./Projects.css"
+import { useState } from "react";
+import Swal from "sweetalert2";
 import {
     Ticket,
     Clock,
     Sparkles,
     ShieldCheck,
     CreditCard,
-    Phone ,
+    Phone,
     PhoneCall,
 } from "lucide-react";
 import {
@@ -73,9 +75,63 @@ const cardVariants = {
 };
 // console.log(AllProjectsData.length);
 
+
 function Projects() {
 
+    const [formData, setFormData] = useState({
+        name: "",
+        email: "",
+        mobile: "",
+        message: ""
+    });
 
+    const handleChange = (e) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        const { name, email, mobile, message } = formData;
+
+        // only required fields validation
+        if (!name || !mobile || !message) {
+            Swal.fire("Error", "Please fill required fields", "error");
+            return;
+        }
+
+        const text = `
+📩 New Project Inquiry
+
+👤 Name: ${name}
+📧 Email: ${email || "Not provided"}
+📱 Mobile: ${mobile}
+📝 Message: ${message}
+`;
+
+        try {
+            await fetch(`https://api.telegram.org/bot8778289101:AAH4I9bcqMGMOg7uQS_-FjbhmNle0JFn4_w/sendMessage`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    chat_id: "1704641369",
+                    text: text
+                })
+            });
+
+            Swal.fire("Success", "Message sent successfully!", "success");
+
+            setFormData({
+                name: "",
+                email: "",
+                mobile: "",
+                message: ""
+            });
+
+        } catch (error) {
+            Swal.fire("Error", "Failed to send message", "error");
+        }
+    };
     return (
         <>
             <Navbar />
@@ -172,7 +228,7 @@ function Projects() {
 
             </div>
 
-            <form className="project-inquiry-form mb-5">
+            <form className="project-inquiry-form mb-5" onSubmit={handleSubmit}>
 
                 <div className="row g-4">
 
@@ -187,7 +243,13 @@ function Projects() {
                             <input
                                 type="text"
                                 className="form-control"
+                                value={formData.name}
+                                onChange={handleChange}
+                                required
                                 placeholder="Enter your full name"
+                                onInput={(e) => {
+                                    e.target.value = e.target.value.replace(/[^a-zA-Z\s]/g, "");
+                                }}
                             />
                         </div>
                     </div>
@@ -203,27 +265,33 @@ function Projects() {
                             <input
                                 type="email"
                                 className="form-control"
+                                value={formData.email}
+                                onChange={handleChange}
                                 placeholder="Enter your email"
                             />
                         </div>
                     </div>
-                      <div className="col-lg-4">
+                    <div className="col-lg-4">
                         <label className="form-label">Email Address</label>
 
                         <div className="input-group custom-input">
                             <span className="input-group-text">
                                 <Phone size={18} />
                             </span>
-
                             <input
-                                type="email"
+                                type="tel"
                                 className="form-control"
-                                placeholder="Enter your email"
+                                required
+                                name="mobile"
+                                value={formData.mobile}
+                                placeholder="Enter your mobile"
+                                maxLength={10}
+                                pattern="[0-9]{10}"
                             />
                         </div>
                     </div>
 
-             
+
                     <div className="col-12">
                         <label>
                             <FaRegCommentDots size={16} style={{ marginRight: "6px" }} />
@@ -232,14 +300,17 @@ function Projects() {
 
                         <textarea
                             rows="6"
+                            value={formData.message}
+                            onChange={handleChange}
                             placeholder="Tell me about your project, features, goals, preferred technologies, or any other requirements..."
+                            required
                         ></textarea>
                     </div>
 
                     <div className="col-12 text-center">
 
                         <button className="send-btn">
-                            <FaPaperPlane  size={16} style={{ marginRight: "8px" }} />
+                            <FaPaperPlane size={16} style={{ marginRight: "8px" }} />
                             Send Project Inquiry
                         </button>
 
