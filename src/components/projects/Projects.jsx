@@ -101,7 +101,7 @@ function Projects() {
         }
 
         const text = `
-📩 New Project Inquiry
+📩 New Project Inquiry From Projects Section
 
 👤 Name: ${name}
 📧 Email: ${email || "Not provided"}
@@ -119,7 +119,7 @@ function Projects() {
                 })
             });
 
-            Swal.fire("Success", "Message sent successfully!", "success");
+         Swal.fire("Message Received", "We will contact you soon.", "success");
 
             setFormData({
                 name: "",
@@ -244,12 +244,13 @@ function Projects() {
                                 type="text"
                                 className="form-control"
                                 value={formData.name}
-                                onChange={handleChange}
+                                onChange={(e) => {
+                                    const value = e.target.value.replace(/[^a-zA-Z\s]/g, "");
+                                    setFormData({ ...formData, name: value });
+                                }}
                                 required
                                 placeholder="Enter your full name"
-                                onInput={(e) => {
-                                    e.target.value = e.target.value.replace(/[^a-zA-Z\s]/g, "");
-                                }}
+
                             />
                         </div>
                     </div>
@@ -264,6 +265,7 @@ function Projects() {
 
                             <input
                                 type="email"
+                                name="email"
                                 className="form-control"
                                 value={formData.email}
                                 onChange={handleChange}
@@ -283,6 +285,7 @@ function Projects() {
                                 className="form-control"
                                 required
                                 name="mobile"
+                                onChange={handleChange}
                                 value={formData.mobile}
                                 placeholder="Enter your mobile"
                                 maxLength={10}
@@ -300,6 +303,7 @@ function Projects() {
 
                         <textarea
                             rows="6"
+                            name="message"
                             value={formData.message}
                             onChange={handleChange}
                             placeholder="Tell me about your project, features, goals, preferred technologies, or any other requirements..."
