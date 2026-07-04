@@ -15,6 +15,8 @@ import { Toaster } from "react-hot-toast";
 import Services from "../components/services/Services";
 import AdminLogin from "../components/adminlogin/AdminLogin";
 import { Navigate } from "react-router-dom";
+import Projects from "../components/projects/Projects";
+
 
 function AppRoutes() {
   return (
@@ -35,6 +37,7 @@ function AppRoutes() {
         <Route path="/rent" element={<Rent />} />
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/pay" element={<PayNow />} />
+         <Route path="/projects" element={<Projects />} />
          <Route path="/Services" element={<Services />} />
         <Route path="/refund" element={<RefundPolicy />} />
         <Route path="/admin" element={<AdminLogin />} />

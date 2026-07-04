@@ -8,6 +8,7 @@ import OurGarage from "../components/ourgarage/OurGarage";
 import ReadyToRoll from "../components/readytoroll/ReadyToRoll";
 import { useState ,useEffect} from "react";
 import MainLandingPage from "../components/hero/MainLandningPage";
+import MyTech from "../components/techandprojects/MyTech";
 
 
 function Home() {
@@ -28,7 +29,8 @@ function Home() {
       {/* <Hero /> */}
       <MainLandingPage />
       <AnimationCar />
-      <OurGarage />
+      {/* <OurGarage/> */}
+      <MyTech />
       <Testimonials />
       <ReadyToRoll />
       {/* <Footer /> */}

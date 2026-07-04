@@ -8,13 +8,15 @@
 
 .car-wrapper {
     position: absolute;
-    top: 20%;
+    top: 10%;
+    border-radius: 20px;
     transform: translateY(-50%);
     z-index: 10;
 }
 
 .running-car {
     width: 320px;
+     border-radius: 20px;
 }
 
 .headlight {
@@ -64,5 +66,17 @@
 
     .running-car {
         width: 270px;
+    }
+}
+
+@media (max-width:576px) {
+    .road-section {
+        height: 200px;
+        margin-top: -35px !important;
+    }
+    .my_carsss {
+        width: 270px;
+        position: relative !important;
+        top: -10px !important;
     }
 }

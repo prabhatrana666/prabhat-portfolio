@@ -1,4 +1,4 @@
-import sana from "../../assets/testimonials/sana.webp";
+import cherry from "../../assets/testimonials/cherry.jpeg";
 import rahul from "../../assets/testimonials/rahul.png";
 import anjali from "../../assets/testimonials/anjali.png";
 import zaid from "../../assets/testimonials/zaid.jpg";
@@ -10,7 +10,7 @@ export const TestimonialData = [
         city: "KHALILABAD",
         initial: "R",
         review:
-            "Best taxi service in town. The Innova was super clean and the driver was professional.",
+            "Prabhat transformed our design into a pixel-perfect React application. Communication was excellent, deadlines were met, and the final product exceeded our expectations.",
         images: rahul,
     },
     {
@@ -18,7 +18,7 @@ export const TestimonialData = [
         city: "LUCKNOW",
         initial: "A",
         review:
-            "I book Hello11 every time I travel to Basti. Always on time and very safe for solo travelers.",
+            "Prabhat has a strong eye for detail. Every screen matched the design perfectly, and the animations made the user experience feel polished and modern.",
         images: anjali,
     },
     {
@@ -26,7 +26,7 @@ export const TestimonialData = [
         city: "GORAKHPUR",
         initial: "M",
         review:
-            "Highly recommended for outstation trips. Affordable rates and no hidden charges.",
+            "The project was delivered with clean, maintainable code and consistent communication throughout the development process.",
         images: zaid,
     },
     {
@@ -34,7 +34,7 @@ export const TestimonialData = [
         city: "BASTI",
         initial: "V",
         review:
-            "Elite experience indeed. The booking process was seamless and the car arrived exactly on time.",
+            "From planning to deployment, every stage of the project was handled professionally. The website is fast, responsive, and has significantly improved our online presence.",
         images: vicky,
     },
     {
@@ -42,7 +42,7 @@ export const TestimonialData = [
         city: "KHALILABAD",
         initial: "S",
         review:
-            "Safe and reliable. The driver was very polite and knew all the short routes.",
-        images: sana,
+            "The website was built exactly as requested, with a strong focus on performance, responsiveness, and user experience. Very professional service, Highly recommended.",
+        images: cherry,
     },
 ];

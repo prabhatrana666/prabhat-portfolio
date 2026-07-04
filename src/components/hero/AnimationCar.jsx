@@ -1,6 +1,7 @@
 import "./AnimationCar.css";
 import { motion } from "framer-motion";
-import carImage from "../../assets/hero_images.webp";
+// import carImage from "../../assets/hero_images.webp";
+
 import { col } from "framer-motion/client";
 
 function AnimationCar() {
@@ -18,12 +19,12 @@ function AnimationCar() {
           repeatDelay: 1,
         }}
       >
-        <div className="headlight"></div>
+        <div className="headlight d-none"></div>
 
         <motion.img
-          src={carImage}
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTG7U3yrJfYw0SlnBEAqOYjqlTvG7PnfcPrflskOS-i9w&s=10"
           alt="Taxi"
-          className="running-car"
+          className="running-car my_carsss"
            style={{ transform: "scaleX(-1)" }}
           animate={{
             y: [0, -4, 0],
@@ -50,7 +51,7 @@ function AnimationCar() {
           ease: "easeOut",
         }}
       >
-        HELLO<span style={{color:'var(--primary)'}}>11</span>
+        PRABHAT<span style={{color:'var(--primary)'}}>RANA</span>
       </motion.h1>
 
     </section>

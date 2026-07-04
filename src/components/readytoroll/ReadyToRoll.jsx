@@ -2,7 +2,7 @@ import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "./ReadyToRoll.css"
-
+import Swal from "sweetalert2";
 import {
     User,
     MapPin,
@@ -12,19 +12,24 @@ import {
     Phone,
     ArrowRight,
     ShieldCheck,
+    Code,
+    Mail ,
+    Layers,
+    MessageSquare,
+    Zap,
     Car,
     Headphones,
 } from "lucide-react";
+import { text } from "framer-motion/client";
 
 export default function ReadyToRoll() {
     const [formData, setFormData] = useState({
         name: "",
-        pickup: "",
-        drop: "",
+        phone: "",
+        email: "",
+        remarks: "",
     });
-
-    const [date, setDate] = useState(null);
-
+    const [isSubmitting, setIsSubmitting] = useState(false);
     const handleChange = (e) => {
         setFormData({
             ...formData,
@@ -32,38 +37,87 @@ export default function ReadyToRoll() {
         });
     };
 
-    const handleWhatsAppBooking = () => {
+    // console.log(import.meta.env);
+
+    const BOT_TOKEN = "8778289101:AAH4I9bcqMGMOg7uQS_-FjbhmNle0JFn4_w";
+    const CHAT_ID = "1704641369";
+
+    // console.log(BOT_TOKEN);
+    // console.log(CHAT_ID);
+
+    const handleTelegramBooking = async () => {
         if (
             !formData.name ||
-            !formData.pickup ||
-            !formData.drop ||
-            !date
+            !formData.phone ||
+            !formData.email ||
+            !formData.remarks
         ) {
-            alert("Please fill all fields");
+            Swal.fire({
+                icon: "warning",
+                title: "Missing Fields",
+                text: "Please fill all fields.",
+            });
             return;
         }
-
-        const formattedDate = date.toLocaleDateString("en-IN");
+        setIsSubmitting(true);
 
         const message = `
- New Taxi Booking Request
+🚀 <b>New Request From Home Page</b>
 
- Name: ${formData.name}
- Pickup: ${formData.pickup}
- Drop: ${formData.drop}
- Date: ${formattedDate}
+👤 <b>Name:</b> ${formData.name}
+📍 <b>Phone:</b> ${formData.phone}
+🎯 <b>Email:</b> ${formData.email}
+📝 <b>Remarks:</b> ${formData.remarks}
 `;
 
-        const whatsappNumber = "918851522173";
+        try {
+            const response = await fetch(
+                `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`,
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        chat_id: CHAT_ID,
+                        text: message,
+                        parse_mode: "HTML",
+                    }),
+                }
+            );
 
-        window.open(
-            `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-                message
-            )}`,
-            "_blank"
-        );
+            const data = await response.json();
+
+            if (data.ok) {
+                Swal.fire({
+                    icon: "success",
+                    title: "Request Sent!",
+                    text: "Thank you for visiting my portfolio! I'll connect with you shortly.",
+                    confirmButtonText: "OK",
+                });
+
+                setFormData({
+                    name: "",
+                    phone: "",
+                    email: "",
+                    remarks: "",
+                });
+            } else {
+                throw new Error(data.description);
+            }
+        } catch (error) {
+            Swal.fire({
+                icon: "error",
+                title: "Failed",
+                text: "Something went wrong. Please try again.",
+            });
+
+            console.error(error);
+        }
+        finally {
+            setIsSubmitting(false);
+        }
     };
-
     return (
         <>
             <section className="rtr-section py-5 mt-5">
@@ -71,11 +125,11 @@ export default function ReadyToRoll() {
 
                     <div className="text-center mb-5">
                         <p className="rtr-subtitle">
-                            INSTANT RESERVATION
+                            TURN IDEAS INTO REALITY
                         </p>
 
                         <h2 className="rtr-title">
-                            READY TO <span>ROLL?</span>
+                            LET'S <span>BUILD IT</span>
                         </h2>
                     </div>
 
@@ -107,12 +161,13 @@ export default function ReadyToRoll() {
 
                             <div className="col-lg">
                                 <div className="rtr-input-wrapper">
-                                    <MapPin size={18} className="rtr-input-icon" />
+                                    <Phone size={18} className="rtr-input-icon" />
                                     <input
-                                        type="text"
-                                        name="pickup"
-                                        placeholder="Pickup Point"
-                                        value={formData.pickup}
+                                        type="tel"
+                                        name="phone"
+                                        required
+                                        placeholder="Your Phone"
+                                        value={formData.phone}
                                         onChange={handleChange}
                                         className="rtr-input"
                                     />
@@ -121,12 +176,12 @@ export default function ReadyToRoll() {
 
                             <div className="col-lg">
                                 <div className="rtr-input-wrapper">
-                                    <Navigation size={18} className="rtr-input-icon" />
+                                    <Mail  size={18} className="rtr-input-icon" />
                                     <input
-                                        type="text"
-                                        name="drop"
-                                        placeholder="Drop Point"
-                                        value={formData.drop}
+                                        type="email"
+                                        name="email"
+                                        placeholder="Your Email"
+                                        value={formData.email}
                                         onChange={handleChange}
                                         className="rtr-input"
                                     />
@@ -135,26 +190,48 @@ export default function ReadyToRoll() {
 
                             <div className="col-lg">
                                 <div className="rtr-input-wrapper">
-                                    <CalendarDays size={18} className="rtr-input-icon" />
-
-                                    <DatePicker
-                                        selected={date}
-                                        onChange={(d) => setDate(d)}
-                                        minDate={new Date()}
-                                        dateFormat="dd-MM-yyyy"
-                                        placeholderText="Select Date"
+                                    <MessageSquare size={18} className="rtr-input-icon" />
+                                    <input
+                                        type="text"
+                                        name="remarks"
+                                        placeholder="Enter Remarks..."
+                                        value={formData.remarks}
+                                        onChange={handleChange}
                                         className="rtr-input"
                                     />
                                 </div>
                             </div>
 
-                            <div className="col-lg-auto">
+                            {/* <div className="col-lg-auto">
                                 <button
-                                    onClick={handleWhatsAppBooking}
+                                    onClick={handleTelegramBooking}
                                     className="rtr-book-btn"
                                 >
-                                    BOOK NOW
+                                    Connect Now
                                     <ArrowRight size={18} />
+                                </button>
+                            </div> */}
+                            <div className="col-lg-auto">
+                                <button
+                                    onClick={handleTelegramBooking}
+                                    className="rtr-book-btn"
+                                    disabled={isSubmitting}
+                                >
+                                    {isSubmitting ? (
+                                        <>
+                                            <span
+                                                className="spinner-border spinner-border-sm me-2"
+                                                role="status"
+                                                aria-hidden="true"
+                                            ></span>
+                                            Submitting...
+                                        </>
+                                    ) : (
+                                        <>
+                                            Connect Now
+                                            <ArrowRight  className="rtr-arrow" size={18} />
+                                        </>
+                                    )}
                                 </button>
                             </div>
 
@@ -163,18 +240,18 @@ export default function ReadyToRoll() {
                         <div className="rtr-features-row">
 
                             <div className="rtr-feature-item">
-                                <ShieldCheck size={16} />
-                                Fixed Prices
+                                <Code size={16} />
+                                Clean Code
                             </div>
 
                             <div className="rtr-feature-item">
-                                <Car size={16} />
-                                Clean Cars
+                                <Layers size={16} />
+                                Scalable UI
                             </div>
 
                             <div className="rtr-feature-item">
-                                <Headphones size={16} />
-                                24/7 Support
+                                <Zap size={16} />
+                                Fast Performance
                             </div>
 
                         </div>
@@ -190,7 +267,7 @@ export default function ReadyToRoll() {
                             </p>
 
                             <h3 className="rtr-instant-title">
-                                BOOK <span>INSTANTLY</span>
+                                CONNECT <span>INSTANTLY</span>
                             </h3>
 
                             <div className="d-flex flex-column flex-md-row justify-content-center gap-3">
@@ -210,7 +287,7 @@ export default function ReadyToRoll() {
                                     className="rtr-call-btn"
                                 >
                                     <Phone size={20} />
-                                    CALL +91 96289 11211
+                                    CALL +91 88515 22173
                                 </a>
 
                             </div>

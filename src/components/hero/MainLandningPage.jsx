@@ -55,20 +55,6 @@ function MainLandingPage() {
                                     and exceptional user experiences.
                                 </p>
 
-                                {/* <div className="hero-buttons">
-                                    <button className="btn btn-primary"
-                                    onClick={() => navigate("/contact")}>
-                                        Contact Me
-                                    </button>
-
-                                    <button
-                                        className="btn btn-outline-primary ms-3 view_projects"
-                                        onClick={() => navigate("/projects")}
-                                    >
-                                        View Projects
-                                    </button>
-                                </div> */}
-
                                 <div className="hero-buttons">
                                     <Link to="/contact" className="btn btn-primary">
                                         Contact Me
@@ -77,7 +63,7 @@ function MainLandingPage() {
                                         View Projects
                                     </Link>
 
-                              
+
                                 </div>
 
                             </div>
@@ -94,7 +80,7 @@ function MainLandingPage() {
                             >
 
                                 <Swiper
-                                    modules={[Pagination, Navigation, EffectCoverflow]}
+                                    modules={[Pagination, Navigation,Autoplay, EffectCoverflow]}
                                     navigation={{
                                         nextEl: ".hero-next",
                                         prevEl: ".hero-prev",
@@ -106,12 +92,20 @@ function MainLandingPage() {
                                     loop
                                     speed={900}
                                     autoplay={false}
-                                    // autoplay={{
-                                    //     delay: 3000,
-                                    //     disableOnInteraction: false,
-                                    // }}
+                                    autoplay={{
+                                        delay: 3000,
+                                        disableOnInteraction: false,
+                                    }}
                                     pagination={{
                                         clickable: true,
+                                    }}
+                                    breakpoints={{
+                                        0: {
+                                            slidesPerView: 1,
+                                        },
+                                        768: {
+                                            slidesPerView: "auto",
+                                        },
                                     }}
                                     coverflowEffect={{
                                         rotate: 0,
@@ -145,25 +139,27 @@ function MainLandingPage() {
 
                                                 <div className="project-overlay">
 
-                                                  
 
-                                                    <h3 className="project-title">
-                                                        {project.title}
-                                                    </h3>
-  <span className="project-category">
-                                                        {project.description}
-                                                    </span>
-                                                    <div className="project-tech">
+                                                    <div className="main_card_body">
+                                                        <h3 className="project-title">
+                                                            {project.title}
+                                                        </h3>
+                                                        <span className="project-category">
+                                                            {project.description}
+                                                        </span>
+                                                        <div className="project-tech">
 
-                                                        {project.tech.map((item, index) => (
+                                                            {project.tech.map((item, index) => (
 
-                                                            <span key={index}>
-                                                                {item}
-                                                            </span>
+                                                                <span key={index}>
+                                                                    {item}
+                                                                </span>
 
-                                                        ))}
+                                                            ))}
 
+                                                        </div>
                                                     </div>
+
 
                                                     <div className="project-buttons">
 
@@ -171,7 +167,7 @@ function MainLandingPage() {
                                                             href={project.github}
                                                             target="_blank"
                                                             rel="noreferrer"
-                                                            className="project-btn"
+                                                            className="project-btn github_button"
                                                         >
 
                                                             <FaGithub size={18} />
