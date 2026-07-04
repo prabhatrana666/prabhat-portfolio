@@ -95,7 +95,7 @@ function Navbar({ darkMode, setDarkMode }) {
                 <li className="nav-item main_nav">
                     <a className="nav-link" href="/gallery">
                         <Images size={18} className="me-2" />
-                        Gallery
+                        Certificates
                     </a>
                 </li>
 

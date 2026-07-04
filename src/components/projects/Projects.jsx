@@ -182,99 +182,124 @@ function Projects() {
                         A collection of projects built with modern technologies, clean architecture, responsive design, and scalable solutions to solve real-world challenges.
                     </p>
                 </div>
-                <div className="container mt-5">
-                    <motion.div
-                        className="row g-4"
-                        variants={staggerContainer}
-                        initial="hidden"
-                        whileInView="show"
-                        viewport={{ once: true, amount: 0.2 }}
-                    >
-                        {AllProjectsData.map((project) => (
-                            <div
-                                key={project.id}
-                                className="col-lg-4 col-md-6 col-12"
-                            >
-                                <motion.div
-                                    className="project-card my_new_project_card"
-                                    variants={cardVariant}
-                                    whileHover={{ scale: 1.05 }}
-                                >
+               <div className="container mt-5">
+  <motion.div
+    className="row g-4"
+    variants={staggerContainer}
+    initial="hidden"
+    whileInView="show"
+    viewport={{
+      once: true,
+      amount: 0.15,
+      margin: "0px 0px -150px 0px",
+    }}
+  >
+    {AllProjectsData.map((project) => (
+      <div key={project.id} className="col-lg-4 col-md-6 col-12">
 
-                                    {/* IMAGE */}
-                                    <motion.img
-                                        src={project.image}
-                                        alt={project.title}
-                                        className="project-image"
-                                        initial={{ scale: 1.2, opacity: 0 }}
-                                        whileInView={{ scale: 1, opacity: 1 }}
-                                        transition={{ duration: 0.6 }}
-                                    />
+        {/* CARD */}
+        <motion.div
+          className="project-card my_new_project_card"
+          variants={cardVariant}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.2 }}
+          whileHover={{ scale: 1.05 }}
+          style={{ willChange: "transform, opacity" }}
+        >
 
-                                    <div className="project-overlay">
+          {/* IMAGE (FIXED: NO whileInView HERE) */}
+          <motion.img
+            src={project.image}
+            alt={project.title}
+            className="project-image"
+            initial={{ scale: 1.1, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.5 }}
+          />
 
-                                        <div className="main_card_body">
+          <div className="project-overlay">
+            <div className="main_card_body">
 
-                                            {/* TITLE */}
-                                            <motion.h3
-                                                className="project-title"
-                                                variants={textVariant}
-                                            >
-                                                {project.title}
-                                            </motion.h3>
+              {/* TITLE */}
+              <motion.h3
+                className="project-title"
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4 }}
+                viewport={{ once: true }}
+              >
+                {project.title}
+              </motion.h3>
 
-                                            {/* DESCRIPTION */}
-                                            <motion.span
-                                                className="project-category"
-                                                variants={textVariant}
-                                            >
-                                                {project.description}
-                                            </motion.span>
+              {/* DESCRIPTION */}
+              <motion.span
+                className="project-category"
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: 0.1 }}
+                viewport={{ once: true }}
+              >
+                {project.description}
+              </motion.span>
 
-                                            {/* TECH STACK (snake-like stagger effect) */}
-                                            <motion.div
-                                                className="project-tech"
-                                                variants={staggerContainer}
-                                            >
-                                                {project.tech.map((item, index) => (
-                                                    <motion.span
-                                                        key={index}
-                                                        variants={textVariant}
-                                                        whileHover={{
-                                                            y: -5,
-                                                            scale: 1.1
-                                                        }}
-                                                    >
-                                                        {item}
-                                                    </motion.span>
-                                                ))}
-                                            </motion.div>
-                                        </div>
+              {/* TECH STACK */}
+              <motion.div
+                className="project-tech"
+                variants={staggerContainer}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true }}
+              >
+                {project.tech.map((item, index) => (
+                  <motion.span
+                    key={index}
+                    variants={textVariant}
+                    whileHover={{ y: -5, scale: 1.1 }}
+                  >
+                    {item}
+                  </motion.span>
+                ))}
+              </motion.div>
 
-                                        {/* BUTTONS */}
-                                        <motion.div
-                                            className="project-buttons"
-                                            initial={{ opacity: 0, y: 20 }}
-                                            whileInView={{ opacity: 1, y: 0 }}
-                                            transition={{ delay: 0.3 }}
-                                        >
-                                            <a href={project.github} target="_blank" className="project-btn github_button">
-                                                <FaGithub size={18} />
-                                                GitHub
-                                            </a>
+            </div>
 
-                                            <a href={project.live} target="_blank" className="project-btn primary">
-                                                <HiOutlineExternalLink size={18} />
-                                                Live Demo
-                                            </a>
-                                        </motion.div>
+            {/* BUTTONS */}
+            <motion.div
+              className="project-buttons"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              <a
+                href={project.github}
+                target="_blank"
+                rel="noreferrer"
+                className="project-btn github_button"
+              >
+                <FaGithub size={18} />
+                GitHub
+              </a>
 
-                                    </div>
-                                </motion.div>
-                            </div>
-                        ))}
-                    </motion.div>
-                </div>
+              <a
+                href={project.live}
+                target="_blank"
+                rel="noreferrer"
+                className="project-btn primary"
+              >
+                <HiOutlineExternalLink size={18} />
+                Live Demo
+              </a>
+            </motion.div>
+
+          </div>
+        </motion.div>
+
+      </div>
+    ))}
+  </motion.div>
+</div>
             </div>
 
 

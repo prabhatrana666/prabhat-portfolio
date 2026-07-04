@@ -34,7 +34,7 @@ function BottomNav() {
                     </NavLink>
 
                     <NavLink
-                        to="/rent"
+                        to="/projects"
                         onClick={() => handleNavigate("/rent")}
                         className={({ isActive }) => isActive ? "nav-item active" : "nav-item"}
                     >
