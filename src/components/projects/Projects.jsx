@@ -6,6 +6,7 @@ import {
     Sparkles,
     ShieldCheck,
     CreditCard,
+    Phone ,
     PhoneCall,
 } from "lucide-react";
 import {
@@ -24,6 +25,13 @@ import {
     Wrench,
     Boxes,
 } from "lucide-react";
+import {
+    BriefcaseBusiness,
+    Wallet,
+    CalendarDays,
+} from "lucide-react";
+import { FaRegCommentDots, FaPaperPlane } from "react-icons/fa";
+import { User, Mail, Building2 } from "lucide-react";
 import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation, EffectCoverflow } from "swiper/modules";
@@ -157,11 +165,11 @@ function Projects() {
                 </h2>
 
                 <p className="why-description">
-                   Have a project in mind? Share your requirements and I'll get back to you with the best solution tailored to your goals.
+                    Have a project in mind? Share your requirements and I'll get back to you with the best solution tailored to your goals.
                 </p>
-             
 
-              
+
+
             </div>
 
             <form className="project-inquiry-form mb-5">
@@ -169,74 +177,58 @@ function Projects() {
                 <div className="row g-4">
 
                     <div className="col-lg-4">
-                        <label>Full Name</label>
-                        <input
-                            type="text"
-                            placeholder="Enter your full name"
-                        />
+                        <label className="form-label">Full Name</label>
+
+                        <div className="input-group custom-input">
+                            <span className="input-group-text">
+                                <User size={18} />
+                            </span>
+
+                            <input
+                                type="text"
+                                className="form-control"
+                                placeholder="Enter your full name"
+                            />
+                        </div>
                     </div>
 
                     <div className="col-lg-4">
-                        <label>Email Address</label>
-                        <input
-                            type="email"
-                            placeholder="Enter your email"
-                        />
+                        <label className="form-label">Email Address</label>
+
+                        <div className="input-group custom-input">
+                            <span className="input-group-text">
+                                <Mail size={18} />
+                            </span>
+
+                            <input
+                                type="email"
+                                className="form-control"
+                                placeholder="Enter your email"
+                            />
+                        </div>
+                    </div>
+                      <div className="col-lg-4">
+                        <label className="form-label">Email Address</label>
+
+                        <div className="input-group custom-input">
+                            <span className="input-group-text">
+                                <Phone size={18} />
+                            </span>
+
+                            <input
+                                type="email"
+                                className="form-control"
+                                placeholder="Enter your email"
+                            />
+                        </div>
                     </div>
 
-                    <div className="col-lg-4">
-                        <label>Company (Optional)</label>
-                        <input
-                            type="text"
-                            placeholder="Company or Organization"
-                        />
-                    </div>
-
-                    <div className="col-lg-6">
-                        <label>Project Type</label>
-
-                        <select>
-                            <option>Select Project Type</option>
-                            <option>Business Website</option>
-                            <option>Portfolio Website</option>
-                            <option>E-Commerce</option>
-                            <option>Admin Dashboard</option>
-                            <option>Landing Page</option>
-                            <option>Full Stack Application</option>
-                            <option>UI Development</option>
-                            <option>Website Redesign</option>
-                            <option>Bug Fixes</option>
-                            <option>Other</option>
-                        </select>
-                    </div>
-
-                    <div className="col-lg-6">
-                        <label>Estimated Budget</label>
-
-                        <select>
-                            <option>Select Budget</option>
-                            <option>$100 - $300</option>
-                            <option>$300 - $700</option>
-                            <option>$700 - $1500</option>
-                            <option>$1500+</option>
-                        </select>
-                    </div>
-
-                    <div className="col-lg-6">
-                        <label>Timeline</label>
-
-                        <select>
-                            <option>Select Timeline</option>
-                            <option>ASAP</option>
-                            <option>1 Week</option>
-                            <option>2-4 Weeks</option>
-                            <option>1-2 Months</option>
-                            <option>Flexible</option>
-                        </select>
-                    </div>
-
+             
                     <div className="col-12">
-                        <label>Project Requirements</label>
+                        <label>
+                            <FaRegCommentDots size={16} style={{ marginRight: "6px" }} />
+                            Project Requirements
+                        </label>
 
                         <textarea
                             rows="6"
@@ -247,6 +239,7 @@ function Projects() {
                     <div className="col-12 text-center">
 
                         <button className="send-btn">
+                            <FaPaperPlane  size={16} style={{ marginRight: "8px" }} />
                             Send Project Inquiry
                         </button>
 
