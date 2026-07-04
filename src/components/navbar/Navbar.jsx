@@ -111,7 +111,7 @@ function Navbar({ darkMode, setDarkMode }) {
                         Pay Now
                     </a>
                 </li>
-                <li className="nav-item dropdown main_nav">
+                <li className="nav-item dropdown main_nav d-none">
                     <a
                         className="nav-link dropdown-toggle d-flex align-items-center"
                         href="#"
@@ -232,7 +232,7 @@ function Navbar({ darkMode, setDarkMode }) {
                         <CreditCard size={18} />
                         <span>Pay Now</span>
                     </li>
-                    <li onClick={() => handleNavigate("/services")}>
+                    <li onClick={() => handleNavigate("/services")} className="d-none">
                         <Ellipsis size={18} />
                         <span>More</span>
                     </li>
