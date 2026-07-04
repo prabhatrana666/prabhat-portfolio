@@ -44,6 +44,47 @@ const containerVariants = {
     },
 };
 
+const cardVariant = {
+    hidden: { opacity: 0, y: 60 },
+    show: {
+        opacity: 1,
+        y: 0,
+        transition: {
+            duration: 0.6,
+            ease: "easeOut"
+        }
+    }
+};
+
+const textVariant = {
+    hidden: { opacity: 0, x: -40 },
+    show: {
+        opacity: 1,
+        x: 0,
+        transition: { duration: 0.5 }
+    }
+};
+
+const staggerContainer = {
+    hidden: {},
+    show: {
+        transition: {
+            staggerChildren: 0.15
+        }
+    }
+};
+const headerVariant = {
+    hidden: { opacity: 0, y: 40 },
+    show: {
+        opacity: 1,
+        y: 0,
+        transition: {
+            duration: 0.7,
+            ease: "easeOut",
+            staggerChildren: 0.15
+        }
+    }
+};
 const cardVariants = {
     hidden: {
         opacity: 0,
@@ -401,63 +442,98 @@ function MyTech() {
                     </p>
                 </div>
                
-                <div className="container mt-5">
-                    <div className="row g-4">
+                 <div className="container mt-5">
+                    <motion.div
+                        className="row g-4"
+                        variants={staggerContainer}
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={{ once: true, amount: 0.2 }}
+                    >
                         {AllProjectsData.map((project) => (
                             <div
                                 key={project.id}
                                 className="col-lg-4 col-md-6 col-12"
                             >
-                                <div className="project-card my_new_project_card">
+                                <motion.div
+                                    className="project-card my_new_project_card"
+                                    variants={cardVariant}
+                                    whileHover={{ scale: 1.05 }}
+                                >
 
-                                    <img
+                                    {/* IMAGE */}
+                                    <motion.img
                                         src={project.image}
                                         alt={project.title}
                                         className="project-image"
+                                        initial={{ scale: 1.2, opacity: 0 }}
+                                        whileInView={{ scale: 1, opacity: 1 }}
+                                        transition={{ duration: 0.6 }}
                                     />
 
                                     <div className="project-overlay">
+
                                         <div className="main_card_body">
-                                            <h3 className="project-title">{project.title}</h3>
 
-                                            <span className="project-category">
+                                            {/* TITLE */}
+                                            <motion.h3
+                                                className="project-title"
+                                                variants={textVariant}
+                                            >
+                                                {project.title}
+                                            </motion.h3>
+
+                                            {/* DESCRIPTION */}
+                                            <motion.span
+                                                className="project-category"
+                                                variants={textVariant}
+                                            >
                                                 {project.description}
-                                            </span>
+                                            </motion.span>
 
-                                            <div className="project-tech">
+                                            {/* TECH STACK (snake-like stagger effect) */}
+                                            <motion.div
+                                                className="project-tech"
+                                                variants={staggerContainer}
+                                            >
                                                 {project.tech.map((item, index) => (
-                                                    <span key={index}>{item}</span>
+                                                    <motion.span
+                                                        key={index}
+                                                        variants={textVariant}
+                                                        whileHover={{
+                                                            y: -5,
+                                                            scale: 1.1
+                                                        }}
+                                                    >
+                                                        {item}
+                                                    </motion.span>
                                                 ))}
-                                            </div>
+                                            </motion.div>
                                         </div>
 
-                                        <div className="project-buttons">
-                                            <a
-                                                href={project.github}
-                                                target="_blank"
-                                                rel="noreferrer"
-                                                className="project-btn github_button"
-                                            >
+                                        {/* BUTTONS */}
+                                        <motion.div
+                                            className="project-buttons"
+                                            initial={{ opacity: 0, y: 20 }}
+                                            whileInView={{ opacity: 1, y: 0 }}
+                                            transition={{ delay: 0.3 }}
+                                        >
+                                            <a href={project.github} target="_blank" className="project-btn github_button">
                                                 <FaGithub size={18} />
                                                 GitHub
                                             </a>
 
-                                            <a
-                                                href={project.live}
-                                                target="_blank"
-                                                rel="noreferrer"
-                                                className="project-btn primary"
-                                            >
+                                            <a href={project.live} target="_blank" className="project-btn primary">
                                                 <HiOutlineExternalLink size={18} />
                                                 Live Demo
                                             </a>
-                                        </div>
-                                    </div>
+                                        </motion.div>
 
-                                </div>
+                                    </div>
+                                </motion.div>
                             </div>
                         ))}
-                    </div>
+                    </motion.div>
                 </div>
             </div>
 

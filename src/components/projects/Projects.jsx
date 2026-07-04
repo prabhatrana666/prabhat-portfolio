@@ -47,37 +47,67 @@ import { useNavigate, Link } from "react-router-dom";
 import Navbar from "../navbar/Navbar";
 import Footer2 from "../footer/Footer2";
 
-const containerVariants = {
-    hidden: {},
-    visible: {
-        transition: {
-            staggerChildren: 0.12,
-            delayChildren: 0.2,
-        },
-    },
-};
-
-const cardVariants = {
-    hidden: {
-        opacity: 0,
-        y: 60,
-        scale: 0.9,
-    },
-    visible: {
+const cardVariant = {
+    hidden: { opacity: 0, y: 60 },
+    show: {
         opacity: 1,
         y: 0,
-        scale: 1,
         transition: {
             duration: 0.6,
+            ease: "easeOut"
+        }
+    }
+};
+
+const textVariant = {
+    hidden: { opacity: 0, x: -40 },
+    show: {
+        opacity: 1,
+        x: 0,
+        transition: { duration: 0.5 }
+    }
+};
+
+const staggerContainer = {
+    hidden: {},
+    show: {
+        transition: {
+            staggerChildren: 0.15
+        }
+    }
+};
+const headerVariant = {
+    hidden: { opacity: 0, y: 40 },
+    show: {
+        opacity: 1,
+        y: 0,
+        transition: {
+            duration: 0.7,
             ease: "easeOut",
-        },
-    },
+            staggerChildren: 0.15
+        }
+    }
+};
+const formVariant = {
+    hidden: { opacity: 0, x: 120 },
+    show: {
+        opacity: 1,
+        x: 0,
+        transition: {
+            duration: 0.8,
+            ease: "easeOut"
+        }
+    }
+};
+const textVariant2 = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0 }
 };
 // console.log(AllProjectsData.length);
 
 
 function Projects() {
-
+    const [loading, setLoading] = useState(false);
     const [formData, setFormData] = useState({
         name: "",
         email: "",
@@ -91,7 +121,7 @@ function Projects() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
+        setLoading(true);
         const { name, email, mobile, message } = formData;
 
         // only required fields validation
@@ -119,7 +149,7 @@ function Projects() {
                 })
             });
 
-         Swal.fire("Message Received", "We will contact you soon.", "success");
+            Swal.fire("Message Received", "We will contact you soon.", "success");
 
             setFormData({
                 name: "",
@@ -130,6 +160,8 @@ function Projects() {
 
         } catch (error) {
             Swal.fire("Error", "Failed to send message", "error");
+        } finally {
+            setLoading(false);
         }
     };
     return (
@@ -151,84 +183,130 @@ function Projects() {
                     </p>
                 </div>
                 <div className="container mt-5">
-                    <div className="row g-4">
+                    <motion.div
+                        className="row g-4"
+                        variants={staggerContainer}
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={{ once: true, amount: 0.2 }}
+                    >
                         {AllProjectsData.map((project) => (
                             <div
                                 key={project.id}
                                 className="col-lg-4 col-md-6 col-12"
                             >
-                                <div className="project-card my_new_project_card">
+                                <motion.div
+                                    className="project-card my_new_project_card"
+                                    variants={cardVariant}
+                                    whileHover={{ scale: 1.05 }}
+                                >
 
-                                    <img
+                                    {/* IMAGE */}
+                                    <motion.img
                                         src={project.image}
                                         alt={project.title}
                                         className="project-image"
+                                        initial={{ scale: 1.2, opacity: 0 }}
+                                        whileInView={{ scale: 1, opacity: 1 }}
+                                        transition={{ duration: 0.6 }}
                                     />
 
                                     <div className="project-overlay">
+
                                         <div className="main_card_body">
-                                            <h3 className="project-title">{project.title}</h3>
 
-                                            <span className="project-category">
+                                            {/* TITLE */}
+                                            <motion.h3
+                                                className="project-title"
+                                                variants={textVariant}
+                                            >
+                                                {project.title}
+                                            </motion.h3>
+
+                                            {/* DESCRIPTION */}
+                                            <motion.span
+                                                className="project-category"
+                                                variants={textVariant}
+                                            >
                                                 {project.description}
-                                            </span>
+                                            </motion.span>
 
-                                            <div className="project-tech">
+                                            {/* TECH STACK (snake-like stagger effect) */}
+                                            <motion.div
+                                                className="project-tech"
+                                                variants={staggerContainer}
+                                            >
                                                 {project.tech.map((item, index) => (
-                                                    <span key={index}>{item}</span>
+                                                    <motion.span
+                                                        key={index}
+                                                        variants={textVariant}
+                                                        whileHover={{
+                                                            y: -5,
+                                                            scale: 1.1
+                                                        }}
+                                                    >
+                                                        {item}
+                                                    </motion.span>
                                                 ))}
-                                            </div>
+                                            </motion.div>
                                         </div>
 
-                                        <div className="project-buttons">
-                                            <a
-                                                href={project.github}
-                                                target="_blank"
-                                                rel="noreferrer"
-                                                className="project-btn github_button"
-                                            >
+                                        {/* BUTTONS */}
+                                        <motion.div
+                                            className="project-buttons"
+                                            initial={{ opacity: 0, y: 20 }}
+                                            whileInView={{ opacity: 1, y: 0 }}
+                                            transition={{ delay: 0.3 }}
+                                        >
+                                            <a href={project.github} target="_blank" className="project-btn github_button">
                                                 <FaGithub size={18} />
                                                 GitHub
                                             </a>
 
-                                            <a
-                                                href={project.live}
-                                                target="_blank"
-                                                rel="noreferrer"
-                                                className="project-btn primary"
-                                            >
+                                            <a href={project.live} target="_blank" className="project-btn primary">
                                                 <HiOutlineExternalLink size={18} />
                                                 Live Demo
                                             </a>
-                                        </div>
-                                    </div>
+                                        </motion.div>
 
-                                </div>
+                                    </div>
+                                </motion.div>
                             </div>
                         ))}
-                    </div>
+                    </motion.div>
                 </div>
             </div>
 
 
 
             {/* My Form */}
-            <div className="section-header text-center mb-5 mt-5">
-                <span className="why-label">START A PROJECT</span>
+            <motion.div
+                className="section-header text-center mb-5 mt-5"
+                variants={headerVariant}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, amount: 0.3 }}
+            >
+                <motion.span className="why-label" variants={textVariant}>
+                    START A PROJECT
+                </motion.span>
 
-                <h2 className="why-title">
-                    LET'S BUILD  <span>SOMETHING AMAZING</span>
-                </h2>
+                <motion.h2 className="why-title" variants={textVariant}>
+                    LET'S BUILD <span>SOMETHING AMAZING</span>
+                </motion.h2>
 
-                <p className="why-description">
+                <motion.p className="why-description" variants={textVariant}>
                     Have a project in mind? Share your requirements and I'll get back to you with the best solution tailored to your goals.
-                </p>
-
-
-
-            </div>
-
-            <form className="project-inquiry-form mb-5" onSubmit={handleSubmit}>
+                </motion.p>
+            </motion.div>
+            <motion.form
+                className="project-inquiry-form mb-5"
+                onSubmit={handleSubmit}
+                variants={formVariant}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, amount: 0.3 }}
+            >
 
                 <div className="row g-4">
 
@@ -250,7 +328,6 @@ function Projects() {
                                 }}
                                 required
                                 placeholder="Enter your full name"
-
                             />
                         </div>
                     </div>
@@ -273,13 +350,15 @@ function Projects() {
                             />
                         </div>
                     </div>
+
                     <div className="col-lg-4">
-                        <label className="form-label">Email Address</label>
+                        <label className="form-label">Phone</label>
 
                         <div className="input-group custom-input">
                             <span className="input-group-text">
                                 <Phone size={18} />
                             </span>
+
                             <input
                                 type="tel"
                                 className="form-control"
@@ -294,7 +373,6 @@ function Projects() {
                         </div>
                     </div>
 
-
                     <div className="col-12">
                         <label>
                             <FaRegCommentDots size={16} style={{ marginRight: "6px" }} />
@@ -306,24 +384,34 @@ function Projects() {
                             name="message"
                             value={formData.message}
                             onChange={handleChange}
-                            placeholder="Tell me about your project, features, goals, preferred technologies, or any other requirements..."
+                            placeholder="Tell me about your project..."
                             required
                         ></textarea>
                     </div>
 
                     <div className="col-12 text-center">
-
-                        <button className="send-btn">
-                            <FaPaperPlane size={16} style={{ marginRight: "8px" }} />
-                            Send Project Inquiry
+                        <button
+                            className="send-btn"
+                            type="submit"
+                            disabled={loading}
+                        >
+                            {loading ? (
+                                <>
+                                    <span className="spinner"></span>
+                                    Sending...
+                                </>
+                            ) : (
+                                <>
+                                    <FaPaperPlane size={16} style={{ marginRight: "8px" }} />
+                                    Send Project Inquiry
+                                </>
+                            )}
                         </button>
-
                     </div>
 
                 </div>
 
-            </form>
-
+            </motion.form>
             <Footer2 />
 
         </>
