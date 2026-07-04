@@ -14,6 +14,7 @@ import ScrollToTop from "../hooks/ScrollToTop";
 import { Toaster } from "react-hot-toast";
 import Services from "../components/services/Services";
 import AdminLogin from "../components/adminlogin/AdminLogin";
+import { Navigate } from "react-router-dom";
 
 function AppRoutes() {
   return (
@@ -27,6 +28,7 @@ function AppRoutes() {
         }}
       />
       <Routes>
+        <Route path="*" element={<Navigate to="/" replace />} />
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/gallery" element={<Gallery />} />

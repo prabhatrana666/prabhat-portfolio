@@ -672,29 +672,29 @@ ${formData.message}
                                     </p>
 
                                 </div>
-
-                                <div className="service-stat-card">
-
-                                    <h3>
-
-                                        Modern
-
-                                    </h3>
-
-                                    <p>
-
-                                        UI & UX Standards
-
-                                    </p>
-
-                                </div>
-
-                                <div className="service-stat-card">
+ <div className="service-stat-card">
 
                                     <h3>Pixel Perfect</h3>
                                     <p>Modern UI & UX Design</p>
 
                                 </div>
+                                <div className="service-stat-card">
+
+                                    <h3>
+
+                                        SEO
+
+                                    </h3>
+
+                                    <p>
+
+                                        SEO Optimized Website
+
+                                    </p>
+
+                                </div>
+
+                               
 
                             </div>
                             <div className="hero-highlights mt-4">

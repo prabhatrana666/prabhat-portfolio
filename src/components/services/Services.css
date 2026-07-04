@@ -383,7 +383,21 @@
     .services-hero {
 
         padding: 55px 0;
+        margin-top: -72px;
 
+    }
+
+    .services-subtitle {
+        font-size: 20px;
+      padding: 8px 46px;
+    }
+
+    .service-stat-card h3 {
+        font-size: 2rem;
+    }
+
+    .why-card {
+        padding: 16px 9px !important;
     }
 
     .services-title {

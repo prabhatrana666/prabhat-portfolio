@@ -207,8 +207,8 @@ const Footer2 = () => {
                     </p>
 
                     <button
-                        className="btn btn-primary rounded-circle position-absolute top-50 start-50 translate-middle"
-                        style={{ background: 'var(--primary)', height: '3em' }}
+                        className="btn btn-primary rounded-circle position-absolute top-50 start-50 translate-middle bottom_button"
+                        style={{ background: 'var(--primary)', height: '3em',width:'4%',padding: '0px' }}
                         onClick={() =>
                             window.scrollTo({
                                 top: 0,

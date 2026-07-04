@@ -13,7 +13,7 @@
 =========================== */
 
 .footer-logo {
-       height: 4em;
+    height: 4em;
     width: auto;
     background: white;
     border-radius: 50%;
@@ -317,7 +317,8 @@
         text-align: center;
 
     }
-    .foot_mob{
+
+    .foot_mob {
         text-align: left !important;
     }
 
@@ -361,6 +362,12 @@
 
         padding: 60px 0 20px;
 
+    }
+
+    .bottom_button {
+        width: 18% !important;
+        height: 80% !important;
+        padding: 0 !important;
     }
 
     .footer-logo {

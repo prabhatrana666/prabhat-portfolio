@@ -78,10 +78,10 @@
         border-radius: 22px;
         border: 1px solid var(--primary);
         height: 19em;
+        margin-left: auto;
+        transition: all .35s;
         margin-bottom: 1em !important;
-        transition: 0.35s ease;
-        margin-left: 3em;
-        width: 17em;
+        margin-right: auto;
     }
 }
 

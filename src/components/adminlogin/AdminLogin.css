@@ -2,6 +2,7 @@
     min-height: 100vh;
     display: flex;
     align-items: center;
+    margin-top: -80px !important;
     background: #fff;
 }
 
@@ -109,7 +110,7 @@
 }
 
 .login-title {
-    margin-top: 25px;
+    margin-top: 10px;
     font-weight: 700;
 }
 
@@ -123,7 +124,7 @@
     border-radius: 15px;
     background: #2a3347;
     color: #ffd166;
-    font-size: .95rem;
+    font-size: .85rem;
 }
 
 .custom-input {
@@ -189,11 +190,14 @@
         font-size: 34px;
     }
 
+    .admin-login-section {
+        padding: 0 !important;
+    }
+
 }
-@media(max-width:991px) {
 
-  .admin-login-section{
-    padding: 0 !important;
-  }
-
+@media(max-width:768px) {
+    .admin-login-section{
+            margin-top: -30px !important;
+    }
 }

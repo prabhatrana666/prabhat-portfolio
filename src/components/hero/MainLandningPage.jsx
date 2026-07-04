@@ -2,16 +2,18 @@ import { Typewriter } from "react-simple-typewriter";
 import "./MainLandingPage.css"
 import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Pagination, EffectCoverflow } from "swiper/modules";
+import { Autoplay, Pagination, Navigation, EffectCoverflow } from "swiper/modules";
 import { FaGithub } from "react-icons/fa6"; import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { HiOutlineExternalLink } from "react-icons/hi";
 import AllProjectsData from '../../data/AllProjectsData'
-
+import { useNavigate, Link } from "react-router-dom";
 function MainLandingPage() {
-  
-// console.log(AllProjectsData)
+
+    // console.log(AllProjectsData)
+    const navigate = useNavigate();
     return (
         <>
             <section className="hero-section py-5">
@@ -23,7 +25,7 @@ function MainLandingPage() {
                         <div className="col-lg-6">
                             <div className="hero-left">
 
-                                <p className="hero-tag">👋 Hello, I'm</p>
+                                <p className="hero-tag"> Hello, I'm</p>
 
                                 <h1 className="hero-title">
                                     Prabhat Rana
@@ -32,9 +34,9 @@ function MainLandingPage() {
                                 <h2 className="hero-role">
                                     <Typewriter
                                         words={[
-                                            "Full Stack Developer",
                                             "React Developer",
                                             "Frontend Developer",
+                                            "Full Stack Developer",
                                             "MERN Stack Developer",
                                         ]}
                                         loop={0}
@@ -53,14 +55,29 @@ function MainLandingPage() {
                                     and exceptional user experiences.
                                 </p>
 
-                                <div className="hero-buttons">
-                                    <button className="btn btn-primary">
-                                        Hire Me
+                                {/* <div className="hero-buttons">
+                                    <button className="btn btn-primary"
+                                    onClick={() => navigate("/contact")}>
+                                        Contact Me
                                     </button>
 
-                                    <button className="btn btn-outline-primary ms-3">
+                                    <button
+                                        className="btn btn-outline-primary ms-3 view_projects"
+                                        onClick={() => navigate("/projects")}
+                                    >
                                         View Projects
                                     </button>
+                                </div> */}
+
+                                <div className="hero-buttons">
+                                    <Link to="/contact" className="btn btn-primary">
+                                        Contact Me
+                                    </Link>
+                                    <Link to="/projects" className="btn btn-primary view_projects">
+                                        View Projects
+                                    </Link>
+
+                              
                                 </div>
 
                             </div>
@@ -77,17 +94,22 @@ function MainLandingPage() {
                             >
 
                                 <Swiper
-                                    modules={[Autoplay, Pagination, EffectCoverflow]}
+                                    modules={[Pagination, Navigation, EffectCoverflow]}
+                                    navigation={{
+                                        nextEl: ".hero-next",
+                                        prevEl: ".hero-prev",
+                                    }}
                                     effect="coverflow"
                                     grabCursor
                                     centeredSlides
                                     slidesPerView={"auto"}
                                     loop
                                     speed={900}
-                                    autoplay={{
-                                        delay: 3000,
-                                        disableOnInteraction: false,
-                                    }}
+                                    autoplay={false}
+                                    // autoplay={{
+                                    //     delay: 3000,
+                                    //     disableOnInteraction: false,
+                                    // }}
                                     pagination={{
                                         clickable: true,
                                     }}
@@ -108,26 +130,93 @@ function MainLandingPage() {
                                             key={project.id}
                                             className="hero-project-slide"
                                         >
-                                            <div
-                                                style={{
-                                                    height: "450px",
-                                                    background: "#524caf",
-                                                    color: "#fff",
-                                                    display: "flex",
-                                                    alignItems: "center",
-                                                    justifyContent: "center",
-                                                    borderRadius: "20px"
-                                                }}
-                                            >
-                                                {project.title}
+
+                                            <div className="project-card">
+
+
+
+                                                <img
+                                                    src={project.image}
+                                                    alt={project.title}
+                                                    className="project-image"
+                                                />
+
+
+
+                                                <div className="project-overlay">
+
+                                                  
+
+                                                    <h3 className="project-title">
+                                                        {project.title}
+                                                    </h3>
+  <span className="project-category">
+                                                        {project.description}
+                                                    </span>
+                                                    <div className="project-tech">
+
+                                                        {project.tech.map((item, index) => (
+
+                                                            <span key={index}>
+                                                                {item}
+                                                            </span>
+
+                                                        ))}
+
+                                                    </div>
+
+                                                    <div className="project-buttons">
+
+                                                        <a
+                                                            href={project.github}
+                                                            target="_blank"
+                                                            rel="noreferrer"
+                                                            className="project-btn"
+                                                        >
+
+                                                            <FaGithub size={18} />
+
+                                                            GitHub
+
+                                                        </a>
+
+                                                        <a
+                                                            href={project.live}
+                                                            target="_blank"
+                                                            rel="noreferrer"
+                                                            className="project-btn primary"
+                                                        >
+
+                                                            <HiOutlineExternalLink size={18} />
+
+                                                            Live Demo
+
+                                                        </a>
+
+                                                    </div>
+
+                                                </div>
+
                                             </div>
 
+
                                         </SwiperSlide>
+
 
                                     ))}
 
                                 </Swiper>
+                                <div className="hero-navigation">
 
+                                    <button className="hero-prev">
+                                        <ChevronLeft size={22} />
+                                    </button>
+
+                                    <button className="hero-next">
+                                        <ChevronRight size={22} />
+                                    </button>
+
+                                </div>
                             </motion.div>
 
                         </div>
