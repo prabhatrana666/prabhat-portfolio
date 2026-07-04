@@ -38,7 +38,7 @@ export const TestimonialData = [
         images: vicky,
     },
     {
-        name: "SANA KHAN",
+        name: "PRIYANSHU YADAV",
         city: "KHALILABAD",
         initial: "S",
         review:
