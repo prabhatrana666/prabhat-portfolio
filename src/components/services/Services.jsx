@@ -39,6 +39,8 @@ import {
     BriefcaseBusiness,
     IndianRupee
 } from "lucide-react";
+import Swal from "sweetalert2";
+import logo from '../../../public/logo.png'
 import {
     MonitorSmartphone,
     Gauge,
@@ -46,30 +48,62 @@ import {
 } from "lucide-react";
 import toast from "react-hot-toast";
 import upi from "../../assets/upi.png"
+import { useNavigate } from "react-router-dom";
 
 function Services() {
+    const navigate = useNavigate();
     const [loading, setLoading] = useState(false);
+
+    const processSteps = [
+        { title: "Discover", desc: "Understand project goals.", icon: <Lightbulb size={36} /> },
+        { title: "Planning", desc: "Create roadmap.", icon: <ClipboardList size={36} /> },
+        { title: "UI Design", desc: "Modern interface.", icon: <PencilRuler size={36} /> },
+        { title: "Development", desc: "Clean architecture.", icon: <Code2 size={36} /> },
+        { title: "Testing", desc: "Quality assurance.", icon: <Bug size={36} /> },
+        { title: "Launch", desc: "Production deployment.", icon: <RocketIcon size={36} /> },
+    ];
     const container = {
         hidden: {},
         show: {
             transition: {
-                staggerChildren: 0.15,
+                staggerChildren: 0.25,   // slower stagger
+                delayChildren: 0.2       // wait before starting
             },
         },
+    };
+    const card = {
+        hidden: {
+            opacity: 0,
+            scale: 1.15,   // starts zoomed IN
+            y: 20
+        },
+        show: {
+            opacity: 1,
+            scale: 1,      // zooms OUT to normal
+            y: 0,
+            transition: {
+                duration: 0.9,
+                ease: [0.25, 1, 0.36, 1], // very smooth professional curve
+            }
+        }
     };
     const fadeUp = {
         hidden: {
             opacity: 0,
-            y: 60,
+            y: 80
         },
         show: {
             opacity: 1,
             y: 0,
             transition: {
                 duration: 1,
-                ease: "easeOut",
-            },
-        },
+                ease: [0.22, 1, 0.36, 1]
+            }
+        }
+    };
+    const item = {
+        hidden: { opacity: 0, y: 30 },
+        show: { opacity: 1, y: 0 }
     };
     const fadeLeft = {
         hidden: {
@@ -206,9 +240,16 @@ ${formData.message}
 
             await sendToTelegram();
 
-            toast.success(
-                "Thank you! Your inquiry has been sent successfully."
-            );
+            // toast.success(
+            //     "Thank you! Your inquiry has been sent successfully."
+            // );
+
+            Swal.fire({
+                icon: "success",
+                title: "Thank you!",
+                text: "Your inquiry has been sent successfully.",
+                confirmButtonColor: "#524caf"
+            });
 
             setFormData({
                 name: "",
@@ -222,9 +263,12 @@ ${formData.message}
 
         } catch (err) {
 
-            toast.error(
-                "Failed to send inquiry. Please try again."
-            );
+            Swal.fire({
+                icon: "error",
+                title: "Oops!",
+                text: "Failed to send inquiry. Please try again.",
+                confirmButtonColor: "#524caf"
+            });
 
         } finally {
 
@@ -241,9 +285,14 @@ ${formData.message}
 
                     {/* Hero */}
 
-                    <div className="row align-items-center services-hero">
-
-                        <div className="col-lg-6">
+                    <motion.section
+                        className="row align-items-center services-hero"
+                        variants={container}
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={{ once: true, amount: 0.2 }}
+                    >
+                        <motion.div className="col-lg-6" variants={item}>
 
                             <span className="services-subtitle">
                                 WHAT I OFFER
@@ -251,7 +300,7 @@ ${formData.message}
 
                             <h2 className="services-title mt-3">
                                 Modern Web Solutions
-                                <span> Tailored For Your Business</span>
+                                Tailored For     <span className="your_business"> Your Business</span>
                             </h2>
 
                             <p className="services-description mt-4">
@@ -266,61 +315,329 @@ ${formData.message}
 
                             <div className="services-hero-buttons mt-4">
 
-                                <button className="btn service-btn-primary">
-
+                                <button
+                                    className="btn service-btn-primary"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#enquiryModal"
+                                >
                                     Get Started
-
                                     <ArrowRight size={18} />
-
                                 </button>
+                                {/* Enquiry Modal */}
+                                <div
+                                    className="modal fade"
+                                    id="enquiryModal"
+                                    tabIndex="-1"
+                                    aria-labelledby="enquiryModalLabel"
+                                    aria-hidden="true"
+                                >
+                                    <div className="modal-dialog modal-lg modal-dialog-centered">
+                                        <div className="modal-content enquiry-modal">
 
-                                <button className="btn service-btn-outline">
+                                            {/* Header */}
+                                            <div className="modal-header border-0 pb-0">
+                                                <div className="w-100 text-center">
 
+                                                    <img
+                                                        src={logo}
+                                                        alt="Rahul"
+                                                        className="enquiry-profile"
+                                                    />
+
+                                                    <h2 className="mt-3 fw-bold">
+                                                        Let's Discuss Your Project
+                                                    </h2>
+
+                                                    <p className="text-muted">
+                                                        Fill in your project details and I'll get back to you
+                                                        within 24-48 hours.
+                                                    </p>
+
+                                                </div>
+
+                                                <button
+                                                    type="button"
+                                                    className="btn-close"
+                                                    data-bs-dismiss="modal"
+                                                    aria-label="Close"
+                                                ></button>
+                                            </div>
+
+                                            <form onSubmit={handleSubmit}>
+                                                <div className="modal-body">
+
+                                                    <div className="row g-4">
+
+                                                        {/* Name */}
+                                                        <div className="col-6 col-md-6 enquiry_form_mains">
+                                                            <label className="form-label">
+                                                                Full Name
+                                                            </label>
+
+                                                            <input
+                                                                type="text"
+                                                                name="name"
+                                                                value={formData.name}
+                                                                onChange={handleChange}
+                                                                className="form-control"
+                                                                placeholder="Enter your full name"
+                                                                required
+                                                            />
+                                                        </div>
+
+                                                        {/* Email */}
+                                                        <div className="col-6 col-md-6 enquiry_form_mains">
+                                                            <label className="form-label">
+                                                                Email Address
+                                                            </label>
+
+                                                            <input
+                                                                type="email"
+                                                                name="email"
+                                                                value={formData.email}
+                                                                onChange={handleChange}
+                                                                className="form-control"
+                                                                placeholder="Enter your email"
+                                                                required
+                                                            />
+                                                        </div>
+
+                                                        {/* Mobile */}
+                                                        <div className="col-6 col-md-6 enquiry_form_mains">
+                                                            <label className="form-label">
+                                                                Mobile Number
+                                                            </label>
+
+                                                            <input
+                                                                type="tel"
+                                                                name="mobile"
+                                                                value={formData.mobile}
+                                                                placeholder="Enter your mobile"
+                                                                onChange={(e) => {
+
+                                                                    const value = e.target.value
+                                                                        .replace(/\D/g, "")
+                                                                        .slice(0, 10);
+
+                                                                    setFormData({
+                                                                        ...formData,
+                                                                        mobile: value,
+                                                                    });
+
+                                                                }}
+                                                                className="form-control"
+                                                                placeholder="+91 XXXXX XXXXX"
+                                                                required
+                                                            />
+                                                        </div>
+
+                                                        {/* Service */}
+                                                        <div className="col-6 col-md-6 enquiry_form_mains">
+                                                            <label className="form-label">
+                                                                Required Service
+                                                            </label>
+
+                                                            <select className="form-select"
+                                                                name="service"
+                                                                value={formData.service}
+                                                                onChange={handleChange} required>
+                                                                <option value="">
+                                                                    Select Service
+                                                                </option>
+
+                                                                <option>
+                                                                    Frontend Development
+                                                                </option>
+
+                                                                <option>
+                                                                    Website Development
+                                                                </option>
+
+                                                                <option>
+                                                                    Full Stack Development
+                                                                </option>
+
+                                                                <option>
+                                                                    Progressive Web App
+                                                                </option>
+
+                                                                <option>
+                                                                    Performance Optimization
+                                                                </option>
+
+                                                                <option>
+                                                                    Authentication & Security
+                                                                </option>
+
+                                                                <option>
+                                                                    API Development
+                                                                </option>
+
+                                                                <option>
+                                                                    UI / UX Development
+                                                                </option>
+
+                                                                <option>
+                                                                    Other
+                                                                </option>
+
+                                                            </select>
+                                                        </div>
+
+                                                        {/* Budget */}
+                                                        <div className="col-6 col-md-6 enquiry_form_mains">
+                                                            <label className="form-label">
+                                                                Project Budget
+                                                            </label>
+
+                                                            <select className="form-select"
+                                                                name="budget"
+                                                                value={formData.budget}
+                                                                onChange={handleChange}
+                                                                required>
+
+                                                                <option value="">
+                                                                    Select Budget
+                                                                </option>
+
+                                                                <option>
+                                                                    Below ₹25,000
+                                                                </option>
+
+                                                                <option>
+                                                                    ₹25,000 - ₹50,000
+                                                                </option>
+
+                                                                <option>
+                                                                    ₹50,000 - ₹1,00,000
+                                                                </option>
+
+                                                                <option>
+                                                                    ₹1,00,000 - ₹3,00,000
+                                                                </option>
+
+                                                                <option>
+                                                                    Above ₹3,00,000
+                                                                </option>
+
+                                                                <option>
+                                                                    Not Sure
+                                                                </option>
+
+                                                            </select>
+                                                        </div>
+
+                                                        {/* Timeline */}
+                                                        <div className="col-6 col-md-6 enquiry_form_mains">
+                                                            <label className="form-label">
+                                                                Project Timeline
+                                                            </label>
+
+                                                            <select className="form-select"
+                                                                name="timeline"
+                                                                value={formData.timeline}
+                                                                onChange={handleChange}
+                                                                required>
+
+                                                                <option value="">
+                                                                    Select Timeline
+                                                                </option>
+
+                                                                <option>
+                                                                    Urgent (Within 1 Week)
+                                                                </option>
+
+                                                                <option>
+                                                                    2 - 4 Weeks
+                                                                </option>
+
+                                                                <option>
+                                                                    1 - 2 Months
+                                                                </option>
+
+                                                                <option>
+                                                                    2 - 3 Months
+                                                                </option>
+
+                                                                <option>
+                                                                    Flexible
+                                                                </option>
+
+                                                            </select>
+                                                        </div>
+
+                                                        {/* Remarks */}
+                                                        <div className="col-12 enquiry_form_mains">
+
+                                                            <label className="form-label">
+                                                                Project Requirements
+                                                            </label>
+
+                                                            <textarea
+                                                                rows="5"
+                                                                name="message"
+                                                                value={formData.message}
+                                                                onChange={handleChange}
+                                                                className="form-control"
+                                                                placeholder="Tell me about your project..."
+                                                                required
+                                                            ></textarea>
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+
+                                                <div className="modal-footer border-0">
+
+                                                    <button
+                                                        type="button"
+                                                        className="btn btn-light"
+                                                        data-bs-dismiss="modal"
+                                                    >
+                                                        Cancel
+                                                    </button>
+
+                                                    {/* <button
+                                                        type="submit"
+                                                        className="btn enquiry-submit-btn"
+                                                    >
+                                                        Submit Enquiry
+                                                    </button> */}
+                                                    <button
+                                                        className="btn enquiry-submit-btn"
+                                                        disabled={loading}
+                                                    >
+
+                                                        <Send size={18} className="me-2" />
+
+                                                        {loading
+                                                            ? "Sending..."
+                                                            : "Request Free Consultation"}
+
+                                                    </button>
+
+                                                </div>
+                                            </form>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <button
+                                    className="btn service-btn-outline"
+                                    onClick={() => navigate("/project")}
+                                >
                                     View Projects
-
                                 </button>
 
                             </div>
 
-                            <div className="hero-highlights mt-5">
 
-                                <div>
 
-                                    <CheckCircle2 size={18} />
+                        </motion.div>
 
-                                    Responsive Design
-
-                                </div>
-
-                                <div>
-
-                                    <CheckCircle2 size={18} />
-
-                                    SEO Friendly
-
-                                </div>
-
-                                <div>
-
-                                    <CheckCircle2 size={18} />
-
-                                    Secure Development
-
-                                </div>
-
-                                <div>
-
-                                    <CheckCircle2 size={18} />
-
-                                    Fast Performance
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <div className="col-lg-6 mt-5 mt-lg-0">
+                        <motion.div className="col-lg-6 mt-lg-0" variants={item}>
 
                             <div className="hero-service-box">
 
@@ -374,31 +691,62 @@ ${formData.message}
 
                                 <div className="service-stat-card">
 
-                                    <h3>
+                                    <h3>Pixel Perfect</h3>
+                                    <p>Modern UI & UX Design</p>
 
-                                        Secure
+                                </div>
 
-                                    </h3>
+                            </div>
+                            <div className="hero-highlights mt-4">
 
-                                    <p>
+                                <div>
 
-                                        Authentication Systems
+                                    <CheckCircle2 size={18} />
 
-                                    </p>
+                                    Responsive Design
+
+                                </div>
+
+                                <div>
+
+                                    <CheckCircle2 size={18} />
+
+                                    SEO Friendly
+
+                                </div>
+
+                                <div>
+
+                                    <CheckCircle2 size={18} />
+
+                                    Secure Development
+
+                                </div>
+
+                                <div>
+
+                                    <CheckCircle2 size={18} />
+
+                                    Fast Performance
 
                                 </div>
 
                             </div>
 
-                        </div>
-
-                    </div>
-
-
+                        </motion.div>
+                    </motion.section>
 
                     {/* Services */}
 
-                    <div className="text-center mt-5 mb-5">
+
+                    <motion.div
+                        className="text-center mt-5 mb-5 professional_service"
+                        variants={fadeUp}
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={{ once: true, amount: 0.3 }}
+                    >
+
 
                         <p className="services-small-title">
 
@@ -407,18 +755,21 @@ ${formData.message}
                         </p>
 
                         <h2 className="services-heading">
-                            What I Can <span>Build</span> For You
+                            What I Can Build <span class="your_business">For You</span>
                         </h2>
 
-                    </div>
+                    </motion.div>
 
-
-
-                    <div className="row g-4">
-
+                    <motion.div
+                        className="row g-4"
+                        variants={fadeUp}
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={{ once: true, amount: 0.25 }}
+                    >
                         {/* Card */}
 
-                        <div className="col-lg-4 col-md-6">
+                        <div className="col-lg-4 col-md-6" variants={card}>
 
                             <div className="service-card">
 
@@ -461,7 +812,7 @@ ${formData.message}
 
                         {/* Card */}
 
-                        <div className="col-lg-4 col-md-6">
+                        <div className="col-lg-4 col-md-6" variants={card}>
 
                             <div className="service-card">
 
@@ -479,8 +830,8 @@ ${formData.message}
 
                                 <p>
 
-                                    Complete business websites, landing pages,
-                                    portfolios and custom responsive solutions.
+                                    Complete business websites, landing pages, portfolios and custom responsive solutions.
+                                    Focused on performance and modern UI/UX.
 
                                 </p>
 
@@ -504,7 +855,7 @@ ${formData.message}
 
                         {/* Card */}
 
-                        <div className="col-lg-4 col-md-6">
+                        <div className="col-lg-4 col-md-6" variants={card}>
 
                             <div className="service-card">
 
@@ -547,7 +898,7 @@ ${formData.message}
 
                         {/* Card */}
 
-                        <div className="col-lg-4 col-md-6">
+                        <div className="col-lg-4 col-md-6" variants={card}>
 
                             <div className="service-card">
 
@@ -590,7 +941,7 @@ ${formData.message}
 
                         {/* Card */}
 
-                        <div className="col-lg-4 col-md-6">
+                        <div className="col-lg-4 col-md-6" variants={card}>
 
                             <div className="service-card">
 
@@ -633,7 +984,7 @@ ${formData.message}
 
                         {/* Card */}
 
-                        <div className="col-lg-4 col-md-6">
+                        <div className="col-lg-4 col-md-6" variants={card}>
 
                             <div className="service-card">
 
@@ -672,7 +1023,8 @@ ${formData.message}
 
                         </div>
 
-                    </div>
+
+                    </motion.div>
 
                 </div>
 
@@ -680,18 +1032,22 @@ ${formData.message}
 
             {/* ================= WHY CHOOSE ME ================= */}
 
-            <section className="why-section py-5">
+            <section className="why-section py-5 why-section_service" style={{ backgroundColor: 'white' }}>
 
                 <div className="container">
+                    <motion.div className="text-center mb-5"
+                        variants={fadeUp}
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={{ once: true, amount: 0.3 }}>
 
-                    <div className="text-center mb-5">
 
                         <p className="services-small-title">
                             WHY CHOOSE ME
                         </p>
 
-                        <h2 className="services-heading">
-                            More Than Just Development
+                        <h2 className="services-heading ms-2">
+                            More Than <span className="your_business">Just Development</span>
                         </h2>
 
                         <p className="services-description mx-auto">
@@ -702,11 +1058,11 @@ ${formData.message}
 
                         </p>
 
-                    </div>
+                    </motion.div>
 
                     <div className="row g-4">
 
-                        <div className="col-lg-3 col-md-6">
+                        <div className="col-6 col-lg-3 col-md-6">
 
                             <div className="why-card">
 
@@ -726,7 +1082,7 @@ ${formData.message}
 
                         </div>
 
-                        <div className="col-lg-3 col-md-6">
+                        <div className="col-6 col-lg-3 col-md-6">
 
                             <div className="why-card">
 
@@ -746,7 +1102,7 @@ ${formData.message}
 
                         </div>
 
-                        <div className="col-lg-3 col-md-6">
+                        <div className="col-6 col-lg-3 col-md-6">
 
                             <div className="why-card">
 
@@ -766,7 +1122,7 @@ ${formData.message}
 
                         </div>
 
-                        <div className="col-lg-3 col-md-6">
+                        <div className="col-6 col-lg-3 col-md-6">
 
                             <div className="why-card">
 
@@ -799,144 +1155,42 @@ ${formData.message}
 
                 <div className="container">
 
-                    <div className="text-center mb-5">
-
+                    <motion.div className="text-center mb-5"
+                        variants={fadeUp}
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={{ once: true, amount: 0.3 }}>
                         <p className="services-small-title">
 
                             DEVELOPMENT PROCESS
 
                         </p>
 
-                        <h2 className="services-heading">
+                        <h2 className="services-heading ms-2">
 
-                            From Idea To Deployment
+                            From Idea To <span className="your_business">Deployment</span>
 
                         </h2>
+                    </motion.div>
 
-                    </div>
 
                     <div className="row g-4">
+                        {processSteps.map((item, index) => (
+                            <div className="col-lg-2 col-md-4 col-6" key={index}>
+                                <div className="process-card">
 
-                        <div className="col-lg-2 col-md-4 col-6">
+                                    {/* Number Badge (JS CONTROLLED) */}
+                                    <div className="process-number">
+                                        {index + 1}
+                                    </div>
 
-                            <div className="process-card">
+                                    {item.icon}
 
-                                <Lightbulb size={36} />
-
-                                <h6>
-                                    Discover
-                                </h6>
-
-                                <p>
-
-                                    Understand project goals.
-
-                                </p>
-
+                                    <h6>{item.title}</h6>
+                                    <p>{item.desc}</p>
+                                </div>
                             </div>
-
-                        </div>
-
-                        <div className="col-lg-2 col-md-4 col-6">
-
-                            <div className="process-card">
-
-                                <ClipboardList size={36} />
-
-                                <h6>
-                                    Planning
-                                </h6>
-
-                                <p>
-
-                                    Create roadmap.
-
-                                </p>
-
-                            </div>
-
-                        </div>
-
-                        <div className="col-lg-2 col-md-4 col-6">
-
-                            <div className="process-card">
-
-                                <PencilRuler size={36} />
-
-                                <h6>
-                                    UI Design
-                                </h6>
-
-                                <p>
-
-                                    Modern interface.
-
-                                </p>
-
-                            </div>
-
-                        </div>
-
-                        <div className="col-lg-2 col-md-4 col-6">
-
-                            <div className="process-card">
-
-                                <Code2 size={36} />
-
-                                <h6>
-                                    Development
-                                </h6>
-
-                                <p>
-
-                                    Clean architecture.
-
-                                </p>
-
-                            </div>
-
-                        </div>
-
-                        <div className="col-lg-2 col-md-4 col-6">
-
-                            <div className="process-card">
-
-                                <Bug size={36} />
-
-                                <h6>
-                                    Testing
-                                </h6>
-
-                                <p>
-
-                                    Quality assurance.
-
-                                </p>
-
-                            </div>
-
-                        </div>
-
-                        <div className="col-lg-2 col-md-4 col-6">
-
-                            <div className="process-card">
-
-                                <RocketIcon size={36} />
-
-                                <h6>
-                                    Launch
-                                </h6>
-
-                                <p>
-
-                                    Production deployment.
-
-                                </p>
-
-                            </div>
-
-                        </div>
-
+                        ))}
                     </div>
 
                 </div>
@@ -950,17 +1204,20 @@ ${formData.message}
 
                 <div className="container">
 
-                    <div className="text-center mb-5">
-
+                    <motion.div className="text-center mb-4"
+                        variants={fadeUp}
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={{ once: true, amount: 0.3 }}>
                         <p className="services-small-title">
 
                             TECHNOLOGY STACK
 
                         </p>
 
-                        <h2 className="services-heading">
+                        <h2 className="services-heading ms-2">
 
-                            Modern Technologies I Work With
+                            Modern Technologies <span className="your_business">I Work With</span>
 
                         </h2>
 
@@ -970,8 +1227,8 @@ ${formData.message}
                             maintainable and high-performance applications.
 
                         </p>
+                    </motion.div>
 
-                    </div>
 
                     <div className="row">
 
@@ -991,17 +1248,25 @@ ${formData.message}
 
                                     <span><Globe size={16} /> CSS3</span>
 
-                                    <span><Cpu size={16} /> JavaScript</span>
+                                    <span><Cpu size={16} /> JavaScript (ES6+)</span>
 
-                                    <span><Layers3 size={16} /> React</span>
+                                    <span><Layers3 size={16} /> React.js</span>
 
                                     <span><Workflow size={16} /> Redux Toolkit</span>
 
-                                    <span><Smartphone size={16} /> Bootstrap</span>
+                                    <span><Smartphone size={16} /> Bootstrap 5</span>
 
                                     <span><CheckCircle2 size={16} /> Framer Motion</span>
 
-                                    <span><GitBranch size={16} /> Git</span>
+                                    <span><GitBranch size={16} /> Git & GitHub</span>
+
+                                    <span><Globe size={16} /> Responsive Design</span>
+
+                                    <span><Globe size={16} /> PWA Basics</span>
+
+                                    <span><Globe size={16} /> API Integration</span>
+
+                                    <span><Globe size={16} /> Performance Optimization</span>
 
                                 </div>
 
@@ -1036,7 +1301,7 @@ ${formData.message}
                                     <span><Workflow size={16} /> REST API</span>
 
                                     <span><CheckCircle2 size={16} /> Bcrypt</span>
-
+                                    <span><Database size={16} /> Firebase (Auth + Firestore)</span>
                                 </div>
 
                             </div>
@@ -1102,9 +1367,9 @@ ${formData.message}
 
                             </p>
 
-                            <h2 className="services-heading">
+                            <h2 className="services-heading ms-2">
 
-                                Request A <span>Free Consultation</span>
+                                Request A <span className="your_business">Free Consultation</span>
 
                             </h2>
 
@@ -1283,6 +1548,7 @@ ${formData.message}
                                                         value={formData.email}
                                                         onChange={handleChange}
                                                         className="form-control"
+                                                        placeholder="Enter your email"
                                                     />
 
                                                 </div>
@@ -1310,6 +1576,7 @@ ${formData.message}
                                                         type="tel"
                                                         name="mobile"
                                                         value={formData.mobile}
+                                                        placeholder="Enter your mobile"
                                                         onChange={(e) => {
 
                                                             const value = e.target.value
@@ -1388,18 +1655,6 @@ ${formData.message}
                                                         <option>
 
                                                             API Integration
-
-                                                        </option>
-
-                                                        <option>
-
-                                                            Authentication & Security
-
-                                                        </option>
-
-                                                        <option>
-
-                                                            Performance Optimization
 
                                                         </option>
 
@@ -1565,7 +1820,7 @@ ${formData.message}
                                                         name="message"
                                                         value={formData.message}
                                                         onChange={handleChange}
-                                                        rows="5"
+                                                        rows="4"
                                                         className="form-control"
                                                     />
 

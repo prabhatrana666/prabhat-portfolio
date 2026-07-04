@@ -7,6 +7,7 @@ import AnimationCar from "../components/hero/AnimationCar";
 import OurGarage from "../components/ourgarage/OurGarage";
 import ReadyToRoll from "../components/readytoroll/ReadyToRoll";
 import { useState ,useEffect} from "react";
+import MainLandingPage from "../components/hero/MainLandningPage";
 
 
 function Home() {
@@ -24,7 +25,8 @@ function Home() {
   return (
     <>
       <Navbar darkMode={darkMode} setDarkMode={setDarkMode}/>
-      <Hero />
+      {/* <Hero /> */}
+      <MainLandingPage />
       <AnimationCar />
       <OurGarage />
       <Testimonials />
