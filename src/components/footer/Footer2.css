@@ -370,9 +370,9 @@ color: var(--primary);
     }
 
     .bottom_button {
-        width: 18% !important;
-        height: 80% !important;
-        padding: 0 !important;
+        width: 16% !important;
+        height: 78% !important;
+        padding: 17px !important;
     }
 
     .footer-logo {

@@ -509,7 +509,7 @@ const Nasa = () => {
                             exit={{ scale: 0.8, y: 50 }}
                             onClick={(e) => e.stopPropagation()}
                         >
-                            <button className="modal-close" onClick={() => setSelectedAsteroid(null)}>
+                            <button className="modal-close nasa_modal" onClick={() => setSelectedAsteroid(null)}>
                                 <Icon name="X" size={24} />
                             </button>
                             

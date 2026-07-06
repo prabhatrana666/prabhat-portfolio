@@ -714,7 +714,9 @@
     z-index: 1;
     backdrop-filter: blur(10px);
 }
-
+.nasa_modal{
+  left: 100%;
+}
 .modal-close:hover {
     background: rgba(239, 68, 68, 0.2);
     color: #f87171;
@@ -871,7 +873,7 @@
 
     .modal-content {
         padding: 1.5rem;
-        margin: 1rem;
+        /* margin: 1rem; */
     }
 
     .asteroid-modal-grid {
@@ -897,7 +899,10 @@
     .asteroid-modal-grid {
         grid-template-columns: 1fr;
     }
-
+.view-details-btn{
+    position: relative;
+    left: -4em !important;
+}
     .orbital-grid {
         grid-template-columns: 1fr;
     }
