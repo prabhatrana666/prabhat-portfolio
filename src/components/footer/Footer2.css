@@ -305,7 +305,12 @@
 .scroll-btn:hover {
     transform: rotate(360deg);
 }
-
+.address{
+color: var(--primary);
+}
+.address_content{
+    color: #C9C9C9;
+}
 /* ===========================
    Responsive
 =========================== */

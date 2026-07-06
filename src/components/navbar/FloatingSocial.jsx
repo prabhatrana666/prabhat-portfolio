@@ -90,6 +90,7 @@ function FloatingSocial() {
 
             <button
                 className={`toggle-btn ${open ? "active" : ""}`}
+                aria-label="Toggle navigation menu"
                 onClick={() => setOpen(!open)}
             >
                 <HiPlus />

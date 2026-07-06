@@ -234,8 +234,8 @@ const ContactUs = () => {
                                 </div>
                                 <div>
                                     <h5>Email Me</h5>
-                                    <a href="mailto:prabhatrana2024@gmail.com">
-                                        prabhatrana2024@gmail.com
+                                    <a href="mailto:prabhatrana.dev@gmail.com">
+                                        prabhatrana.dev@gmail.com
                                     </a>
                                 </div>
                             </div>
@@ -266,7 +266,7 @@ const ContactUs = () => {
                                         {/* Name */}
                                         <div className="col-md-6 mobile_view">
                                             <label className="form-label">Full Name</label>
-                                            <div className="input-group custom-input">
+                                            <div className="input-group custom-input contact_form">
                                                 <span className="input-group-text">
                                                     <User size={18} />
                                                 </span>
@@ -285,7 +285,7 @@ const ContactUs = () => {
                                         {/* Email */}
                                         <div className="col-md-6 mobile_view">
                                             <label className="form-label">Email Address</label>
-                                            <div className="input-group custom-input">
+                                            <div className="input-group custom-input contact_form">
                                                 <span className="input-group-text">
                                                     <Mail size={18} />
                                                 </span>
@@ -301,7 +301,7 @@ const ContactUs = () => {
                                         {/* Phone */}
                                         <div className="col-md-6 mobile_view">
                                             <label className="form-label">Phone Number</label>
-                                            <div className="input-group custom-input">
+                                            <div className="input-group custom-input contact_form">
                                                 <span className="input-group-text">
                                                     <PhoneCall size={18} />
                                                 </span>
@@ -323,7 +323,7 @@ const ContactUs = () => {
                                         {/* Subject Dropdown */}
                                         <div className="col-md-6 mobile_view">
                                             <label className="form-label">Project Type</label>
-                                            <div className="input-group custom-input">
+                                            <div className="input-group custom-input contact_form">
                                                 <span className="input-group-text">
                                                     <Briefcase size={18} />
                                                 </span>
@@ -341,7 +341,7 @@ const ContactUs = () => {
                                         {/* Message */}
                                         <div className="col-12 mobile_view">
                                             <label className="form-label">Project Details</label>
-                                            <div className="input-group custom-input textarea-box">
+                                            <div className="input-group custom-input textarea-box contact_form">
                                                 <span className="input-group-text align-items-start pt-3">
                                                     <MessageSquare size={18} />
                                                 </span>

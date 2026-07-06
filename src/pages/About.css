@@ -180,10 +180,19 @@
 }
 
 @media(max-width:576px) {
+    .mytech_title {
+        text-align: center;
+    }
 
+    .aboutus-title {
+        text-align: center !important;
+    }
+.about-text {
+    text-align: center;
+}
     .anout_me {
         right: 28px !important;
-        text-align: left !important;
+        text-align: center !important;
         width: 120% !important;
     }
 }
@@ -317,11 +326,14 @@
 
     .rtr-instant-card {
         width: 100%;
-        margin-bottom: 0em !important;
+        margin-bottom: 1em !important;
+        margin: 9px;
+        width: 95%;
     }
 
     .hl-description {
         font-size: 18px;
+        text-align: center !important;
     }
 
     .hl-subtitle {
@@ -433,7 +445,6 @@
 .about-card {
 
     background: #172036;
-
     border: 1px solid rgba(255, 255, 255, .05);
 
     border-radius: 20px;
@@ -636,4 +647,11 @@
         gap: 10px;
     }
 
+}
+
+@media(max-width:576px) {
+    .about-card {
+        text-align: center;
+
+    }
 }

@@ -201,3 +201,13 @@
             margin-top: -30px !important;
     }
 }
+
+.adminlogins{
+    color: white !important;
+}
+.custom-input .form-control{
+    color: white !important;
+}
+.custom-input .form-control:focus {
+    color: black !important;
+}

@@ -6,7 +6,7 @@ import Footer2 from "../components/footer/Footer2";
 import AnimationCar from "../components/hero/AnimationCar";
 import OurGarage from "../components/ourgarage/OurGarage";
 import ReadyToRoll from "../components/readytoroll/ReadyToRoll";
-import { useState ,useEffect} from "react";
+import { useState, useEffect } from "react";
 import MainLandingPage from "../components/hero/MainLandningPage";
 import MyTech from "../components/techandprojects/MyTech";
 
@@ -25,15 +25,18 @@ function Home() {
 
   return (
     <>
-      <Navbar darkMode={darkMode} setDarkMode={setDarkMode}/>
+      <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
       {/* <Hero /> */}
-      <MainLandingPage />
-      <AnimationCar />
-      {/* <OurGarage/> */}
-      <MyTech />
-      <Testimonials />
-      <ReadyToRoll />
-      {/* <Footer /> */}
+      <main>
+        <MainLandingPage />
+        <AnimationCar />
+        {/* <OurGarage/> */}
+        <MyTech />
+        <Testimonials />
+        <ReadyToRoll />
+        {/* <Footer /> */}
+      </main>
+
       <Footer2 />
     </>
   );

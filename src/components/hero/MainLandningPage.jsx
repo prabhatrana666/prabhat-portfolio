@@ -204,11 +204,11 @@ function MainLandingPage() {
                                 </Swiper>
                                 <div className="hero-navigation">
 
-                                    <button className="hero-prev">
+                                    <button className="hero-prev"  aria-label="Previous slide">
                                         <ChevronLeft size={22} />
                                     </button>
 
-                                    <button className="hero-next">
+                                    <button className="hero-next"  aria-label="Next slide">
                                         <ChevronRight size={22} />
                                     </button>
 

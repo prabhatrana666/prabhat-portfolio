@@ -16,6 +16,7 @@ import Services from "../components/services/Services";
 import AdminLogin from "../components/adminlogin/AdminLogin";
 import { Navigate } from "react-router-dom";
 import Projects from "../components/projects/Projects";
+import Dashboard from "../components/adminlogin/Dashboard"
 
 
 function AppRoutes() {
@@ -33,6 +34,7 @@ function AppRoutes() {
         <Route path="*" element={<Navigate to="/" replace />} />
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
+        <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/rent" element={<Rent />} />
         <Route path="/contact" element={<ContactUs />} />

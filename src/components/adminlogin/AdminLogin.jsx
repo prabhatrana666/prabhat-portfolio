@@ -1,8 +1,10 @@
 import Navbar from "../../components/navbar/Navbar";
 import "./AdminLogin.css"
 import Footer2 from "../footer/Footer2";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { auth } from "./firebase";
+import { signInWithEmailAndPassword } from "firebase/auth";
 import {
     ShieldCheck,
     LockKeyhole,
@@ -18,6 +20,7 @@ import { Eye, EyeOff } from "lucide-react";
 import toast from "react-hot-toast";
 import upi from "../../../public/logo.png"
 import { useNavigate } from "react-router-dom";
+import { onAuthStateChanged } from "firebase/auth";
 
 function AdminLogin() {
     const [showPassword, setShowPassword] = useState(false);
@@ -26,28 +29,46 @@ function AdminLogin() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (user) => {
+            if (!user || user.email !== "prabhatrana2024@gmail.com") {
+                navigate("/admin");
+            }
+        });
 
+        return unsubscribe;
+    }, []);
     // check email and password
 
-    const handleLogin = (e) => {
+    const handleLogin = async (e) => {
         e.preventDefault();
 
-        const ADMIN_EMAIL = "admin2026@gmail.com";
-        const ADMIN_PASSWORD = "Admin@273769";
+        try {
+            const userCredential = await signInWithEmailAndPassword(
+                auth,
+                email,
+                password
+            );
 
-        if (
-            email.trim() === ADMIN_EMAIL &&
-            password === ADMIN_PASSWORD
-        ) {
-            toast.success("Login Successful ✅");
+            const user = userCredential.user;
 
-            // Navigate after 1 second
-            setTimeout(() => {
-                navigate("/"); // Change your route
-            }, 1000);
-        } else {
-            toast.error("Invalid Email or Password ❌");
-        }
+            if (user.email === "prabhatrana2024@gmail.com") {
+                toast.success("Admin Login Successful ✅");
+
+                setTimeout(() => {
+                    navigate("/dashboard");
+                }, 1000);
+            } else {
+                toast.error("Not authorized user ❌");
+            }
+
+        } catch (error) {
+    console.log(error);
+    console.log(error.code);
+    console.log(error.message);
+
+    toast.error(error.message);
+}
     };
 
     // Motion Effect
@@ -76,13 +97,13 @@ function AdminLogin() {
                 viewport={{ once: true, amount: 0.25 }}
                 variants={fadeUp}
             >
-              <div className="container py-5">
+                <div className="container py-5">
 
                     <div className="row admin-login-wrapper g-0">
 
                         {/* LEFT */}
 
-                        <div className="col-lg-5 admin-left">
+                        <div className="col-lg-5 admin-left d-none d-lg-block">
 
                             <div className="admin-left-content">
 
@@ -200,7 +221,7 @@ function AdminLogin() {
 
                                         <input
                                             type={showPassword ? "text" : "password"}
-                                            className="form-control border-end-0"
+                                            className="form-control border-end-0 adminlogins"
                                             value={password}
                                             onChange={(e) => setPassword(e.target.value)}
                                             placeholder="Enter password"
@@ -236,7 +257,7 @@ function AdminLogin() {
 
                                         </div>
 
-                                        <a href="/">
+                                        <a href="/" className="d-none">
                                             Forgot Password?
                                         </a>
 
@@ -267,7 +288,7 @@ function AdminLogin() {
 
                 </div>
             </motion.section>
-          
+
             <Footer2 />
         </>
     );

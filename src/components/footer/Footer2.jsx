@@ -43,21 +43,21 @@ const Footer2 = () => {
             link: "/",
         },
         {
-            name: "Portfolio",
-            link: "/",
-        },
-        {
-            name: "E-Commerce",
-            link: "/",
-        },
-        {
-            name: "Food Delivery",
-            link: "/",
-        },
-        {
             name: "Weather App",
             link: "/",
         },
+        {
+            name: "About World",
+            link: "/",
+        },
+        // {
+        //     name: "Food Delivery",
+        //     link: "/",
+        // },
+        // {
+        //     name: "Weather App",
+        //     link: "/",
+        // },
     ];
 
     return (
@@ -114,7 +114,7 @@ const Footer2 = () => {
 
                     {/* Quick Links */}
                     <div className="col-6 col-md-6 col-lg-2 foot_mob">
-                        <h5 className="footer-title">Quick Links</h5>
+                        <p className="footer-title">Quick Links</p>
 
                         <ul className="list-unstyled">
                             {quickLinks.map((item) => (
@@ -137,7 +137,7 @@ const Footer2 = () => {
 
                     {/* Destinations */}
                     <div className="col-6 col-md-6 col-lg-2 foot_mob">
-                        <h5 className="footer-title">Featured Projects</h5>
+                        <p className="footer-title">Featured Projects</p>
 
                         <ul className="list-unstyled">
                             {featuredProjects.map((project) => (
@@ -150,7 +150,7 @@ const Footer2 = () => {
                         </ul>
                     </div>
                     <div className="col-6 col-md-6 col-lg-2 foot_mob">
-                        <h5 className="footer-title">Contact Us</h5>
+                        <p className="footer-title">Contact Us</p>
 
                         <ul className="list-unstyled footer-contact">
 
@@ -162,13 +162,13 @@ const Footer2 = () => {
                             </li>
 
                             <li className="mb-3">
-                                <a href="mailto:sales@traviyo.com" className="footer-link d-flex align-items-start">
+                                <a href="mailto:prabhatrana.dev@gmail.com" className="footer-link d-flex align-items-start">
                                     <Mail size={18} className="me-2 mt-1 flex-shrink-0" />
-                                    <span>prabhatrana2024@<br></br>gmail.com</span>
+                                    <span>prabhatrana.dev@<br></br>gmail.com</span>
                                 </a>
                             </li>
 
-                            <li className="mb-3">
+                            {/* <li className="mb-3">
                                 <a
                                     rel="noopener noreferrer"
                                     className="footer-link d-flex align-items-start"
@@ -179,13 +179,19 @@ const Footer2 = () => {
                                         Noida, Uttar Pradesh, India
                                     </span>
                                 </a>
+                            </li> */}
+                            <li className="mb-3">
+                                <div className="d-flex align-items-start address">
+                                    <MapPin size={18} className="me-2 mt-1 flex-shrink-0" />
+                                    <span className="address_content">Noida, Uttar Pradesh, India</span>
+                                </div>
                             </li>
 
 
                         </ul>
                     </div>
                     <div className="col-12 col-md-6 col-lg-3 foot_mob">
-                        <h5 className="footer-title">My Location</h5>
+                        <p className="footer-title">My Location</p>
                         <LazyGoogleMap />
                     </div>
 
@@ -208,7 +214,7 @@ const Footer2 = () => {
 
                     <button
                         className="btn btn-primary rounded-circle position-absolute top-50 start-50 translate-middle bottom_button"
-                        style={{ background: 'var(--primary)', height: '3em',width:'4%',padding: '0px' }}
+                        style={{ background: 'var(--primary)', height: '3em', width: '4%', padding: '0px' }}
                         onClick={() =>
                             window.scrollTo({
                                 top: 0,

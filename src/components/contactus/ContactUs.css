@@ -155,7 +155,9 @@ textarea.form-control {
     background: #111827;
     color: #fff;
 }
-
+.contact_form{
+    border: 1px solid var(--primary) !important;
+}
 /* ==========================================
    Google Map
 ========================================== */

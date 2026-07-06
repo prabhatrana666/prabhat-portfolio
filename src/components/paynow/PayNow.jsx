@@ -217,7 +217,7 @@ function PayNow() {
 
                             <div className="upi-id">
 
-                                prabhat@axl
+                                6396551799-2@axl
 
                                 <Copy
                                     size={18}

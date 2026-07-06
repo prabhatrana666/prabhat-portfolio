@@ -1,4 +1,6 @@
 import "./Navbar.css";
+import Dashboard from '../adminlogin/Dashboard';
+
 import {
     FolderKanban,
     Images,
@@ -24,13 +26,37 @@ import { useNavigate, NavLink } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 
+import { db } from "../adminlogin/firebase";
+
+import { doc, onSnapshot } from "firebase/firestore";
 
 
 
 function Navbar({ darkMode, setDarkMode }) {
     const [open, setOpen] = useState(false);
+    const [resumeURL, setResumeURL] = useState("");
     const navigate = useNavigate();
+    useEffect(() => {
 
+        const unsubscribe = onSnapshot(
+
+            doc(db, "settings", "resume"),
+
+            (snapshot) => {
+
+                if (snapshot.exists()) {
+
+                    setResumeURL(snapshot.data().url);
+
+                }
+
+            }
+
+        );
+
+        return () => unsubscribe();
+
+    }, []);
     const handleNavigate = (path) => {
         setOpen(false);
         navigate(path);
@@ -44,7 +70,7 @@ function Navbar({ darkMode, setDarkMode }) {
     //         behavior: "smooth",
     //     });
     // };
-
+  
     return (
         <nav className="main-navbar navbar navbar-expand-lg bg-white shadow-sm px-3">
             <button
@@ -56,7 +82,7 @@ function Navbar({ darkMode, setDarkMode }) {
             </button>
             {/* Logo */}
             <a className="navbar-brand fw-bold brand-logo" href="/">
-                <img src={logo} className="logo_image" />
+                <img src={logo} className="logo_image" alt="logo_image" />
             </a>
 
             {/* Desktop Menu (VISIBLE ONLY LG+) */}
@@ -175,7 +201,7 @@ function Navbar({ darkMode, setDarkMode }) {
             {/* Desktop Sign In (VISIBLE ONLY LG+) */}
             <div className="d-none d-lg-block">
                 <a
-                    href="https://drive.google.com/file/d/1sDM388sgdufORMyjtF4nRxLo8JvxkTJi/view"
+                    href={resumeURL || "#"}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="btn login-btn d-flex align-items-center"
