@@ -18,6 +18,8 @@ import { Navigate } from "react-router-dom";
 import Projects from "../components/projects/Projects";
 import Dashboard from "../components/adminlogin/Dashboard"
 import QrCodeCard from "../components/featured_projects/qrcode_generator/QrCodeCard";
+import Weather from "../components/featured_projects/check_weather/Weather";
+import World from "../components/featured_projects/world_explorer/World";
 
 
 function AppRoutes() {
@@ -41,6 +43,8 @@ function AppRoutes() {
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/pay" element={<PayNow />} />
         <Route path="/projects" element={<Projects />} />
+        <Route path="/weather" element={<Weather />} />
+        <Route path="/world" element={<World />} />
         <Route path="/Services" element={<Services />} />
         <Route path="/qrcode" element={<QrCodeCard />} />
         <Route path="/refund" element={<RefundPolicy />} />

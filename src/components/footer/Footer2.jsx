@@ -47,15 +47,16 @@ const Footer2 = () => {
             link: "/weather",
         },
         {
-            name: "About World",
+            name: "World Explorer",
             link: "/world",
         },
-         {
-            name: "About World",
+        {
+            name: "NASA Space Explorer",
             link: "/nasa",
         },
-        
+
     ];
+
 
     return (
         <footer className="footer-section">
@@ -115,11 +116,7 @@ const Footer2 = () => {
 
                         <ul className="list-unstyled">
                             {quickLinks.map((item) => (
-                                // <li key={item.name}>
-                                //     <Link to={item.link} className="footer-link">
-                                //         {item.name}
-                                //     </Link>
-                                // </li>
+
                                 <li key={item.name}>
                                     <button
                                         className="footer-link border-0 bg-transparent p-0"
@@ -132,16 +129,29 @@ const Footer2 = () => {
                         </ul>
                     </div>
 
-                    {/* Destinations */}
+                    {/* Featured Projects */}
                     <div className="col-6 col-md-6 col-lg-2 foot_mob">
                         <p className="footer-title">Featured Projects</p>
 
                         <ul className="list-unstyled">
                             {featuredProjects.map((project) => (
                                 <li key={project.name}>
-                                    <Link to={project.link} className="footer-link">
+                                    <Link
+                                        to="#"
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            handleNavigate(project.link);
+                                        }}
+                                        className="footer-link"
+                                    >
                                         {project.name}
                                     </Link>
+                                    {/* <button
+                                        className="footer-link"
+                                        onClick={() => handleNavigate(project.link)}
+                                    >
+                                        {project.name}
+                                    </button> */}
                                 </li>
                             ))}
                         </ul>
