@@ -17,6 +17,7 @@ import AdminLogin from "../components/adminlogin/AdminLogin";
 import { Navigate } from "react-router-dom";
 import Projects from "../components/projects/Projects";
 import Dashboard from "../components/adminlogin/Dashboard"
+import QrCodeCard from "../components/featured_projects/qrcode_generator/QrCodeCard";
 
 
 function AppRoutes() {
@@ -39,8 +40,9 @@ function AppRoutes() {
         <Route path="/rent" element={<Rent />} />
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/pay" element={<PayNow />} />
-         <Route path="/projects" element={<Projects />} />
-         <Route path="/Services" element={<Services />} />
+        <Route path="/projects" element={<Projects />} />
+        <Route path="/Services" element={<Services />} />
+        <Route path="/qrcode" element={<QrCodeCard />} />
         <Route path="/refund" element={<RefundPolicy />} />
         <Route path="/admin" element={<AdminLogin />} />
         <Route path="/insurance" element={<InsurancePolicy />} />

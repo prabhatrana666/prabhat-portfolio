@@ -40,24 +40,21 @@ const Footer2 = () => {
     const featuredProjects = [
         {
             name: "QR Code Generator",
-            link: "/",
+            link: "/qrcode",
         },
         {
             name: "Weather App",
-            link: "/",
+            link: "/weather",
         },
         {
             name: "About World",
-            link: "/",
+            link: "/world",
         },
-        // {
-        //     name: "Food Delivery",
-        //     link: "/",
-        // },
-        // {
-        //     name: "Weather App",
-        //     link: "/",
-        // },
+         {
+            name: "About World",
+            link: "/nasa",
+        },
+        
     ];
 
     return (

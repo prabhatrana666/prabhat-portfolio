@@ -17,6 +17,7 @@
     "jquery": "^4.0.0",
     "lucide-react": "^1.21.0",
     "owl.carousel": "^2.3.4",
+    "qrcode": "^1.5.4",
     "react": "^19.2.7",
     "react-bootstrap": "^2.10.10",
     "react-datepicker": "^9.1.0",
