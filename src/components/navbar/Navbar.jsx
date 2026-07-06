@@ -204,7 +204,7 @@ function Navbar({ darkMode, setDarkMode }) {
                     href={resumeURL || "#"}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="btn login-btn d-flex align-items-center"
+                    className="btn login-btn d-flex align-items-center login-btn_nav"
                 >
                     <Eye size={18} className="me-2" />
                     View Resume
@@ -220,12 +220,13 @@ function Navbar({ darkMode, setDarkMode }) {
                 {/* <button className="btn login-btn">
                     <Eye  className="me-1" size={18} />View Resume 
                 </button> */}
+                
                 <a
-                    href="https://drive.google.com/file/d/1sDM388sgdufORMyjtF4nRxLo8JvxkTJi/view"
+                    href={resumeURL || "#"}
                     target="_blank"
                     rel="noopener noreferrer"
                 >
-                    <button className="btn login-btn">
+                    <button className="btn login-btn login-btn_nav">
                         <Eye size={18} className="me-1" />
                         View Resume
                     </button>
