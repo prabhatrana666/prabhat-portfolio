@@ -984,3 +984,266 @@
     display: block;
   }
 }
+
+/* ISS Tracker */
+.iss-tracker {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    border-radius: 16px;
+    padding: 1.2rem 1.5rem;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 1;
+}
+
+.iss-header {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 0.8rem;
+}
+
+.iss-header svg {
+    color: #60a5fa;
+}
+
+.iss-header h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #f1f5f9;
+}
+
+.iss-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.iss-position {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    flex: 1;
+}
+
+.iss-coord {
+    display: flex;
+    flex-direction: column;
+}
+
+.coord-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #94a3b8;
+}
+
+.coord-value {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #f1f5f9;
+}
+
+.iss-people {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: rgba(96, 165, 250, 0.1);
+    padding: 0.4rem 1rem;
+    border-radius: 60px;
+    border: 1px solid rgba(96, 165, 250, 0.15);
+}
+
+.iss-people svg {
+    color: #60a5fa;
+}
+
+.iss-people span {
+    color: #e2e8f0;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.iss-loading {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: #94a3b8;
+}
+
+.spinner-small {
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-top: 2px solid #60a5fa;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+.iss-error {
+    color: #f87171;
+    font-size: 0.95rem;
+}
+
+/* People in Space Section */
+.people-section {
+    position: relative;
+    z-index: 1;
+}
+
+.people-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.people-header svg {
+    color: #60a5fa;
+}
+
+.people-header h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #f1f5f9;
+    flex: 1;
+}
+
+.people-count {
+    background: rgba(96, 165, 250, 0.15);
+    color: #60a5fa;
+    padding: 0.3rem 1rem;
+    border-radius: 60px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: 1px solid rgba(96, 165, 250, 0.2);
+}
+
+.people-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.craft-section {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    padding: 1.5rem;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.craft-title {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #e2e8f0;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.craft-title svg {
+    color: #60a5fa;
+}
+
+.people-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.person-card {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.6rem 1rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    transition: all 0.3s;
+}
+
+.person-card:hover {
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.person-icon {
+    color: #94a3b8;
+}
+
+.person-name {
+    color: #e2e8f0;
+    font-weight: 500;
+}
+
+.people-facts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.fact-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.fact-card svg {
+    color: #60a5fa;
+    flex-shrink: 0;
+}
+
+.fact-card h4 {
+    font-size: 0.8rem;
+    color: #94a3b8;
+    margin-bottom: 0.1rem;
+}
+
+.fact-card p {
+    font-size: 0.95rem;
+    color: #f1f5f9;
+    font-weight: 500;
+}
+
+/* Responsive updates */
+@media (max-width: 768px) {
+    .iss-content {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .iss-position {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+
+    .people-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .people-facts {
+        grid-template-columns: 1fr;
+    }
+
+    .people-header {
+        flex-direction: column;
+        text-align: center;
+    }
+}

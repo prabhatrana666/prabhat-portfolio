@@ -50,13 +50,14 @@
     transition: .3s ease;
 }
 
-.btn-primary {
+.contact_me {
     background: #5A51F6;
+    border-radius: 10px !important;
     color: #fff;
     border: none;
 }
 
-.btn-primary:hover {
+.contact_me:hover {
     background: #463de6;
     transform: translateY(-3px);
 }
@@ -205,13 +206,15 @@
 }
 
 .view_projects {
-    background-color: #fff;
-    color: black;
-    border: 1px solid var(--primary);
+    background-color: #fff !important;
+    color: black !important;
+    border-radius: 10px !important;
+    border: 1px solid var(--primary) !important;
 }
 
 .view_projects:hover {
-    background-color: var(--secondary);
+    background-color: var(--secondary) !important;
+    color: white !important;
 }
 
 /*==================================

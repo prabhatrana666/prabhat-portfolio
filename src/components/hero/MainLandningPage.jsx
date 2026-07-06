@@ -56,7 +56,7 @@ function MainLandingPage() {
                                 </p>
 
                                 <div className="hero-buttons">
-                                    <Link to="/contact" className="btn btn-primary">
+                                    <Link to="/contact" className="btn btn-primary contact_me">
                                         Contact Me
                                     </Link>
                                     <Link to="/projects" className="btn btn-primary view_projects">

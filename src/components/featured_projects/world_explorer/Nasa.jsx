@@ -1,20 +1,24 @@
-// Nasa.jsx
+// Nasa.jsx - Complete with ISS Tracker
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import * as lucide from 'lucide-react';
 import './Nasa.css';
 import Footer2 from '../../footer/Footer2';
 import Navbar from '../../navbar/Navbar';
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+
 const Nasa = () => {
     // ============================================
     // 📌 STATE MANAGEMENT
     // ============================================
     const [apodData, setApodData] = useState(null);
+    const [expanded, setExpanded] = useState(false);
+
     const [asteroids, setAsteroids] = useState([]);
     const [filteredAsteroids, setFilteredAsteroids] = useState([]);
+    const [issLocation, setIssLocation] = useState(null);
+    const [peopleInSpace, setPeopleInSpace] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [issLoading, setIssLoading] = useState(true);
     const [apodLoading, setApodLoading] = useState(true);
     const [error, setError] = useState(null);
     const [searchDate, setSearchDate] = useState('');
@@ -23,14 +27,15 @@ const Nasa = () => {
     const [sortBy, setSortBy] = useState('name');
     const [searchTerm, setSearchTerm] = useState('');
     const [activeTab, setActiveTab] = useState('apod');
-    const [expanded, setExpanded] = useState(false);
-    // const [searchDate, setSearchDate] = useState(null);
+
     // ============================================
     // 🚀 NASA API CONFIGURATION
     // ============================================
     const NASA_API_KEY = 'dvcfKralVtr6OW4tEj0Bwt8seQmCAZm9HhAkyYZt';
     const APOD_URL = `https://api.nasa.gov/planetary/apod?api_key=${NASA_API_KEY}`;
     const ASTEROID_URL = `https://api.nasa.gov/neo/rest/v1/feed?api_key=${NASA_API_KEY}`;
+    const ISS_URL = 'http://api.open-notify.org/iss-now.json';
+    const PEOPLE_URL = 'http://api.open-notify.org/astros.json';
 
     // ============================================
     // 📡 FETCH APOD (Astronomy Picture of the Day)
@@ -62,7 +67,6 @@ const Nasa = () => {
     const fetchAsteroids = async () => {
         try {
             setLoading(true);
-            // Get today's date and 7 days from now
             const today = new Date();
             const endDate = new Date(today);
             endDate.setDate(today.getDate() + 7);
@@ -76,7 +80,6 @@ const Nasa = () => {
             if (!response.ok) throw new Error('Failed to fetch asteroids');
             const data = await response.json();
 
-            // Process asteroid data
             let allAsteroids = [];
             if (data.near_earth_objects) {
                 Object.values(data.near_earth_objects).forEach(dateAsteroids => {
@@ -84,7 +87,6 @@ const Nasa = () => {
                 });
             }
 
-            // Remove duplicates (by id)
             const uniqueAsteroids = Array.from(
                 new Map(allAsteroids.map(item => [item.id, item])).values()
             );
@@ -101,11 +103,52 @@ const Nasa = () => {
     };
 
     // ============================================
+    // 📡 FETCH ISS LOCATION
+    // ============================================
+    const fetchIssLocation = async () => {
+        try {
+            setIssLoading(true);
+            const response = await fetch(ISS_URL);
+            if (!response.ok) throw new Error('Failed to fetch ISS location');
+            const data = await response.json();
+            setIssLocation(data);
+            setError(null);
+        } catch (err) {
+            console.error('ISS Error:', err);
+            setError('Failed to load ISS location');
+        } finally {
+            setIssLoading(false);
+        }
+    };
+
+    // ============================================
+    // 📡 FETCH PEOPLE IN SPACE
+    // ============================================
+    const fetchPeopleInSpace = async () => {
+        try {
+            const response = await fetch(PEOPLE_URL);
+            if (!response.ok) throw new Error('Failed to fetch people in space');
+            const data = await response.json();
+            setPeopleInSpace(data.people || []);
+            setError(null);
+        } catch (err) {
+            console.error('People Error:', err);
+            setError('Failed to load people in space');
+        }
+    };
+
+    // ============================================
     // 🚀 INITIAL LOAD
     // ============================================
     useEffect(() => {
         fetchApod();
         fetchAsteroids();
+        fetchIssLocation();
+        fetchPeopleInSpace();
+
+        // Refresh ISS location every 30 seconds
+        const interval = setInterval(fetchIssLocation, 30000);
+        return () => clearInterval(interval);
     }, []);
 
     // ============================================
@@ -122,7 +165,6 @@ const Nasa = () => {
             );
         }
 
-        // Sort
         result = [...result].sort((a, b) => {
             if (sortBy === 'name') {
                 return a.name.localeCompare(b.name);
@@ -145,10 +187,7 @@ const Nasa = () => {
     const handleDateSearch = (e) => {
         e.preventDefault();
         if (searchDate) {
-            const formattedDate =
-                `${searchDate.getFullYear()}-${String(searchDate.getMonth() + 1).padStart(2, "0")}-${String(searchDate.getDate()).padStart(2, "0")}`;
-
-            fetchApod(formattedDate);
+            fetchApod(searchDate);
         }
     };
 
@@ -174,6 +213,17 @@ const Nasa = () => {
             year: 'numeric',
             month: 'long',
             day: 'numeric'
+        });
+    };
+
+    const formatTimestamp = (timestamp) => {
+        return new Date(timestamp * 1000).toLocaleString('en-US', {
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit'
         });
     };
 
@@ -230,6 +280,60 @@ const Nasa = () => {
                     </div>
                 </div>
 
+                {/* ISS Live Tracker - Always Visible */}
+                <motion.div
+                    className="iss-tracker"
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3 }}
+                >
+                    <div className="iss-header">
+                        <Icon name="Satellite" size={24} />
+                        <h3>International Space Station - Live Tracker</h3>
+                    </div>
+
+                    {issLoading ? (
+                        <div className="iss-loading">
+                            <div className="spinner-small"></div>
+                            <span>Tracking ISS...</span>
+                        </div>
+                    ) : issLocation ? (
+                        <div className="iss-content">
+                            <div className="iss-position">
+                                <div className="iss-coord">
+                                    <span className="coord-label">Latitude</span>
+                                    <span className="coord-value">
+                                        {parseFloat(issLocation.iss_position.latitude).toFixed(4)}°
+                                    </span>
+                                </div>
+                                <div className="iss-coord">
+                                    <span className="coord-label">Longitude</span>
+                                    <span className="coord-value">
+                                        {parseFloat(issLocation.iss_position.longitude).toFixed(4)}°
+                                    </span>
+                                </div>
+                                <div className="iss-coord">
+                                    <span className="coord-label">Last Updated</span>
+                                    <span className="coord-value">
+                                        {formatTimestamp(issLocation.timestamp)}
+                                    </span>
+                                </div>
+                            </div>
+                            <div className="iss-people">
+                                <Icon name="Users" size={18} />
+                                <span>
+                                    {peopleInSpace.length} people in space
+                                    {peopleInSpace.some(p => p.craft === 'Tiangong') && ' (ISS + Tiangong)'}
+                                </span>
+                            </div>
+                        </div>
+                    ) : (
+                        <div className="iss-error">
+                            <span>Unable to track ISS</span>
+                        </div>
+                    )}
+                </motion.div>
+
                 {/* Tabs */}
                 <div className="nasa-tabs">
                     <button
@@ -237,14 +341,21 @@ const Nasa = () => {
                         onClick={() => setActiveTab('apod')}
                     >
                         <Icon name="Image" size={20} />
-                        Picture of the Day
+                        <span>Picture of the Day</span>
                     </button>
                     <button
                         className={`tab-btn ${activeTab === 'asteroids' ? 'active' : ''}`}
                         onClick={() => setActiveTab('asteroids')}
                     >
                         <Icon name="AlertTriangle" size={20} />
-                        Asteroids Tracker
+                        <span>Asteroids Tracker</span>
+                    </button>
+                    <button
+                        className={`tab-btn ${activeTab === 'people' ? 'active' : ''}`}
+                        onClick={() => setActiveTab('people')}
+                    >
+                        <Icon name="Users" size={20} />
+                        <span>People in Space</span>
                     </button>
                 </div>
 
@@ -257,7 +368,7 @@ const Nasa = () => {
                         exit={{ opacity: 0, x: 50 }}
                     >
                         <div className="apod-search">
-                            {/* <form onSubmit={handleDateSearch} className="date-search-form">
+                            <form onSubmit={handleDateSearch} className="date-search-form">
                                 <input
                                     type="date"
                                     className="date-input"
@@ -279,35 +390,6 @@ const Nasa = () => {
                                 >
                                     Today
                                 </button>
-                            </form> */}
-
-                            <form onSubmit={handleDateSearch} className="date-search-form">
-
-                                <DatePicker
-                                    selected={searchDate}
-                                    onChange={(date) => setSearchDate(date)}
-                                    maxDate={new Date()}
-                                    dateFormat="yyyy-MM-dd"
-                                    placeholderText="Select date"
-                                    className="date-input"
-                                />
-
-                                <button type="submit" className="search-date-btn">
-                                    <Icon name="Calendar" size={18} />
-                                    View Date
-                                </button>
-
-                                <button
-                                    type="button"
-                                    className="today-btn"
-                                    onClick={() => {
-                                        setSearchDate(null);
-                                        fetchApod();
-                                    }}
-                                >
-                                    Today
-                                </button>
-
                             </form>
                         </div>
 
@@ -345,19 +427,23 @@ const Nasa = () => {
                                 </div>
                                 <div className="apod-content">
                                     <h2 className="apod-title">{apodData.title}</h2>
-                                    {/* <p className="apod-explanation">{apodData.explanation}</p> */}
-                                    <div>
-                                        <p className={expanded ? "apod-explanation expanded" : "apod-explanation"}>
-                                            {apodData.explanation}
-                                        </p>
+                                    {/* <p className="apod-explanation">{apodData.explanation}</p>
+                                    <button
+                                        className="btn btn-primary rounded-pill px-4 py-2 d-md-none"
+                                        onClick={() => setExpanded(!expanded)}
+                                    >
+                                        {expanded ? "Read Less" : "Read More"}
+                                    </button> */}
+                                    <p className={expanded ? "apod-explanation expanded" : "apod-explanation"}>
+                                        {apodData.explanation}
+                                    </p>
 
-                                        <button
-                                            className="read-more-btn d-md-none"
-                                            onClick={() => setExpanded(!expanded)}
-                                        >
-                                            {expanded ? "Read Less" : "Read More"}
-                                        </button>
-                                    </div>
+                                    <button
+                                        className="read-more-btn d-md-none"
+                                        onClick={() => setExpanded(!expanded)}
+                                    >
+                                        {expanded ? "Read Less" : "Read More"}
+                                    </button>
                                     {apodData.copyright && (
                                         <p className="apod-copyright d-none">📷 {apodData.copyright}</p>
                                     )}
@@ -536,6 +622,101 @@ const Nasa = () => {
                         )}
                     </motion.div>
                 )}
+
+                {/* People in Space Section */}
+                {activeTab === 'people' && (
+                    <motion.div
+                        className="people-section"
+                        initial={{ opacity: 0, y: 50 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -50 }}
+                    >
+                        <div className="people-header">
+                            <Icon name="Users" size={32} />
+                            <h2>People Currently in Space</h2>
+                            <span className="people-count">{peopleInSpace.length} astronauts</span>
+                        </div>
+
+                        <div className="people-grid">
+                            {/* ISS Crew */}
+                            <div className="craft-section">
+                                <h3 className="craft-title">
+                                    <Icon name="Satellite" size={20} />
+                                    International Space Station (ISS)
+                                </h3>
+                                <div className="people-list">
+                                    {peopleInSpace
+                                        .filter(person => person.craft === 'ISS')
+                                        .map((person, index) => (
+                                            <motion.div
+                                                key={index}
+                                                className="person-card"
+                                                initial={{ opacity: 0, x: -20 }}
+                                                animate={{ opacity: 1, x: 0 }}
+                                                transition={{ delay: index * 0.05 }}
+                                            >
+                                                <Icon name="User" size={20} className="person-icon" />
+                                                <span className="person-name">{person.name}</span>
+                                            </motion.div>
+                                        ))}
+                                </div>
+                            </div>
+
+                            {/* Tiangong Crew */}
+                            {peopleInSpace.some(p => p.craft === 'Tiangong') && (
+                                <div className="craft-section">
+                                    <h3 className="craft-title">
+                                        <Icon name="Globe" size={20} />
+                                        Tiangong Space Station (China)
+                                    </h3>
+                                    <div className="people-list">
+                                        {peopleInSpace
+                                            .filter(person => person.craft === 'Tiangong')
+                                            .map((person, index) => (
+                                                <motion.div
+                                                    key={index}
+                                                    className="person-card"
+                                                    initial={{ opacity: 0, x: -20 }}
+                                                    animate={{ opacity: 1, x: 0 }}
+                                                    transition={{ delay: index * 0.05 + 0.3 }}
+                                                >
+                                                    <Icon name="User" size={20} className="person-icon" />
+                                                    <span className="person-name">{person.name}</span>
+                                                </motion.div>
+                                            ))}
+                                    </div>
+                                </div>
+                            )}
+                        </div>
+
+                        <div className="people-facts">
+                            <div className="fact-card">
+                                <Icon name="Clock" size={24} />
+                                <div>
+                                    <h4>Total Astronauts</h4>
+                                    <p>{peopleInSpace.length} in space right now</p>
+                                </div>
+                            </div>
+                            <div className="fact-card">
+                                <Icon name="Rocket" size={24} />
+                                <div>
+                                    <h4>Space Stations</h4>
+                                    <p>
+                                        {peopleInSpace.some(p => p.craft === 'Tiangong') ? '2' : '1'}
+                                        active stations
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="fact-card">
+                                <Icon name="RefreshCw" size={24} />
+                                <div>
+                                    <h4>Live Data</h4>
+                                    <p>Updated in real-time from NASA</p>
+                                </div>
+                            </div>
+                        </div>
+                    </motion.div>
+                )}
             </motion.div>
 
             {/* Asteroid Detail Modal */}
@@ -555,7 +736,7 @@ const Nasa = () => {
                             exit={{ scale: 0.8, y: 50 }}
                             onClick={(e) => e.stopPropagation()}
                         >
-                            <button className="modal-close nasa_modal" onClick={() => setSelectedAsteroid(null)}>
+                            <button className="modal-close" onClick={() => setSelectedAsteroid(null)}>
                                 <Icon name="X" size={24} />
                             </button>
 
@@ -643,6 +824,7 @@ const Nasa = () => {
                     </motion.div>
                 )}
             </AnimatePresence>
+
             <Footer2 />
         </>
     );

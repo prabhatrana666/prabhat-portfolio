@@ -61,10 +61,17 @@ const Footer2 = () => {
 
                     {/* Brand */}
                     <div className="col-6 col-md-6 col-lg-3 foot_mob">
+                        {/* <img
+                            src={logo}
+                            alt="Traviyo"
+                            className="footer-logo mb-4"
+                        /> */}
                         <img
                             src={logo}
                             alt="Traviyo"
                             className="footer-logo mb-4"
+                            onClick={() => handleNavigate("/")}
+                            style={{ cursor: "pointer" }}
                         />
 
                         <p className="footer-tagline">

@@ -16,6 +16,7 @@ import {
     Sun,
     Moon,
     Eye,
+    Rocket,
     ShieldCheck,
     CreditCard
 } from "lucide-react";
@@ -70,7 +71,7 @@ function Navbar({ darkMode, setDarkMode }) {
     //         behavior: "smooth",
     //     });
     // };
-  
+
     return (
         <nav className="main-navbar navbar navbar-expand-lg bg-white shadow-sm px-3">
             <button
@@ -220,7 +221,7 @@ function Navbar({ darkMode, setDarkMode }) {
                 {/* <button className="btn login-btn">
                     <Eye  className="me-1" size={18} />View Resume 
                 </button> */}
-                
+
                 <a
                     href={resumeURL || "#"}
                     target="_blank"
@@ -258,6 +259,10 @@ function Navbar({ darkMode, setDarkMode }) {
                     <li onClick={() => handleNavigate("/pay")}>
                         <CreditCard size={18} />
                         <span>Pay Now</span>
+                    </li>
+                    <li onClick={() => handleNavigate("/nasa")}>
+                        <Rocket size={18} />
+                        <span>NASA Space Explorer</span>
                     </li>
                     <li onClick={() => handleNavigate("/services")} className="d-none">
                         <Ellipsis size={18} />

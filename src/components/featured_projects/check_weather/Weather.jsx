@@ -398,7 +398,7 @@ const Weather = () => {
                             />
                             <motion.button
                                 type="submit"
-                                className="btn btn-primary"
+                                className="btn btn-primary btn_weather"
                                 disabled={loading}
                                 whileHover={{ scale: 1.05, y: -2 }}
                                 whileTap={{ scale: 0.95 }}
