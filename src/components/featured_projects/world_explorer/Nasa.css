@@ -1,918 +1,986 @@
 /* Nasa.css - World Class Design */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .nasa-container {
-    min-height: 100vh;
-    background: linear-gradient(135deg, #0a0e27 0%, #1a1a3e 50%, #0d1b2a 100%);
-    padding: 2rem;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    color: #fff;
-    position: relative;
-    overflow-x: hidden;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0a0e27 0%, #1a1a3e 50%, #0d1b2a 100%);
+  padding: 2rem;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: #fff;
+  position: relative;
+  overflow-x: hidden;
 }
 
 /* Animated stars background */
 .nasa-container::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: 
-        radial-gradient(2px 2px at 20px 30px, #eee, transparent),
-        radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.8), transparent),
-        radial-gradient(2px 2px at 50px 160px, #ddd, transparent),
-        radial-gradient(2px 2px at 90px 40px, rgba(255,255,255,0.6), transparent),
-        radial-gradient(2px 2px at 130px 80px, #fff, transparent),
-        radial-gradient(2px 2px at 160px 30px, rgba(255,255,255,0.7), transparent);
-    background-size: 200px 200px;
-    background-repeat: repeat;
-    opacity: 0.3;
-    pointer-events: none;
-    z-index: 0;
-    animation: twinkle 4s ease-in-out infinite alternate;
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image:
+    radial-gradient(2px 2px at 20px 30px, #eee, transparent),
+    radial-gradient(2px 2px at 40px 70px, rgba(255, 255, 255, 0.8), transparent),
+    radial-gradient(2px 2px at 50px 160px, #ddd, transparent),
+    radial-gradient(2px 2px at 90px 40px, rgba(255, 255, 255, 0.6), transparent),
+    radial-gradient(2px 2px at 130px 80px, #fff, transparent),
+    radial-gradient(2px 2px at 160px 30px, rgba(255, 255, 255, 0.7), transparent);
+  background-size: 200px 200px;
+  background-repeat: repeat;
+  opacity: 0.3;
+  pointer-events: none;
+  z-index: 0;
+  animation: twinkle 4s ease-in-out infinite alternate;
 }
 
 @keyframes twinkle {
-    0% { opacity: 0.2; }
-    100% { opacity: 0.5; }
+  0% {
+    opacity: 0.2;
+  }
+
+  100% {
+    opacity: 0.5;
+  }
 }
 
 /* Header */
 .nasa-header {
-    position: relative;
-    z-index: 1;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-radius: 24px;
-    padding: 2rem;
-    margin-bottom: 2rem;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 24px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
 .header-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
 .header-title {
-    display: flex;
-    align-items: center;
-    gap: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
 }
 
 .header-icon {
-    color: #60a5fa;
-    filter: drop-shadow(0 0 20px rgba(96, 165, 250, 0.3));
+  color: #60a5fa;
+  filter: drop-shadow(0 0 20px rgba(96, 165, 250, 0.3));
 }
 
 .header-title h1 {
-    font-size: 2.2rem;
-    font-weight: 700;
-    background: linear-gradient(135deg, #60a5fa, #a78bfa);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    letter-spacing: -0.02em;
+  font-size: 2.2rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #60a5fa, #a78bfa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.02em;
 }
 
 .header-title p {
-    color: #94a3b8;
-    font-size: 0.95rem;
-    margin-top: 0.2rem;
+  color: #94a3b8;
+  font-size: 0.95rem;
+  margin-top: 0.2rem;
 }
 
 .api-status {
-    background: rgba(34, 197, 94, 0.15);
-    color: #4ade80;
-    padding: 0.4rem 1rem;
-    border-radius: 60px;
-    font-size: 0.8rem;
-    font-weight: 500;
-    border: 1px solid rgba(34, 197, 94, 0.2);
+  background: rgba(34, 197, 94, 0.15);
+  color: #4ade80;
+  padding: 0.4rem 1rem;
+  border-radius: 60px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border: 1px solid rgba(34, 197, 94, 0.2);
 }
 
 /* Tabs */
 .nasa-tabs {
-    display: flex;
-    gap: 0.5rem;
-    margin-bottom: 2rem;
-    position: relative;
-    z-index: 1;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
-    padding: 0.5rem;
-    border-radius: 16px;
-    border: 1px solid rgba(255, 255, 255, 0.06);
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  padding: 0.5rem;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .tab-btn {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.6rem;
-    padding: 0.8rem 1.5rem;
-    border: none;
-    border-radius: 12px;
-    background: transparent;
-    color: #94a3b8;
-    font-size: 0.95rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-family: inherit;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 12px;
+  background: transparent;
+  color: #94a3b8;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: inherit;
 }
 
 .tab-btn:hover {
-    color: #e2e8f0;
-    background: rgba(255, 255, 255, 0.05);
+  color: #e2e8f0;
+  background: rgba(255, 255, 255, 0.05);
 }
 
 .tab-btn.active {
-    background: rgba(96, 165, 250, 0.15);
-    color: #60a5fa;
-    box-shadow: 0 4px 12px rgba(96, 165, 250, 0.15);
+  background: rgba(96, 165, 250, 0.15);
+  color: #60a5fa;
+  box-shadow: 0 4px 12px rgba(96, 165, 250, 0.15);
 }
 
 /* APOD Section */
 .apod-section {
-    position: relative;
-    z-index: 1;
+  position: relative;
+  z-index: 1;
 }
 
 .apod-search {
-    margin-bottom: 2rem;
+  margin-bottom: 2rem;
 }
 
 .date-search-form {
-    display: flex;
-    gap: 0.8rem;
-    flex-wrap: wrap;
-    align-items: center;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
-    padding: 1rem;
-    border-radius: 16px;
-    border: 1px solid rgba(255, 255, 255, 0.06);
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  padding: 1rem;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .date-input {
-    flex: 1;
-    min-width: 180px;
-    padding: 0.6rem 1rem;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    background: rgba(255, 255, 255, 0.05);
-    color: #fff;
-    font-size: 0.95rem;
-    font-family: inherit;
-    transition: all 0.3s;
+  flex: 1;
+  min-width: 180px;
+  padding: 0.6rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  font-size: 0.95rem;
+  font-family: inherit;
+  transition: all 0.3s;
 }
 
 .date-input:focus {
-    outline: none;
-    border-color: #60a5fa;
-    box-shadow: 0 0 20px rgba(96, 165, 250, 0.1);
+  outline: none;
+  border-color: #60a5fa;
+  box-shadow: 0 0 20px rgba(96, 165, 250, 0.1);
 }
 
 .search-date-btn,
 .today-btn {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.6rem 1.2rem;
-    border: none;
-    border-radius: 10px;
-    font-size: 0.9rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-family: inherit;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: inherit;
 }
 
 .search-date-btn {
-    background: linear-gradient(135deg, #60a5fa, #818cf8);
-    color: #fff;
+  background: linear-gradient(135deg, #60a5fa, #818cf8);
+  color: #fff;
 }
 
 .search-date-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(96, 165, 250, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(96, 165, 250, 0.3);
 }
 
 .today-btn {
-    background: rgba(255, 255, 255, 0.08);
-    color: #94a3b8;
+  background: rgba(255, 255, 255, 0.08);
+  color: #94a3b8;
 }
 
 .today-btn:hover {
-    background: rgba(255, 255, 255, 0.15);
-    color: #fff;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
 }
 
 /* APOD Card */
 .apod-card {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(20px);
-    border-radius: 24px;
-    overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
 .apod-image-container {
-    position: relative;
-    width: 100%;
-    padding-top: 56.25%;
-    background: #0a0e27;
-    overflow: hidden;
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+  background: #0a0e27;
+  overflow: hidden;
 }
 
 .apod-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .apod-video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
 }
 
 .apod-image-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 2rem;
-    background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2rem;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
 }
 
 .apod-date {
-    display: inline-block;
-    background: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(10px);
-    padding: 0.3rem 1rem;
-    border-radius: 60px;
-    font-size: 0.85rem;
-    color: #94a3b8;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+  display: inline-block;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  padding: 0.3rem 1rem;
+  border-radius: 60px;
+  font-size: 0.85rem;
+  color: #94a3b8;
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .apod-content {
-    padding: 2.5rem;
+  padding: 2.5rem;
 }
 
 .apod-title {
-    font-size: 1.8rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    color: #f1f5f9;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #f1f5f9;
 }
 
 .apod-explanation {
-    color: #cbd5e1;
-    line-height: 1.8;
-    font-size: 1.05rem;
-    margin-bottom: 1rem;
+  color: #cbd5e1;
+  line-height: 1.8;
+  font-size: 1.05rem;
+  margin-bottom: 1rem;
 }
 
 .apod-copyright {
-    color: #94a3b8;
-    font-size: 0.9rem;
-    margin-top: 0.5rem;
+  color: #94a3b8;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
 }
 
 /* Asteroids Section */
 .asteroids-section {
-    position: relative;
-    z-index: 1;
+  position: relative;
+  z-index: 1;
 }
 
 .asteroid-controls {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
-    padding: 1rem;
-    border-radius: 16px;
-    border: 1px solid rgba(255, 255, 255, 0.06);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  padding: 1rem;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .asteroid-controls .search-box {
-    flex: 1;
-    min-width: 200px;
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-    background: rgba(255, 255, 255, 0.05);
-    padding: 0.4rem 1rem;
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    transition: all 0.3s;
+  flex: 1;
+  min-width: 200px;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.4rem 1rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: all 0.3s;
 }
 
 .asteroid-controls .search-box:focus-within {
-    border-color: #60a5fa;
-    box-shadow: 0 0 20px rgba(96, 165, 250, 0.05);
+  border-color: #60a5fa;
+  box-shadow: 0 0 20px rgba(96, 165, 250, 0.05);
 }
 
 .asteroid-controls .search-box svg {
-    color: #94a3b8;
+  color: #94a3b8;
 }
 
 .asteroid-controls .search-input {
-    flex: 1;
-    padding: 0.4rem 0;
-    border: none;
-    outline: none;
-    background: transparent;
-    color: #fff;
-    font-size: 0.95rem;
-    font-family: inherit;
+  flex: 1;
+  padding: 0.4rem 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #fff;
+  font-size: 0.95rem;
+  font-family: inherit;
 }
 
 .asteroid-controls .search-input::placeholder {
-    color: #64748b;
+  color: #64748b;
 }
 
 .control-group {
-    display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-    align-items: center;
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
 .sort-select {
-    padding: 0.5rem 1.2rem;
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    border-radius: 10px;
-    background: rgba(255, 255, 255, 0.05);
-    color: #e2e8f0;
-    font-size: 0.9rem;
-    font-family: inherit;
-    cursor: pointer;
-    transition: all 0.3s;
+  padding: 0.5rem 1.2rem;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  color: #e2e8f0;
+  font-size: 0.9rem;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.3s;
 }
 
 .sort-select:hover {
-    background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.08);
 }
 
 .view-toggle {
-    display: flex;
-    gap: 2px;
-    background: rgba(255, 255, 255, 0.05);
-    padding: 3px;
-    border-radius: 10px;
+  display: flex;
+  gap: 2px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 3px;
+  border-radius: 10px;
 }
 
 .view-btn {
-    padding: 0.4rem 0.8rem;
-    border: none;
-    border-radius: 8px;
-    background: transparent;
-    color: #94a3b8;
-    cursor: pointer;
-    transition: all 0.3s;
+  padding: 0.4rem 0.8rem;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: #94a3b8;
+  cursor: pointer;
+  transition: all 0.3s;
 }
 
 .view-btn.active {
-    background: rgba(96, 165, 250, 0.15);
-    color: #60a5fa;
+  background: rgba(96, 165, 250, 0.15);
+  color: #60a5fa;
 }
 
 .view-btn:hover:not(.active) {
-    color: #e2e8f0;
+  color: #e2e8f0;
 }
 
 .refresh-btn {
-    padding: 0.5rem 1rem;
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    border-radius: 10px;
-    background: rgba(255, 255, 255, 0.05);
-    color: #94a3b8;
-    cursor: pointer;
-    transition: all 0.3s;
+  padding: 0.5rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  color: #94a3b8;
+  cursor: pointer;
+  transition: all 0.3s;
 }
 
 .refresh-btn:hover {
-    background: rgba(255, 255, 255, 0.1);
-    color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
 }
 
 .refresh-btn:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 /* Asteroid Stats */
 .asteroid-stats {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 1rem;
-    margin-bottom: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
 }
 
 .stat-card {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
-    padding: 1.2rem;
-    border-radius: 16px;
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    text-align: center;
-    transition: all 0.3s;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  padding: 1.2rem;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  text-align: center;
+  transition: all 0.3s;
 }
 
 .stat-card:hover {
-    background: rgba(255, 255, 255, 0.08);
-    transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-2px);
 }
 
 .stat-value {
-    display: block;
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: #f1f5f9;
-    margin-bottom: 0.2rem;
+  display: block;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #f1f5f9;
+  margin-bottom: 0.2rem;
 }
 
 .stat-label {
-    font-size: 0.8rem;
-    color: #94a3b8;
-    font-weight: 500;
+  font-size: 0.8rem;
+  color: #94a3b8;
+  font-weight: 500;
 }
 
 /* Asteroids Grid */
 .asteroids-grid {
-    display: grid;
-    gap: 1rem;
+  display: grid;
+  gap: 1rem;
 }
 
 .grid-view {
-    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
 }
 
 .list-view {
-    grid-template-columns: 1fr;
+  grid-template-columns: 1fr;
 }
 
 .asteroid-card {
-    display: flex;
-    align-items: center;
-    gap: 1.2rem;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
-    padding: 1.2rem;
-    border-radius: 16px;
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    cursor: pointer;
-    transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  padding: 1.2rem;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .asteroid-card:hover {
-    background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.08);
 }
 
 .asteroid-card.list-mode {
-    padding: 1rem 1.5rem;
+  padding: 1rem 1.5rem;
 }
 
 .asteroid-icon {
-    color: #60a5fa;
-    flex-shrink: 0;
+  color: #60a5fa;
+  flex-shrink: 0;
 }
 
 .asteroid-info {
-    flex: 1;
-    min-width: 0;
+  flex: 1;
+  min-width: 0;
 }
 
 .asteroid-name {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: #f1f5f9;
-    margin-bottom: 0.3rem;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #f1f5f9;
+  margin-bottom: 0.3rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .asteroid-details {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem;
-    margin-bottom: 0.3rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 0.3rem;
 }
 
 .hazard-badge {
-    font-size: 0.75rem;
-    font-weight: 600;
-    padding: 0.2rem 0.6rem;
-    border-radius: 60px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.2rem 0.6rem;
+  border-radius: 60px;
 }
 
 .hazard-badge.hazardous {
-    background: rgba(239, 68, 68, 0.15);
-    color: #f87171;
-    border: 1px solid rgba(239, 68, 68, 0.2);
+  background: rgba(239, 68, 68, 0.15);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.2);
 }
 
 .hazard-badge.safe {
-    background: rgba(34, 197, 94, 0.15);
-    color: #4ade80;
-    border: 1px solid rgba(34, 197, 94, 0.2);
+  background: rgba(34, 197, 94, 0.15);
+  color: #4ade80;
+  border: 1px solid rgba(34, 197, 94, 0.2);
 }
 
 .detail-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.2rem;
-    font-size: 0.75rem;
-    color: #94a3b8;
-    background: rgba(255, 255, 255, 0.05);
-    padding: 0.2rem 0.6rem;
-    border-radius: 60px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  font-size: 0.75rem;
+  color: #94a3b8;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.2rem 0.6rem;
+  border-radius: 60px;
 }
 
 .approach-details {
-    display: flex;
-    gap: 1rem;
-    font-size: 0.8rem;
-    color: #94a3b8;
+  display: flex;
+  gap: 1rem;
+  font-size: 0.8rem;
+  color: #94a3b8;
 }
 
 .view-details-btn {
-    padding: 0.4rem 0.8rem;
-    border: none;
-    border-radius: 8px;
-    background: rgba(255, 255, 255, 0.05);
-    color: #94a3b8;
-    cursor: pointer;
-    transition: all 0.3s;
+  padding: 0.4rem 0.8rem;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  color: #94a3b8;
+  cursor: pointer;
+  transition: all 0.3s;
 }
 
 .view-details-btn:hover {
-    background: rgba(255, 255, 255, 0.1);
-    color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
 }
 
 /* Loading States */
 .loading-container,
 .apod-loading {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 4rem 2rem;
-    background: rgba(255, 255, 255, 0.03);
-    border-radius: 24px;
-    border: 1px solid rgba(255, 255, 255, 0.06);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .spinner {
-    width: 48px;
-    height: 48px;
-    border: 3px solid rgba(255, 255, 255, 0.1);
-    border-top: 3px solid #60a5fa;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
+  width: 48px;
+  height: 48px;
+  border: 3px solid rgba(255, 255, 255, 0.1);
+  border-top: 3px solid #60a5fa;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .loading-container p,
 .apod-loading p {
-    margin-top: 1rem;
-    color: #94a3b8;
+  margin-top: 1rem;
+  color: #94a3b8;
 }
 
 /* Error & Empty States */
 .error-container,
 .empty-container,
 .apod-error {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 4rem 2rem;
-    background: rgba(255, 255, 255, 0.03);
-    border-radius: 24px;
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  text-align: center;
 }
 
 .error-container svg,
 .empty-container svg,
 .apod-error svg {
-    color: #f87171;
-    margin-bottom: 1rem;
+  color: #f87171;
+  margin-bottom: 1rem;
 }
 
 .error-container h3,
 .empty-container h3 {
-    margin-bottom: 0.5rem;
-    color: #f1f5f9;
+  margin-bottom: 0.5rem;
+  color: #f1f5f9;
 }
 
 .error-container p,
 .empty-container p,
 .apod-error p {
-    color: #94a3b8;
-    margin-bottom: 1.5rem;
+  color: #94a3b8;
+  margin-bottom: 1.5rem;
 }
 
 .retry-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.6rem 1.5rem;
-    border: none;
-    border-radius: 10px;
-    background: linear-gradient(135deg, #60a5fa, #818cf8);
-    color: #fff;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.3s;
-    font-family: inherit;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.5rem;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #60a5fa, #818cf8);
+  color: #fff;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-family: inherit;
 }
 
 .retry-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(96, 165, 250, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(96, 165, 250, 0.3);
 }
 
 /* Modal */
 .modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(20px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
-    z-index: 1000;
-    overflow-y: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(20px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  z-index: 1000;
+  overflow-y: auto;
 }
 
 .modal-content {
-    background: linear-gradient(135deg, #1a1a3e, #0d1b2a);
-    border-radius: 24px;
-    max-width: 800px;
-    width: 100%;
-    max-height: 90vh;
-    overflow-y: auto;
-    padding: 2.5rem;
-    position: relative;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5);
+  background: linear-gradient(135deg, #1a1a3e, #0d1b2a);
+  border-radius: 24px;
+  max-width: 800px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 2.5rem;
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5);
 }
 
 .modal-close {
-    position: sticky;
-    top: 0;
-    float: right;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 50%;
-    width: 44px;
-    height: 44px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.3s;
-    color: #94a3b8;
-    margin-bottom: 1rem;
-    z-index: 1;
-    backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  float: right;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s;
+  color: #94a3b8;
+  margin-bottom: 1rem;
+  z-index: 1;
+  backdrop-filter: blur(10px);
 }
-.nasa_modal{
+
+.nasa_modal {
   left: 100%;
 }
+
 .modal-close:hover {
-    background: rgba(239, 68, 68, 0.2);
-    color: #f87171;
+  background: rgba(239, 68, 68, 0.2);
+  color: #f87171;
 }
 
 /* Asteroid Modal */
 .asteroid-modal-content {
-    margin-top: 0.5rem;
+  margin-top: 0.5rem;
 }
 
 .asteroid-modal-header {
-    text-align: center;
-    margin-bottom: 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
 }
 
 .asteroid-modal-header svg {
-    color: #60a5fa;
-    margin-bottom: 0.5rem;
+  color: #60a5fa;
+  margin-bottom: 0.5rem;
 }
 
 .asteroid-modal-header h2 {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: #f1f5f9;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #f1f5f9;
 }
 
 .asteroid-id {
-    color: #94a3b8;
-    font-size: 0.9rem;
-    margin-top: 0.2rem;
+  color: #94a3b8;
+  font-size: 0.9rem;
+  margin-top: 0.2rem;
 }
 
 .asteroid-modal-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1rem;
-    margin-bottom: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
 }
 
 .modal-stat-card {
-    background: rgba(255, 255, 255, 0.05);
-    padding: 1rem;
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .modal-stat-label {
-    display: block;
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: #94a3b8;
-    margin-bottom: 0.3rem;
+  display: block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #94a3b8;
+  margin-bottom: 0.3rem;
 }
 
 .modal-stat-value {
-    display: block;
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: #f1f5f9;
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #f1f5f9;
 }
 
 .orbital-data {
-    background: rgba(255, 255, 255, 0.03);
-    padding: 1.5rem;
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    margin-bottom: 1.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  margin-bottom: 1.5rem;
 }
 
 .orbital-data h3 {
-    font-size: 1rem;
-    color: #94a3b8;
-    margin-bottom: 0.8rem;
+  font-size: 1rem;
+  color: #94a3b8;
+  margin-bottom: 0.8rem;
 }
 
 .orbital-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 0.8rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 0.8rem;
 }
 
 .orbital-item {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .orbital-label {
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: #64748b;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #64748b;
 }
 
 .orbital-item span:last-child {
-    color: #e2e8f0;
-    font-weight: 500;
+  color: #e2e8f0;
+  font-weight: 500;
 }
 
 .nasa-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.6rem;
-    padding: 0.6rem 1.5rem;
-    background: rgba(96, 165, 250, 0.1);
-    border: 1px solid rgba(96, 165, 250, 0.2);
-    border-radius: 10px;
-    color: #60a5fa;
-    text-decoration: none;
-    transition: all 0.3s;
-    font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem 1.5rem;
+  background: rgba(96, 165, 250, 0.1);
+  border: 1px solid rgba(96, 165, 250, 0.2);
+  border-radius: 10px;
+  color: #60a5fa;
+  text-decoration: none;
+  transition: all 0.3s;
+  font-weight: 500;
 }
-
+.search-date-btn, .today-btn {
+      width: 14% !important;
+}
 .nasa-link:hover {
-    background: rgba(96, 165, 250, 0.2);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(96, 165, 250, 0.15);
+  background: rgba(96, 165, 250, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(96, 165, 250, 0.15);
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-    .nasa-container {
-        padding: 1rem;
-    }
+  .nasa-container {
+    padding: 1rem;
+  }
+.search-date-btn, .today-btn {
+  width: 100% !important;
+}
+  .header-title h1 {
+    font-size: 1.5rem;
+  }
 
-    .header-title h1 {
-        font-size: 1.5rem;
-    }
+  .header-content {
+    flex-direction: column;
+    align-items: stretch;
+  }
 
-    .header-content {
-        flex-direction: column;
-        align-items: stretch;
-    }
+  .apod-content {
+    padding: 1.5rem;
+  }
 
-    .apod-content {
-        padding: 1.5rem;
-    }
+  .apod-title {
+    font-size: 1.3rem;
+  }
 
-    .apod-title {
-        font-size: 1.3rem;
-    }
+  .asteroid-controls {
+    flex-direction: column;
+  }
 
-    .asteroid-controls {
-        flex-direction: column;
-    }
+  .control-group {
+    justify-content: stretch;
+  }
 
-    .control-group {
-        justify-content: stretch;
-    }
+  .grid-view {
+    grid-template-columns: 1fr;
+  }
 
-    .grid-view {
-        grid-template-columns: 1fr;
-    }
+  .modal-content {
+    padding: 1.5rem;
+    /* margin: 1rem; */
+  }
 
-    .modal-content {
-        padding: 1.5rem;
-        /* margin: 1rem; */
-    }
+  .asteroid-modal-grid {
+    grid-template-columns: 1fr 1fr;
+  }
 
-    .asteroid-modal-grid {
-        grid-template-columns: 1fr 1fr;
-    }
+  .date-search-form {
+    flex-direction: column;
+  }
 
-    .date-search-form {
-        flex-direction: column;
-    }
+  .date-input {
+    width: 100%;
+  }
 
-    .date-input {
-        width: 100%;
-    }
-
-    .search-date-btn,
-    .today-btn {
-        width: 100%;
-        justify-content: center;
-    }
+  .search-date-btn,
+  .today-btn {
+    width: 100%;
+    justify-content: center;
+  }
 }
 
 @media (max-width: 480px) {
-    .asteroid-modal-grid {
-        grid-template-columns: 1fr;
-    }
-.view-details-btn{
+  .asteroid-modal-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .view-details-btn {
     position: relative;
     left: -4em !important;
+  }
+
+  .orbital-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tab-btn {
+    font-size: 0.8rem;
+    padding: 0.6rem 0.8rem;
+  }
+
+  .tab-btn span {
+    display: none;
+  }
 }
-    .orbital-grid {
-        grid-template-columns: 1fr;
-    }
 
-    .tab-btn {
-        font-size: 0.8rem;
-        padding: 0.6rem 0.8rem;
-    }
+@media (max-width: 768px) {
 
-    .tab-btn span {
-        display: none;
-    }
+  .read-more-btn {
+    margin-top: 12px;
+    padding: 10px 22px;
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: linear-gradient(135deg, var(--primary), var(--primary));
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(30, 144, 255, 0.35);
+  }
+
+  .read-more-btn:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(135deg, #3aa0ff, #0066d6);
+    box-shadow: 0 6px 20px rgba(30, 144, 255, 0.5);
+  }
+
+  .read-more-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 3px 10px rgba(30, 144, 255, 0.3);
+  }
+
+  .read-more-btn:focus {
+    outline: 2px solid rgba(30, 144, 255, 0.6);
+    outline-offset: 3px;
+  }
+
+
+  /* NASA button style */
+  .nasa_buttons {
+    text-transform: uppercase;
+  }
+
+  .apod-explanation {
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .apod-explanation.expanded {
+    display: block;
+  }
 }

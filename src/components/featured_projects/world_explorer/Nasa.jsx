@@ -5,7 +5,8 @@ import * as lucide from 'lucide-react';
 import './Nasa.css';
 import Footer2 from '../../footer/Footer2';
 import Navbar from '../../navbar/Navbar';
-
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 const Nasa = () => {
     // ============================================
     // 📌 STATE MANAGEMENT
@@ -22,7 +23,8 @@ const Nasa = () => {
     const [sortBy, setSortBy] = useState('name');
     const [searchTerm, setSearchTerm] = useState('');
     const [activeTab, setActiveTab] = useState('apod');
-
+    const [expanded, setExpanded] = useState(false);
+    // const [searchDate, setSearchDate] = useState(null);
     // ============================================
     // 🚀 NASA API CONFIGURATION
     // ============================================
@@ -40,7 +42,7 @@ const Nasa = () => {
             if (date) {
                 url += `&date=${date}`;
             }
-            
+
             const response = await fetch(url);
             if (!response.ok) throw new Error('Failed to fetch APOD');
             const data = await response.json();
@@ -64,16 +66,16 @@ const Nasa = () => {
             const today = new Date();
             const endDate = new Date(today);
             endDate.setDate(today.getDate() + 7);
-            
+
             const startStr = today.toISOString().split('T')[0];
             const endStr = endDate.toISOString().split('T')[0];
-            
+
             const url = `${ASTEROID_URL}&start_date=${startStr}&end_date=${endStr}`;
-            
+
             const response = await fetch(url);
             if (!response.ok) throw new Error('Failed to fetch asteroids');
             const data = await response.json();
-            
+
             // Process asteroid data
             let allAsteroids = [];
             if (data.near_earth_objects) {
@@ -81,12 +83,12 @@ const Nasa = () => {
                     allAsteroids = [...allAsteroids, ...dateAsteroids];
                 });
             }
-            
+
             // Remove duplicates (by id)
             const uniqueAsteroids = Array.from(
                 new Map(allAsteroids.map(item => [item.id, item])).values()
             );
-            
+
             setAsteroids(uniqueAsteroids);
             setFilteredAsteroids(uniqueAsteroids);
             setError(null);
@@ -125,11 +127,11 @@ const Nasa = () => {
             if (sortBy === 'name') {
                 return a.name.localeCompare(b.name);
             } else if (sortBy === 'size') {
-                return (b.estimated_diameter?.meters?.estimated_diameter_max || 0) - 
-                       (a.estimated_diameter?.meters?.estimated_diameter_max || 0);
+                return (b.estimated_diameter?.meters?.estimated_diameter_max || 0) -
+                    (a.estimated_diameter?.meters?.estimated_diameter_max || 0);
             } else if (sortBy === 'distance') {
-                return (a.close_approach_data?.[0]?.miss_distance?.kilometers || 0) - 
-                       (b.close_approach_data?.[0]?.miss_distance?.kilometers || 0);
+                return (a.close_approach_data?.[0]?.miss_distance?.kilometers || 0) -
+                    (b.close_approach_data?.[0]?.miss_distance?.kilometers || 0);
             }
             return 0;
         });
@@ -143,7 +145,10 @@ const Nasa = () => {
     const handleDateSearch = (e) => {
         e.preventDefault();
         if (searchDate) {
-            fetchApod(searchDate);
+            const formattedDate =
+                `${searchDate.getFullYear()}-${String(searchDate.getMonth() + 1).padStart(2, "0")}-${String(searchDate.getDate()).padStart(2, "0")}`;
+
+            fetchApod(formattedDate);
         }
     };
 
@@ -201,7 +206,7 @@ const Nasa = () => {
     // ============================================
     return (
         <>
-        <Navbar/>
+            <Navbar />
             <motion.div
                 className="nasa-container"
                 variants={pageVariants}
@@ -252,7 +257,7 @@ const Nasa = () => {
                         exit={{ opacity: 0, x: 50 }}
                     >
                         <div className="apod-search">
-                            <form onSubmit={handleDateSearch} className="date-search-form">
+                            {/* <form onSubmit={handleDateSearch} className="date-search-form">
                                 <input
                                     type="date"
                                     className="date-input"
@@ -274,6 +279,35 @@ const Nasa = () => {
                                 >
                                     Today
                                 </button>
+                            </form> */}
+
+                            <form onSubmit={handleDateSearch} className="date-search-form">
+
+                                <DatePicker
+                                    selected={searchDate}
+                                    onChange={(date) => setSearchDate(date)}
+                                    maxDate={new Date()}
+                                    dateFormat="yyyy-MM-dd"
+                                    placeholderText="Select date"
+                                    className="date-input"
+                                />
+
+                                <button type="submit" className="search-date-btn">
+                                    <Icon name="Calendar" size={18} />
+                                    View Date
+                                </button>
+
+                                <button
+                                    type="button"
+                                    className="today-btn"
+                                    onClick={() => {
+                                        setSearchDate(null);
+                                        fetchApod();
+                                    }}
+                                >
+                                    Today
+                                </button>
+
                             </form>
                         </div>
 
@@ -311,9 +345,21 @@ const Nasa = () => {
                                 </div>
                                 <div className="apod-content">
                                     <h2 className="apod-title">{apodData.title}</h2>
-                                    <p className="apod-explanation">{apodData.explanation}</p>
+                                    {/* <p className="apod-explanation">{apodData.explanation}</p> */}
+                                    <div>
+                                        <p className={expanded ? "apod-explanation expanded" : "apod-explanation"}>
+                                            {apodData.explanation}
+                                        </p>
+
+                                        <button
+                                            className="read-more-btn d-md-none"
+                                            onClick={() => setExpanded(!expanded)}
+                                        >
+                                            {expanded ? "Read Less" : "Read More"}
+                                        </button>
+                                    </div>
                                     {apodData.copyright && (
-                                        <p className="apod-copyright">📷 {apodData.copyright}</p>
+                                        <p className="apod-copyright d-none">📷 {apodData.copyright}</p>
                                     )}
                                 </div>
                             </motion.div>
@@ -395,7 +441,7 @@ const Nasa = () => {
                             <div className="stat-card">
                                 <span className="stat-value">
                                     {Math.round(
-                                        filteredAsteroids.reduce((acc, a) => 
+                                        filteredAsteroids.reduce((acc, a) =>
                                             acc + (a.estimated_diameter?.meters?.estimated_diameter_max || 0), 0
                                         ) / filteredAsteroids.length || 0
                                     )}
@@ -432,7 +478,7 @@ const Nasa = () => {
                                     const hazard = getHazardStatus(asteroid);
                                     const closeApproach = asteroid.close_approach_data?.[0];
                                     const diameter = asteroid.estimated_diameter?.meters?.estimated_diameter_max;
-                                    
+
                                     return (
                                         <motion.div
                                             key={asteroid.id}
@@ -512,7 +558,7 @@ const Nasa = () => {
                             <button className="modal-close nasa_modal" onClick={() => setSelectedAsteroid(null)}>
                                 <Icon name="X" size={24} />
                             </button>
-                            
+
                             <div className="asteroid-modal-content">
                                 <div className="asteroid-modal-header">
                                     <Icon name="Orbit" size={48} />
@@ -597,7 +643,7 @@ const Nasa = () => {
                     </motion.div>
                 )}
             </AnimatePresence>
-            <Footer2/>
+            <Footer2 />
         </>
     );
 };
