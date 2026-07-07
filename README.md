@@ -45,80 +45,71 @@ It focuses on performance, responsiveness, and modern web development practices 
 
 # 🎯 Key Highlights
 
-✅ Premium Landing Experience
-
-✅ Progressive Web Application (PWA)
-
-✅ Component-Based Architecture
-
-✅ Responsive Design
-
-✅ Mobile First Approach
-
-✅ Smooth Page Animations
-
-✅ Interactive Booking Modal
-
-✅ Performance Optimized
-
-✅ Modern UI/UX
-
-✅ SEO Friendly Structure
+- 🚀 Modern React 19 Portfolio
+- 📱 Progressive Web App (PWA)
+- 📱 Fully Responsive & Mobile First
+- ⚡ Performance Optimized
+- 🎨 Premium UI/UX with Framer Motion
+- 🔥 Firebase Authentication & Storage
+- 🌐 Multiple API Integrations
+- 📄 Dynamic Resume Download
 
 ---
 
-# 🖥️ Features
+# ✨ Features
 
-### 🚀 User Experience
-
-* Elegant Hero Section
-* Premium Fleet Showcase
-* Interactive Booking Form
-* Customer Testimonials
-* Responsive Image Gallery
-* Contact & CTA Sections
-* Smooth Scroll Experience
-* Premium Hover Effects
+### 🚀 Portfolio Experience
+- Modern & Premium Landing Page
+- Interactive Project Showcase
+- Dynamic Resume Download
+- Contact Form Integration
 
 ---
 
 ### ⚡ Performance
-
-* Optimized Asset Loading
-* Lazy Friendly Component Structure
-* Mobile Optimized Layout
-* Fast Rendering
-* Lightweight Icon Library
-* Installable PWA
+- Optimized Asset Loading
+- Lazy Loaded Components
+- Progressive Web App (PWA)
+- SEO Friendly Structure
 
 ---
 
-### 🎨 UI Design
-
-* Premium Typography
-* Glassmorphism Effects
-* Modern Card Designs
-* Responsive Grid Layout
-* Smooth Micro Interactions
-* Framer Motion Animations
+### 🌐 Integrations
+- Multiple Third-Party API Integrations
+- Firebase Authentication & Storage
+- Telegram Bot Integration
+- Dynamic Resume Fetching
 
 ---
+
+### 🎨 UI & UX
+- Glassmorphism Effects
+- Framer Motion Animations
+- Smooth Micro Interactions
 
 # ⚙️ Technology Stack
 
-| Technology             | Usage                                    |
-|------------------------|------------------------------------------|
-| ⚛️ React.js            | Frontend Development                     |
-| 🟨 JavaScript (ES6+)   | Application Logic                        |
-| 🎨 Bootstrap 5         | Responsive Grid & UI Components          |
-| 💅 CSS3                | Custom Styling & Responsive Design       |
-| 🎭 Framer Motion       | Animations & Micro-interactions          |
-| 🎯 Lucide React        | Modern SVG Icons                         |
-| 🌍 Geoapify API        | Location Autocomplete & Search           |
-| 📱 Progressive Web App | Installable Web Application              |
-| 🔧 Git & GitHub        | Version Control & Source Management      |
+| Technology | Usage |
+|------------|-------|
+| ⚛️ React.js 19 | Frontend Development |
+| 🟨 JavaScript (ES6+) | Application Logic |
+| 🔄 Redux Toolkit | State Management |
+| 🎨 Bootstrap 5 | Responsive UI Components |
+| 💅 CSS3 | Custom Styling & Responsive Design |
+| 🎭 Framer Motion | Animations & Micro-interactions |
+| 🌐 React Router | Client-side Routing |
+| 📡 Axios | API Requests |
+| 🔥 Firebase Authentication | Secure User Login |
+| ☁️ Firebase Storage | File Storage |
+| 📄 Dynamic Resume Fetching | Resume Management |
+| 🌌 NASA APOD API | Astronomy Data |
+| 🌤️ OpenWeather API | Weather Information |
+| 🌍 REST Countries API | Country Data |
+| 📍 Geoapify API | Maps & Location Search |
+| ✈️ Telegram Bot API | Contact Notifications |
+| 📱 Progressive Web App | Installable Web Application |
+| 🔧 Git & GitHub | Version Control |
 
----
 
 <!-- # 🏗 Architecture
 
