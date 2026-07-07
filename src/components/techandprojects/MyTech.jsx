@@ -152,7 +152,7 @@ function MyTech() {
                             }}
                             transition={{ duration: 0.3 }}
                         />
-                        <h5>React</h5>
+                        <p>React</p>
                     </motion.div>
 
                     {/* JavaScript */}
@@ -179,7 +179,7 @@ function MyTech() {
                             }}
                         />
 
-                        <h5>JavaScript</h5>
+                        <p>JavaScript</p>
                     </motion.div>
 
                     {/* Node.js */}
@@ -203,7 +203,7 @@ function MyTech() {
                             }}
                             transition={{ duration: 0.3 }}
                         />
-                        <h5>Node.js</h5>
+                        <p>Node.js</p>
                     </motion.div>
 
                     {/* Express.js */}
@@ -227,7 +227,7 @@ function MyTech() {
                             }}
                             transition={{ duration: 0.3 }}
                         />
-                        <h5>Express.js</h5>
+                        <p>Express.js</p>
                     </motion.div>
 
                     {/* MongoDB */}
@@ -251,7 +251,7 @@ function MyTech() {
                             }}
                             transition={{ duration: 0.3 }}
                         />
-                        <h5>MongoDB</h5>
+                        <p>MongoDB</p>
                     </motion.div>
 
                     {/* Firebase */}
@@ -275,7 +275,7 @@ function MyTech() {
                             }}
                             transition={{ duration: 0.3 }}
                         />
-                        <h5>Firebase</h5>
+                        <p>Firebase</p>
                     </motion.div>
 
                     {/* Redux */}
@@ -299,7 +299,7 @@ function MyTech() {
                             }}
                             transition={{ duration: 0.3 }}
                         />
-                        <h5>Redux</h5>
+                        <p>Redux</p>
                     </motion.div>
 
                     {/* Bootstrap */}
@@ -323,7 +323,7 @@ function MyTech() {
                             }}
                             transition={{ duration: 0.3 }}
                         />
-                        <h5>Bootstrap</h5>
+                        <p>Bootstrap</p>
                     </motion.div>
 
                     {/* HTML5 */}
@@ -347,7 +347,7 @@ function MyTech() {
                             }}
                             transition={{ duration: 0.3 }}
                         />
-                        <h5>HTML5</h5>
+                        <p>HTML5</p>
                     </motion.div>
 
                     {/* CSS3 */}
@@ -371,7 +371,7 @@ function MyTech() {
                             }}
                             transition={{ duration: 0.3 }}
                         />
-                        <h5>CSS3</h5>
+                        <p>CSS3</p>
                     </motion.div>
 
                     {/* Git */}
@@ -395,7 +395,7 @@ function MyTech() {
                             }}
                             transition={{ duration: 0.3 }}
                         />
-                        <h5>Git</h5>
+                        <p>Git</p>
                     </motion.div>
 
                     {/* GitHub */}
@@ -419,7 +419,7 @@ function MyTech() {
                             }}
                             transition={{ duration: 0.3 }}
                         />
-                        <h5>GitHub</h5>
+                        <p>GitHub</p>
                     </motion.div>
                 </motion.div>
 

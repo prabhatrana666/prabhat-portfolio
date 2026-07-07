@@ -224,6 +224,8 @@ const Footer2 = () => {
 
                     <button
                         className="btn btn-primary rounded-circle position-absolute top-50 start-50 translate-middle bottom_button"
+                        aria-label="Scroll to top"
+                        title="Scroll to top"
                         style={{ background: 'var(--primary)', height: '3em', width: '4%', padding: '14px' }}
                         onClick={() =>
                             window.scrollTo({
