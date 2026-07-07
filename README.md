@@ -7,11 +7,16 @@
 
 <p align="center">
 
-![React](https://img.shields.io/badge/React-19-61DAFB?logo=react\&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?logo=javascript\&logoColor=black)
-![Bootstrap](https://img.shields.io/badge/Bootstrap-5-7952B3?logo=bootstrap\&logoColor=white)
+![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?logo=javascript&logoColor=black)
+![Redux Toolkit](https://img.shields.io/badge/Redux_Toolkit-State_Management-764ABC?logo=redux&logoColor=white)
+![Bootstrap](https://img.shields.io/badge/Bootstrap-5-7952B3?logo=bootstrap&logoColor=white)
 ![Framer Motion](https://img.shields.io/badge/Framer_Motion-Animations-black)
-![Geoapify API](https://img.shields.io/badge/Geoapify-API-00A86B)
+![NASA API](https://img.shields.io/badge/NASA-APOD_API-0B3D91)
+![Geoapify API](https://img.shields.io/badge/Geoapify-Maps_API-00A86B)
+![REST Countries API](https://img.shields.io/badge/REST_Countries-API-4285F4)
+![Axios](https://img.shields.io/badge/Axios-API_Requests-5A29E4?logo=axios&logoColor=white)
+![React Router](https://img.shields.io/badge/React_Router-DOM-CA4245?logo=reactrouter&logoColor=white)
 ![PWA](https://img.shields.io/badge/PWA-Enabled-5A0FC8)
 ![Responsive](https://img.shields.io/badge/Responsive-100%25-success)
 
@@ -24,6 +29,8 @@
 > **Live Website**
 
 https://prabhatrana.netlify.app/
+
+![Portfolio Website Preview](./public/main.png)
 
 ---
 
