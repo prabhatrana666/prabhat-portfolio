@@ -34,8 +34,10 @@ const Nasa = () => {
     const NASA_API_KEY = 'dvcfKralVtr6OW4tEj0Bwt8seQmCAZm9HhAkyYZt';
     const APOD_URL = `https://api.nasa.gov/planetary/apod?api_key=${NASA_API_KEY}`;
     const ASTEROID_URL = `https://api.nasa.gov/neo/rest/v1/feed?api_key=${NASA_API_KEY}`;
-    const ISS_URL = 'http://api.open-notify.org/iss-now.json';
-    const PEOPLE_URL = 'http://api.open-notify.org/astros.json';
+    
+    // ✅ UPDATED: Using the new ISS API endpoints
+    const ISS_URL = "https://api.wheretheiss.at/v1/satellites/25544";
+    const PEOPLE_URL = "https://corquaid.github.io/international-space-station-APIs/JSON/people-in-space.json";
 
     // ============================================
     // 📡 FETCH APOD (Astronomy Picture of the Day)
@@ -103,13 +105,17 @@ const Nasa = () => {
     };
 
     // ============================================
-    // 📡 FETCH ISS LOCATION
+    // 📡 FETCH ISS LOCATION - UPDATED
     // ============================================
     const fetchIssLocation = async () => {
         try {
             setIssLoading(true);
             const response = await fetch(ISS_URL);
-            if (!response.ok) throw new Error('Failed to fetch ISS location');
+
+            if (!response.ok) {
+                throw new Error("Failed to fetch ISS");
+            }
+
             const data = await response.json();
             setIssLocation(data);
             setError(null);
@@ -122,18 +128,25 @@ const Nasa = () => {
     };
 
     // ============================================
-    // 📡 FETCH PEOPLE IN SPACE
+    // 📡 FETCH PEOPLE IN SPACE - UPDATED
     // ============================================
     const fetchPeopleInSpace = async () => {
         try {
             const response = await fetch(PEOPLE_URL);
-            if (!response.ok) throw new Error('Failed to fetch people in space');
+
+            if (!response.ok) {
+                throw new Error("Failed to fetch people in space");
+            }
+
             const data = await response.json();
+            
+            // ✅ UPDATED: The new API returns people directly in the 'people' array
+            // Each person has an 'iss' boolean field instead of 'craft'
             setPeopleInSpace(data.people || []);
             setError(null);
         } catch (err) {
             console.error('People Error:', err);
-            setError('Failed to load people in space');
+            setError("Failed to load people in space");
         }
     };
 
@@ -303,18 +316,21 @@ const Nasa = () => {
                                 <div className="iss-coord">
                                     <span className="coord-label">Latitude</span>
                                     <span className="coord-value">
-                                        {parseFloat(issLocation.iss_position.latitude).toFixed(4)}°
+                                        {/* ✅ UPDATED: wheretheiss.at returns latitude directly */}
+                                        {parseFloat(issLocation.latitude).toFixed(4)}°
                                     </span>
                                 </div>
                                 <div className="iss-coord">
                                     <span className="coord-label">Longitude</span>
                                     <span className="coord-value">
-                                        {parseFloat(issLocation.iss_position.longitude).toFixed(4)}°
+                                        {/* ✅ UPDATED: wheretheiss.at returns longitude directly */}
+                                        {parseFloat(issLocation.longitude).toFixed(4)}°
                                     </span>
                                 </div>
                                 <div className="iss-coord">
                                     <span className="coord-label">Last Updated</span>
                                     <span className="coord-value">
+                                        {/* ✅ UPDATED: wheretheiss.at returns timestamp in epoch format */}
                                         {formatTimestamp(issLocation.timestamp)}
                                     </span>
                                 </div>
@@ -323,7 +339,7 @@ const Nasa = () => {
                                 <Icon name="Users" size={18} />
                                 <span>
                                     {peopleInSpace.length} people in space
-                                    {peopleInSpace.some(p => p.craft === 'Tiangong') && ' (ISS + Tiangong)'}
+                                    {peopleInSpace.some(p => !p.iss) && ' (ISS + Tiangong)'}
                                 </span>
                             </div>
                         </div>
@@ -427,13 +443,6 @@ const Nasa = () => {
                                 </div>
                                 <div className="apod-content">
                                     <h2 className="apod-title">{apodData.title}</h2>
-                                    {/* <p className="apod-explanation">{apodData.explanation}</p>
-                                    <button
-                                        className="btn btn-primary rounded-pill px-4 py-2 d-md-none"
-                                        onClick={() => setExpanded(!expanded)}
-                                    >
-                                        {expanded ? "Read Less" : "Read More"}
-                                    </button> */}
                                     <p className={expanded ? "apod-explanation expanded" : "apod-explanation"}>
                                         {apodData.explanation}
                                     </p>
@@ -623,7 +632,7 @@ const Nasa = () => {
                     </motion.div>
                 )}
 
-                {/* People in Space Section */}
+                {/* People in Space Section - UPDATED for new API */}
                 {activeTab === 'people' && (
                     <motion.div
                         className="people-section"
@@ -646,10 +655,11 @@ const Nasa = () => {
                                 </h3>
                                 <div className="people-list">
                                     {peopleInSpace
-                                        .filter(person => person.craft === 'ISS')
+                                        // ✅ UPDATED: Use 'iss' boolean field instead of 'craft'
+                                        .filter(person => person.iss === true)
                                         .map((person, index) => (
                                             <motion.div
-                                                key={index}
+                                                key={person.id || index}
                                                 className="person-card"
                                                 initial={{ opacity: 0, x: -20 }}
                                                 animate={{ opacity: 1, x: 0 }}
@@ -657,13 +667,14 @@ const Nasa = () => {
                                             >
                                                 <Icon name="User" size={20} className="person-icon" />
                                                 <span className="person-name">{person.name}</span>
+                                                <span className="person-country">({person.country})</span>
                                             </motion.div>
                                         ))}
                                 </div>
                             </div>
 
                             {/* Tiangong Crew */}
-                            {peopleInSpace.some(p => p.craft === 'Tiangong') && (
+                            {peopleInSpace.some(p => p.iss === false) && (
                                 <div className="craft-section">
                                     <h3 className="craft-title">
                                         <Icon name="Globe" size={20} />
@@ -671,10 +682,11 @@ const Nasa = () => {
                                     </h3>
                                     <div className="people-list">
                                         {peopleInSpace
-                                            .filter(person => person.craft === 'Tiangong')
+                                            // ✅ UPDATED: Use 'iss' boolean field instead of 'craft'
+                                            .filter(person => person.iss === false)
                                             .map((person, index) => (
                                                 <motion.div
-                                                    key={index}
+                                                    key={person.id || index}
                                                     className="person-card"
                                                     initial={{ opacity: 0, x: -20 }}
                                                     animate={{ opacity: 1, x: 0 }}
@@ -682,6 +694,7 @@ const Nasa = () => {
                                                 >
                                                     <Icon name="User" size={20} className="person-icon" />
                                                     <span className="person-name">{person.name}</span>
+                                                    <span className="person-country">({person.country})</span>
                                                 </motion.div>
                                             ))}
                                     </div>
@@ -702,7 +715,7 @@ const Nasa = () => {
                                 <div>
                                     <h4>Space Stations</h4>
                                     <p>
-                                        {peopleInSpace.some(p => p.craft === 'Tiangong') ? '2' : '1'}
+                                        {peopleInSpace.some(p => p.iss === false) ? '2' : '1'}
                                         active stations
                                     </p>
                                 </div>
