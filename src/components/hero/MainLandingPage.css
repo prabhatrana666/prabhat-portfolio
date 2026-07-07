@@ -674,9 +674,38 @@
         top: 35em !important;
         right: 2em !important;
     }
-     .hero-prev {
+
+    .hero-prev {
         top: 35em !important;
         left: 5% !important;
+    }
+
+    .project-card {
+        height: 510px;
+    }
+
+    .project-btn {
+        height: 3em;
+    }
+
+    .hero-project-swiper .swiper-pagination {
+        bottom: -2px !important;
+    }
+
+    .project-btn.primary {
+        height: 3em;
+    }
+
+    .project-title {
+        font-size: 18px;
+    }
+
+    .project-image {
+        height: auto;
+    }
+
+    .project-overlay {
+        padding: 28px 24px;
     }
 }
 
