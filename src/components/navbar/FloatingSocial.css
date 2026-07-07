@@ -112,7 +112,7 @@
     justify-content: center;
 
     text-decoration: none;
-    color: white;
+    color: white !important;
     font-size: 26px;
 
     box-shadow: 0 8px 25px rgba(0, 0, 0, .18);
@@ -203,6 +203,7 @@
 /* Modal */
 .portfolio-enquiry-modal {
     border: none;
+    max-height: none;
     border-radius: 18px;
     overflow: hidden;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
@@ -271,6 +272,7 @@
 .portfolio-enquiry-header .btn-close {
     position: absolute;
     top: 20px;
+    filter: invert(1);
     right: 20px;
 }
 
@@ -290,14 +292,21 @@
 .portfolio-enquiry-title {
     font-size: 28px;
     font-weight: 700;
-    color: #2b284f;
+    color: #fff;
     margin-bottom: 8px;
 }
 
 .portfolio-enquiry-subtitle {
     font-size: 14px;
-    color: #6c757d;
+    color: #98a8b7;
     max-width: 340px;
     line-height: 1.6;
     margin-bottom: 0;
+}
+
+@media (max-width:768px) {
+    .portfolio-enquiry-modal {
+        max-height: 112vh;
+    }
+
 }
