@@ -8,6 +8,13 @@ import {
     PhoneCall,
 } from "lucide-react";
 import {
+    SiReact, SiRedux, SiFirebase, SiBootstrap, SiGithub, SiGit, SiCss, SiHtml5, SiExpress,
+    SiMongodb,
+    SiNodedotjs,
+    SiJavascript,
+} from "react-icons/si";
+
+import {
     Code2,
     Palette,
     Smartphone,
@@ -143,15 +150,19 @@ function MyTech() {
                         }}
                         transition={{ duration: 0.3 }}
                     >
-                        <motion.img
-                            src="https://cdn.simpleicons.org/react"
-                            alt="React"
+                        <motion.div
                             whileHover={{
                                 scale: 1.15,
                                 rotate: 8,
                             }}
                             transition={{ duration: 0.3 }}
-                        />
+                        >
+                            <SiReact
+                                className="skill-icon tech_iconss"
+                                size={70}
+                                color="#61DAFB"
+                            />
+                        </motion.div>
                         <p>React</p>
                     </motion.div>
 
@@ -167,9 +178,7 @@ function MyTech() {
                             transition: { duration: 0.3 },
                         }}
                     >
-                        <motion.img
-                            src="https://cdn.simpleicons.org/javascript"
-                            alt="JavaScript"
+                        <motion.div
                             whileHover={{
                                 scale: 1.18,
                                 rotate: 8,
@@ -177,7 +186,13 @@ function MyTech() {
                             transition={{
                                 duration: 0.3,
                             }}
-                        />
+                        >
+                            <SiJavascript
+                                className="skill-icon tech_iconss"
+                                size={70}
+                                color="#F7DF1E"
+                            />
+                        </motion.div>
 
                         <p>JavaScript</p>
                     </motion.div>
@@ -194,15 +209,19 @@ function MyTech() {
                             transition: { duration: 0.3 },
                         }}
                     >
-                        <motion.img
-                            src="https://cdn.simpleicons.org/nodedotjs"
-                            alt="Node.js"
+                        <motion.div
                             whileHover={{
                                 scale: 1.18,
                                 rotate: 8,
                             }}
                             transition={{ duration: 0.3 }}
-                        />
+                        >
+                            <SiNodedotjs
+                                className="skill-icon tech_iconss"
+                                size={70}
+                                color="#5FA04E"
+                            />
+                        </motion.div>
                         <p>Node.js</p>
                     </motion.div>
 
@@ -218,15 +237,19 @@ function MyTech() {
                             transition: { duration: 0.3 },
                         }}
                     >
-                        <motion.img
-                            src="https://cdn.simpleicons.org/express"
-                            alt="Express"
+                        <motion.div
                             whileHover={{
                                 scale: 1.18,
                                 rotate: 8,
                             }}
                             transition={{ duration: 0.3 }}
-                        />
+                        >
+                            <SiExpress
+                                className="skill-icon tech_iconss"
+                                size={70}
+                                color="#000000"
+                            />
+                        </motion.div>
                         <p>Express.js</p>
                     </motion.div>
 
@@ -242,15 +265,19 @@ function MyTech() {
                             transition: { duration: 0.3 },
                         }}
                     >
-                        <motion.img
-                            src="https://cdn.simpleicons.org/mongodb"
-                            alt="MongoDB"
+                        <motion.div
                             whileHover={{
                                 scale: 1.18,
                                 rotate: 8,
                             }}
                             transition={{ duration: 0.3 }}
-                        />
+                        >
+                            <SiMongodb
+                                className="skill-icon tech_iconss"
+                                size={70}
+                                color="#47A248"
+                            />
+                        </motion.div>
                         <p>MongoDB</p>
                     </motion.div>
 
@@ -265,16 +292,19 @@ function MyTech() {
                             rotateY: -6,
                             transition: { duration: 0.3 },
                         }}
+                    ><motion.div
+                        whileHover={{
+                            scale: 1.18,
+                            rotate: 8,
+                        }}
+                        transition={{ duration: 0.3 }}
                     >
-                        <motion.img
-                            src="https://cdn.simpleicons.org/firebase"
-                            alt="Firebase"
-                            whileHover={{
-                                scale: 1.18,
-                                rotate: 8,
-                            }}
-                            transition={{ duration: 0.3 }}
-                        />
+                            <SiFirebase
+                                className="skill-icon tech_iconss"
+                                size={70}
+                                color="#DD2C00"
+                            />
+                        </motion.div>
                         <p>Firebase</p>
                     </motion.div>
 
@@ -290,15 +320,17 @@ function MyTech() {
                             transition: { duration: 0.3 },
                         }}
                     >
-                        <motion.img
-                            src="https://cdn.simpleicons.org/redux"
-                            alt="Redux"
+
+
+                        <motion.div
                             whileHover={{
                                 scale: 1.18,
                                 rotate: 8,
                             }}
                             transition={{ duration: 0.3 }}
-                        />
+                        >
+                            <SiRedux className="skill-icon tech_iconss" color="#764ABC" />
+                        </motion.div>
                         <p>Redux</p>
                     </motion.div>
 
@@ -314,15 +346,19 @@ function MyTech() {
                             transition: { duration: 0.3 },
                         }}
                     >
-                        <motion.img
-                            src="https://cdn.simpleicons.org/bootstrap"
-                            alt="Bootstrap"
+                        <motion.div
                             whileHover={{
                                 scale: 1.18,
                                 rotate: 8,
                             }}
                             transition={{ duration: 0.3 }}
-                        />
+                        >
+                            <SiBootstrap
+                                className="skill-icon tech_iconss"
+                                size={70}
+                                color="#7952B3"
+                            />
+                        </motion.div>
                         <p>Bootstrap</p>
                     </motion.div>
 
@@ -338,15 +374,19 @@ function MyTech() {
                             transition: { duration: 0.3 },
                         }}
                     >
-                        <motion.img
-                            src="https://cdn.simpleicons.org/html5"
-                            alt="HTML5"
+                        <motion.div
                             whileHover={{
                                 scale: 1.18,
                                 rotate: 8,
                             }}
                             transition={{ duration: 0.3 }}
-                        />
+                        >
+                            <SiHtml5
+                                className="skill-icon tech_iconss"
+                                size={70}
+                                color="#E34F26"
+                            />
+                        </motion.div>
                         <p>HTML5</p>
                     </motion.div>
 
@@ -362,15 +402,19 @@ function MyTech() {
                             transition: { duration: 0.3 },
                         }}
                     >
-                        <motion.img
-                            src="https://cdn.simpleicons.org/css"
-                            alt="CSS3"
+                        <motion.div
                             whileHover={{
                                 scale: 1.18,
                                 rotate: 8,
                             }}
                             transition={{ duration: 0.3 }}
-                        />
+                        >
+                            <SiCss
+                                className="skill-icon tech_iconss"
+                                size={70}
+                                color="#7952B3"
+                            />
+                        </motion.div>
                         <p>CSS3</p>
                     </motion.div>
 
@@ -386,15 +430,19 @@ function MyTech() {
                             transition: { duration: 0.3 },
                         }}
                     >
-                        <motion.img
-                            src="https://cdn.simpleicons.org/git"
-                            alt="Git"
+                        <motion.div
                             whileHover={{
                                 scale: 1.18,
                                 rotate: 8,
                             }}
                             transition={{ duration: 0.3 }}
-                        />
+                        >
+                            <SiGit
+                                className="skill-icon tech_iconss"
+                                size={70}
+                                color="#F05032"
+                            />
+                        </motion.div>
                         <p>Git</p>
                     </motion.div>
 
@@ -410,15 +458,19 @@ function MyTech() {
                             transition: { duration: 0.3 },
                         }}
                     >
-                        <motion.img
-                            src="https://cdn.simpleicons.org/github"
-                            alt="GitHub"
+                        <motion.div
                             whileHover={{
                                 scale: 1.18,
                                 rotate: 8,
                             }}
                             transition={{ duration: 0.3 }}
-                        />
+                        >
+                            <SiGithub
+                                className="skill-icon tech_iconss"
+                                size={70}
+                                color="#fff"
+                            />
+                        </motion.div>
                         <p>GitHub</p>
                     </motion.div>
                 </motion.div>
@@ -441,125 +493,125 @@ function MyTech() {
                         Explore a selection of real-world web applications showcasing modern frontend development, full-stack solutions, responsive design, and seamless API integrations.
                     </p>
                 </div>
-               
+
                 <div className="container mt-5">
-  <motion.div
-    className="row g-4"
-    variants={staggerContainer}
-    initial="hidden"
-    whileInView="show"
-    viewport={{
-      once: true,
-      amount: 0.15,
-      margin: "0px 0px -150px 0px",
-    }}
-  >
-    {AllProjectsData.map((project) => (
-      <div key={project.id} className="col-lg-4 col-md-6 col-12">
+                    <motion.div
+                        className="row g-4"
+                        variants={staggerContainer}
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={{
+                            once: true,
+                            amount: 0.15,
+                            margin: "0px 0px -150px 0px",
+                        }}
+                    >
+                        {AllProjectsData.map((project) => (
+                            <div key={project.id} className="col-lg-4 col-md-6 col-12">
 
-        {/* CARD */}
-        <motion.div
-          className="project-card my_new_project_card"
-          variants={cardVariant}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.2 }}
-          whileHover={{ scale: 1.05 }}
-          style={{ willChange: "transform, opacity" }}
-        >
+                                {/* CARD */}
+                                <motion.div
+                                    className="project-card my_new_project_card"
+                                    variants={cardVariant}
+                                    initial="hidden"
+                                    whileInView="show"
+                                    viewport={{ once: true, amount: 0.2 }}
+                                    whileHover={{ scale: 1.05 }}
+                                    style={{ willChange: "transform, opacity" }}
+                                >
 
-          {/* IMAGE (FIXED: NO whileInView HERE) */}
-          <motion.img
-            src={project.image}
-            alt={project.title}
-            className="project-image"
-            initial={{ scale: 1.1, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.5 }}
-          />
+                                    {/* IMAGE (FIXED: NO whileInView HERE) */}
+                                    <motion.img
+                                        src={project.image}
+                                        alt={project.title}
+                                        className="project-image"
+                                        initial={{ scale: 1.1, opacity: 0 }}
+                                        animate={{ scale: 1, opacity: 1 }}
+                                        transition={{ duration: 0.5 }}
+                                    />
 
-          <div className="project-overlay">
-            <div className="main_card_body">
+                                    <div className="project-overlay">
+                                        <div className="main_card_body">
 
-              {/* TITLE */}
-              <motion.h3
-                className="project-title"
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4 }}
-                viewport={{ once: true }}
-              >
-                {project.title}
-              </motion.h3>
+                                            {/* TITLE */}
+                                            <motion.h3
+                                                className="project-title"
+                                                initial={{ opacity: 0, y: 15 }}
+                                                whileInView={{ opacity: 1, y: 0 }}
+                                                transition={{ duration: 0.4 }}
+                                                viewport={{ once: true }}
+                                            >
+                                                {project.title}
+                                            </motion.h3>
 
-              {/* DESCRIPTION */}
-              <motion.span
-                className="project-category"
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: 0.1 }}
-                viewport={{ once: true }}
-              >
-                {project.description}
-              </motion.span>
+                                            {/* DESCRIPTION */}
+                                            <motion.span
+                                                className="project-category"
+                                                initial={{ opacity: 0, y: 15 }}
+                                                whileInView={{ opacity: 1, y: 0 }}
+                                                transition={{ duration: 0.4, delay: 0.1 }}
+                                                viewport={{ once: true }}
+                                            >
+                                                {project.description}
+                                            </motion.span>
 
-              {/* TECH STACK */}
-              <motion.div
-                className="project-tech"
-                variants={staggerContainer}
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: true }}
-              >
-                {project.tech.map((item, index) => (
-                  <motion.span
-                    key={index}
-                    variants={textVariant}
-                    whileHover={{ y: -5, scale: 1.1 }}
-                  >
-                    {item}
-                  </motion.span>
-                ))}
-              </motion.div>
+                                            {/* TECH STACK */}
+                                            <motion.div
+                                                className="project-tech"
+                                                variants={staggerContainer}
+                                                initial="hidden"
+                                                whileInView="show"
+                                                viewport={{ once: true }}
+                                            >
+                                                {project.tech.map((item, index) => (
+                                                    <motion.span
+                                                        key={index}
+                                                        variants={textVariant}
+                                                        whileHover={{ y: -5, scale: 1.1 }}
+                                                    >
+                                                        {item}
+                                                    </motion.span>
+                                                ))}
+                                            </motion.div>
 
-            </div>
+                                        </div>
 
-            {/* BUTTONS */}
-            <motion.div
-              className="project-buttons"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.2 }}
-              viewport={{ once: true }}
-            >
-              <a
-                href={project.github}
-                target="_blank"
-                rel="noreferrer"
-                className="project-btn github_button"
-              >
-                <FaGithub size={18} />
-                GitHub
-              </a>
+                                        {/* BUTTONS */}
+                                        <motion.div
+                                            className="project-buttons"
+                                            initial={{ opacity: 0, y: 20 }}
+                                            whileInView={{ opacity: 1, y: 0 }}
+                                            transition={{ duration: 0.4, delay: 0.2 }}
+                                            viewport={{ once: true }}
+                                        >
+                                            <a
+                                                href={project.github}
+                                                target="_blank"
+                                                rel="noreferrer"
+                                                className="project-btn github_button"
+                                            >
+                                                <FaGithub size={18} />
+                                                GitHub
+                                            </a>
 
-              <a
-                href={project.live}
-                target="_blank"
-                rel="noreferrer"
-                className="project-btn primary"
-              >
-                <HiOutlineExternalLink size={18} />
-                Live Demo
-              </a>
-            </motion.div>
+                                            <a
+                                                href={project.live}
+                                                target="_blank"
+                                                rel="noreferrer"
+                                                className="project-btn primary"
+                                            >
+                                                <HiOutlineExternalLink size={18} />
+                                                Live Demo
+                                            </a>
+                                        </motion.div>
 
-          </div>
-        </motion.div>
+                                    </div>
+                                </motion.div>
 
-      </div>
-    ))}
-  </motion.div>
-</div>
+                            </div>
+                        ))}
+                    </motion.div>
+                </div>
             </div>
 
         </>

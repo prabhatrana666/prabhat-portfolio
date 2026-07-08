@@ -1,7 +1,7 @@
 // carData.js
 import innova from '../src/assets/hero_car-removebg.png';
-import bolero from '../src/assets/bolero.webp';
-import dzire from '../src/assets/swift1.webp';
+import bolero from '../src/assets/our_garage/bolero.webp';
+import dzire from '../src/assets/our_garage/swift1.webp';
 
 export const carData = [
     {

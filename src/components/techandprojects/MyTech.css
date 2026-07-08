@@ -108,6 +108,12 @@
     font-weight: 600;
 
 }
+.tech_iconss{
+    width: 60px;
+    height: 60px;
+    margin-bottom: 18px;
+    transition: .35s;
+}
 
 @media (max-width:576px) {
     .skills-grid {
