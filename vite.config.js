@@ -59,7 +59,11 @@ export default defineConfig({
         globPatterns: [
           "**/*.{js,css,html,ico,png,svg,jpg,jpeg,webp,woff,woff2}",
         ],
- maximumFileSizeToCacheInBytes: 3 * 1024 * 1024, // 3MB
+        navigateFallbackDenylist: [
+          /^\/robots\.txt$/,
+          /^\/sitemap\.xml$/,
+        ],
+        maximumFileSizeToCacheInBytes: 3 * 1024 * 1024, // 3MB
         cleanupOutdatedCaches: true,
         clientsClaim: true,
         skipWaiting: true,
