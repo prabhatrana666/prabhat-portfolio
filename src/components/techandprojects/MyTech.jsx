@@ -161,6 +161,8 @@ function MyTech() {
                                 className="skill-icon tech_iconss"
                                 size={70}
                                 color="#61DAFB"
+                                role="img"
+                                aria-label="React"
                             />
                         </motion.div>
                         <p>React</p>
@@ -190,6 +192,8 @@ function MyTech() {
                             <SiJavascript
                                 className="skill-icon tech_iconss"
                                 size={70}
+                                role="img"
+                                aria-label="JavaScript"
                                 color="#F7DF1E"
                             />
                         </motion.div>
@@ -219,6 +223,8 @@ function MyTech() {
                             <SiNodedotjs
                                 className="skill-icon tech_iconss"
                                 size={70}
+                                role="img"
+                                aria-label="Nodejs"
                                 color="#5FA04E"
                             />
                         </motion.div>
@@ -247,6 +253,8 @@ function MyTech() {
                             <SiExpress
                                 className="skill-icon tech_iconss"
                                 size={70}
+                                role="img"
+                                aria-label="Express"
                                 color="#000000"
                             />
                         </motion.div>
@@ -275,6 +283,8 @@ function MyTech() {
                             <SiMongodb
                                 className="skill-icon tech_iconss"
                                 size={70}
+                                role="img"
+                                aria-label="Mongodb"
                                 color="#47A248"
                             />
                         </motion.div>
@@ -302,6 +312,8 @@ function MyTech() {
                             <SiFirebase
                                 className="skill-icon tech_iconss"
                                 size={70}
+                                role="img"
+                                aria-label="Firebase"
                                 color="#DD2C00"
                             />
                         </motion.div>
@@ -329,7 +341,10 @@ function MyTech() {
                             }}
                             transition={{ duration: 0.3 }}
                         >
-                            <SiRedux className="skill-icon tech_iconss" color="#764ABC" />
+                            <SiRedux className="skill-icon tech_iconss"
+                                role="img"
+                                aria-label="Redux"
+                                color="#764ABC" />
                         </motion.div>
                         <p>Redux</p>
                     </motion.div>
@@ -356,6 +371,8 @@ function MyTech() {
                             <SiBootstrap
                                 className="skill-icon tech_iconss"
                                 size={70}
+                                role="img"
+                                aria-label="Bootstrap"
                                 color="#7952B3"
                             />
                         </motion.div>
@@ -384,6 +401,8 @@ function MyTech() {
                             <SiHtml5
                                 className="skill-icon tech_iconss"
                                 size={70}
+                                role="img"
+                                aria-label="Bootstrap"
                                 color="#E34F26"
                             />
                         </motion.div>
@@ -412,6 +431,8 @@ function MyTech() {
                             <SiCss
                                 className="skill-icon tech_iconss"
                                 size={70}
+                                role="img"
+                                aria-label="Css"
                                 color="#7952B3"
                             />
                         </motion.div>
@@ -440,6 +461,8 @@ function MyTech() {
                             <SiGit
                                 className="skill-icon tech_iconss"
                                 size={70}
+                                role="img"
+                                aria-label="Git"
                                 color="#F05032"
                             />
                         </motion.div>
@@ -469,6 +492,8 @@ function MyTech() {
                                 className="skill-icon tech_iconss"
                                 size={70}
                                 color="#fff"
+                                role="img"
+                                aria-label="Github"
                             />
                         </motion.div>
                         <p>GitHub</p>

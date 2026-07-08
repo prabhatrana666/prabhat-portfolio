@@ -83,7 +83,8 @@ function Navbar({ darkMode, setDarkMode }) {
             </button>
             {/* Logo */}
             <a className="navbar-brand fw-bold brand-logo" href="/">
-                <img src={logo} className="logo_image" alt="logo_image" />
+                <img src={logo} className="logo_image" width="200"
+                    height="200" alt="logo_image" />
             </a>
 
             {/* Desktop Menu (VISIBLE ONLY LG+) */}

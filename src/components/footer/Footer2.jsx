@@ -70,6 +70,8 @@ const Footer2 = () => {
                             src={logo}
                             alt="Traviyo"
                             className="footer-logo mb-4"
+                            width="200"
+                            height="200"
                             onClick={() => handleNavigate("/")}
                             style={{ cursor: "pointer" }}
                         />
