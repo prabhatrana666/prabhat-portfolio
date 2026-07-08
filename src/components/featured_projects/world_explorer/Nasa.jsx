@@ -33,8 +33,9 @@ const Nasa = () => {
     // ============================================
     const NASA_API_KEY = 'dvcfKralVtr6OW4tEj0Bwt8seQmCAZm9HhAkyYZt';
     const APOD_URL = `https://api.nasa.gov/planetary/apod?api_key=${NASA_API_KEY}`;
+
     const ASTEROID_URL = `https://api.nasa.gov/neo/rest/v1/feed?api_key=${NASA_API_KEY}`;
-    
+
     // ✅ UPDATED: Using the new ISS API endpoints
     const ISS_URL = "https://api.wheretheiss.at/v1/satellites/25544";
     const PEOPLE_URL = "https://corquaid.github.io/international-space-station-APIs/JSON/people-in-space.json";
@@ -139,7 +140,7 @@ const Nasa = () => {
             }
 
             const data = await response.json();
-            
+
             // ✅ UPDATED: The new API returns people directly in the 'people' array
             // Each person has an 'iss' boolean field instead of 'craft'
             setPeopleInSpace(data.people || []);
@@ -421,7 +422,7 @@ const Nasa = () => {
                                 animate={{ scale: 1 }}
                                 transition={{ duration: 0.5 }}
                             >
-                                <div className="apod-image-container">
+                                {/* <div className="apod-image-container">
                                     {apodData.media_type === 'video' ? (
                                         <iframe
                                             src={apodData.url}
@@ -440,6 +441,48 @@ const Nasa = () => {
                                     <div className="apod-image-overlay">
                                         <span className="apod-date">{formatDate(apodData.date)}</span>
                                     </div>
+                                </div> */}
+
+                                <div className="apod-image-container">
+                                    {apodData?.media_type === "image" ? (
+                                        <img
+                                            src={apodData.hdurl || apodData.url}
+                                            alt={apodData.title}
+                                            className="apod-image"
+                                            loading="lazy"
+                                        />
+                                    ) : apodData?.media_type === "video" ? (
+                                        apodData.url.endsWith(".mp4") ? (
+                                            <video
+                                                className="apod-video"
+                                                controls
+                                                autoPlay
+                                                muted
+                                                loop
+                                                playsInline
+                                            >
+                                                <source src={apodData.url} type="video/mp4" />
+                                                Your browser does not support the video tag.
+                                            </video>
+                                        ) : (
+                                            <iframe
+                                                src={apodData.url}
+                                                className="apod-video"
+                                                title={apodData.title}
+                                                allowFullScreen
+                                            />
+                                        )
+                                    ) : (
+                                        <div>Loading...</div>
+                                    )}
+
+                                    {apodData && (
+                                        <div className="apod-image-overlay">
+                                            <span className="apod-date">
+                                                {formatDate(apodData.date)}
+                                            </span>
+                                        </div>
+                                    )}
                                 </div>
                                 <div className="apod-content">
                                     <h2 className="apod-title">{apodData.title}</h2>
