@@ -43,26 +43,26 @@ const Nasa = () => {
     // ============================================
     // 📡 FETCH APOD (Astronomy Picture of the Day)
     // ============================================
-    const fetchApod = async (date = '') => {
-        try {
-            setApodLoading(true);
-            let url = APOD_URL;
-            if (date) {
-                url += `&date=${date}`;
-            }
+    // const fetchApod = async (date = '') => {
+    //     try {
+    //         setApodLoading(true);
+    //         let url = APOD_URL;
+    //         if (date) {
+    //             url += `&date=${date}`;
+    //         }
 
-            const response = await fetch(url);
-            if (!response.ok) throw new Error('Failed to fetch APOD');
-            const data = await response.json();
-            setApodData(data);
-            setError(null);
-        } catch (err) {
-            console.error('APOD Error:', err);
-            setError('Failed to load Astronomy Picture of the Day');
-        } finally {
-            setApodLoading(false);
-        }
-    };
+    //         const response = await fetch(url);
+    //         if (!response.ok) throw new Error('Failed to fetch APOD');
+    //         const data = await response.json();
+    //         setApodData(data);
+    //         setError(null);
+    //     } catch (err) {
+    //         console.error('APOD Error:', err);
+    //         setError('Failed to load Astronomy Picture of the Day');
+    //     } finally {
+    //         setApodLoading(false);
+    //     }
+    // };
 
     // ============================================
     // 📡 FETCH ASTEROIDS (Near Earth Objects)
@@ -213,6 +213,82 @@ const Nasa = () => {
         if (!LucideIcon) return null;
         return <LucideIcon size={size} className={className} />;
     };
+
+
+    const fetchApod = async (date = "") => {
+        try {
+            setApodLoading(true);
+
+            const today = new Date().toISOString().split("T")[0];
+
+            // Only cache today's APOD
+            if (!date) {
+                const cached = localStorage.getItem("apod");
+
+                if (cached) {
+                    const parsed = JSON.parse(cached);
+
+                    console.log("📦 Cached APOD:", parsed);
+
+                    if (parsed.date === today) {
+                        console.log("✅ Using cached APOD");
+                        console.log("🕒 Last API Fetch:", parsed.fetchedAt);
+
+                        setApodData(parsed.data);
+                        setError(null);
+                        return;
+                    }
+
+                    console.log("📅 New day detected. Fetching fresh APOD...");
+                }
+            }
+
+            let url = APOD_URL;
+
+            if (date) {
+                url += `&date=${date}`;
+            }
+
+            console.log("🌍 Fetching APOD from NASA API...");
+            console.log("🔗", url);
+
+            const response = await fetch(url);
+
+            if (!response.ok) {
+                throw new Error("Failed to fetch APOD");
+            }
+
+            const data = await response.json();
+
+            setApodData(data);
+            setError(null);
+
+            // Cache only today's APOD
+            if (!date) {
+                const fetchedAt = new Date().toLocaleString();
+
+                localStorage.setItem(
+                    "apod",
+                    JSON.stringify({
+                        date: today,
+                        fetchedAt,
+                        data,
+                    })
+                );
+
+                console.log("✅ APOD saved to cache");
+                console.log("🕒 API Fetched At:", fetchedAt);
+            }
+        } catch (err) {
+            console.error("APOD Error:", err);
+            setError("Failed to load Astronomy Picture of the Day");
+        } finally {
+            setApodLoading(false);
+        }
+    };
+    useEffect(() => {
+        fetchApod();
+    }, []);
 
     // ============================================
     // 📊 FORMAT NUMBERS
