@@ -270,7 +270,7 @@ GitHub → https://github.com/prabhatrana666
 
 LinkedIn → https://linkedin.com/in/prabhat-rana
 
-Portfolio → https://prabhatrana.netlify.app/
+Portfolio → https://prabhatrana.online/
 
 ---
 
