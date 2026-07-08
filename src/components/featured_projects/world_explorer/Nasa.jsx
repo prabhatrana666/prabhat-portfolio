@@ -455,14 +455,14 @@ const Nasa = () => {
                                         apodData.url.endsWith(".mp4") ? (
                                             <video
                                                 className="apod-video"
-                                                controls
                                                 autoPlay
                                                 muted
                                                 loop
                                                 playsInline
+                                                preload="auto"
+                                                controls
                                             >
                                                 <source src={apodData.url} type="video/mp4" />
-                                                Your browser does not support the video tag.
                                             </video>
                                         ) : (
                                             <iframe
