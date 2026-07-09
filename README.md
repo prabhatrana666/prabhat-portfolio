@@ -28,7 +28,7 @@
 
 > **Live Website**
 
-https://prabhatrana.netlify.app/
+https://prabhatrana.online/
 
 ![Portfolio Website Preview](./public/main.png)
 
