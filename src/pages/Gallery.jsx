@@ -8,6 +8,8 @@ import BookingModal from "./BookingModal";
 import { motion } from "framer-motion";
 import { Maximize2, X } from "lucide-react";
 import Footer2 from "../components/footer/Footer2";
+import SEO from "../components/seo/SEO";
+
 
 function Rent() {
   const [showModal, setShowModal] = useState(false);
@@ -48,6 +50,36 @@ function Rent() {
 
   return (
     <>
+      <SEO
+        title="Certificates & Achievements | Prabhat Rana | Frontend Developer"
+        description="Explore the certificates, achievements, coding badges, professional recognitions, and technical accomplishments of Prabhat Rana, a Frontend Developer specializing in React.js, React Native, JavaScript, MERN Stack, and modern web development."
+        keywords="Prabhat Rana Certificates, Achievements, Coding Certificates, React.js Developer, Frontend Developer Portfolio, MERN Stack Developer, Code360 Badges, Professional Certifications, Technical Achievements, Web Development Portfolio"
+        canonicalUrl="/gallery"
+        type="website"
+        image="/logo.png"
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          "@id": "https://prabhatrana.online/gallery#certificates",
+
+          "url": "https://prabhatrana.online/gallery",
+          "name": "Certificates & Achievements | Prabhat Rana",
+          "description":
+            "Explore the certificates, coding achievements, technical badges, and professional accomplishments earned by Prabhat Rana in frontend development and modern web technologies.",
+
+          "mainEntity": {
+            "@type": "Person",
+            "@id": "https://prabhatrana.online/#person",
+            "name": "Prabhat Rana",
+            "jobTitle": "Frontend Developer",
+            "url": "https://prabhatrana.online",
+            "sameAs": [
+              "https://github.com/prabhatrana666",
+              "https://www.linkedin.com/in/prabhat-rana"
+            ]
+          }
+        }}
+      />
       <Navbar />
 
       {/* ===== GARAGE SECTION ===== */}

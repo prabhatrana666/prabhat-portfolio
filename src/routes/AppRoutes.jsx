@@ -20,6 +20,7 @@ import Dashboard from "../components/adminlogin/Dashboard"
 import QrCodeCard from "../components/featured_projects/qrcode_generator/QrCodeCard";
 import Weather from "../components/featured_projects/check_weather/Weather";
 import Nasa from "../components/featured_projects/world_explorer/Nasa";
+// import DefaultSEO from '../components/seo/DefaultSEO';
 
 
 function AppRoutes() {

@@ -46,6 +46,7 @@ import AllProjectsData from '../../data/AllProjectsData'
 import { useNavigate, Link } from "react-router-dom";
 import Navbar from "../navbar/Navbar";
 import Footer2 from "../footer/Footer2";
+import SEO from "../seo/SEO";
 
 const cardVariant = {
     hidden: { opacity: 0, y: 60 },
@@ -166,6 +167,65 @@ function Projects() {
     };
     return (
         <>
+            <SEO
+                title="Projects | React.js & MERN Stack Portfolio | Prabhat Rana"
+                description="Explore the portfolio projects of Prabhat Rana, featuring React.js applications, React Native apps, MERN Stack solutions, Progressive Web Apps (PWAs), responsive websites, modern UI development, and real-world frontend engineering projects."
+                keywords="Prabhat Rana Projects, React.js Projects, Frontend Developer Portfolio, MERN Stack Projects, React Native Projects, JavaScript Projects, Progressive Web Apps, Responsive Website Projects, UI Development, Web Development Portfolio"
+                canonicalUrl="/projects"
+                type="website"
+                image="/logo.png"
+                structuredData={{
+                    "@context": "https://schema.org",
+                    "@type": "CollectionPage",
+                    "@id": "https://prabhatrana.online/projects#projects",
+
+                    "url": "https://prabhatrana.online/projects",
+                    "name": "Projects | Prabhat Rana",
+                    "description":
+                        "Explore the portfolio projects of Prabhat Rana, showcasing React.js, React Native, MERN Stack, Progressive Web Apps (PWAs), responsive web applications, and modern frontend development.",
+
+                    "mainEntity": {
+                        "@type": "ItemList",
+                        "name": "Frontend Development Projects",
+
+                        "itemListElement": [
+                            {
+                                "@type": "SoftwareSourceCode",
+                                "name": "React.js Projects"
+                            },
+                            {
+                                "@type": "SoftwareSourceCode",
+                                "name": "React Native Applications"
+                            },
+                            {
+                                "@type": "SoftwareSourceCode",
+                                "name": "MERN Stack Applications"
+                            },
+                            {
+                                "@type": "SoftwareSourceCode",
+                                "name": "Progressive Web Apps (PWAs)"
+                            }
+                        ]
+                    },
+
+                    "author": {
+                        "@type": "Person",
+                        "@id": "https://prabhatrana.online/#person",
+                        "name": "Prabhat Rana",
+                        "jobTitle": "Frontend Developer",
+                        "url": "https://prabhatrana.online",
+                        "sameAs": [
+                            "https://github.com/prabhatrana666",
+                            "https://www.linkedin.com/in/prabhat-rana"
+                        ]
+                    },
+
+                    "isPartOf": {
+                        "@type": "WebSite",
+                        "@id": "https://prabhatrana.online/#website"
+                    }
+                }}
+            />
             <Navbar />
             {/* My Projects Section */}
 
@@ -182,124 +242,124 @@ function Projects() {
                         A collection of projects built with modern technologies, clean architecture, responsive design, and scalable solutions to solve real-world challenges.
                     </p>
                 </div>
-               <div className="container mt-5">
-  <motion.div
-    className="row g-4"
-    variants={staggerContainer}
-    initial="hidden"
-    whileInView="show"
-    viewport={{
-      once: true,
-      amount: 0.15,
-      margin: "0px 0px -150px 0px",
-    }}
-  >
-    {AllProjectsData.map((project) => (
-      <div key={project.id} className="col-lg-4 col-md-6 col-12">
+                <div className="container mt-5">
+                    <motion.div
+                        className="row g-4"
+                        variants={staggerContainer}
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={{
+                            once: true,
+                            amount: 0.15,
+                            margin: "0px 0px -150px 0px",
+                        }}
+                    >
+                        {AllProjectsData.map((project) => (
+                            <div key={project.id} className="col-lg-4 col-md-6 col-12">
 
-        {/* CARD */}
-        <motion.div
-          className="project-card my_new_project_card"
-          variants={cardVariant}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.2 }}
-          whileHover={{ scale: 1.05 }}
-          style={{ willChange: "transform, opacity" }}
-        >
+                                {/* CARD */}
+                                <motion.div
+                                    className="project-card my_new_project_card"
+                                    variants={cardVariant}
+                                    initial="hidden"
+                                    whileInView="show"
+                                    viewport={{ once: true, amount: 0.2 }}
+                                    whileHover={{ scale: 1.05 }}
+                                    style={{ willChange: "transform, opacity" }}
+                                >
 
-          {/* IMAGE (FIXED: NO whileInView HERE) */}
-          <motion.img
-            src={project.image}
-            alt={project.title}
-            className="project-image"
-            initial={{ scale: 1.1, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.5 }}
-          />
+                                    {/* IMAGE (FIXED: NO whileInView HERE) */}
+                                    <motion.img
+                                        src={project.image}
+                                        alt={project.title}
+                                        className="project-image"
+                                        initial={{ scale: 1.1, opacity: 0 }}
+                                        animate={{ scale: 1, opacity: 1 }}
+                                        transition={{ duration: 0.5 }}
+                                    />
 
-          <div className="project-overlay">
-            <div className="main_card_body">
+                                    <div className="project-overlay">
+                                        <div className="main_card_body">
 
-              {/* TITLE */}
-              <motion.h3
-                className="project-title"
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4 }}
-                viewport={{ once: true }}
-              >
-                {project.title}
-              </motion.h3>
+                                            {/* TITLE */}
+                                            <motion.h3
+                                                className="project-title"
+                                                initial={{ opacity: 0, y: 15 }}
+                                                whileInView={{ opacity: 1, y: 0 }}
+                                                transition={{ duration: 0.4 }}
+                                                viewport={{ once: true }}
+                                            >
+                                                {project.title}
+                                            </motion.h3>
 
-              {/* DESCRIPTION */}
-              <motion.span
-                className="project-category"
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: 0.1 }}
-                viewport={{ once: true }}
-              >
-                {project.description}
-              </motion.span>
+                                            {/* DESCRIPTION */}
+                                            <motion.span
+                                                className="project-category"
+                                                initial={{ opacity: 0, y: 15 }}
+                                                whileInView={{ opacity: 1, y: 0 }}
+                                                transition={{ duration: 0.4, delay: 0.1 }}
+                                                viewport={{ once: true }}
+                                            >
+                                                {project.description}
+                                            </motion.span>
 
-              {/* TECH STACK */}
-              <motion.div
-                className="project-tech"
-                variants={staggerContainer}
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: true }}
-              >
-                {project.tech.map((item, index) => (
-                  <motion.span
-                    key={index}
-                    variants={textVariant}
-                    whileHover={{ y: -5, scale: 1.1 }}
-                  >
-                    {item}
-                  </motion.span>
-                ))}
-              </motion.div>
+                                            {/* TECH STACK */}
+                                            <motion.div
+                                                className="project-tech"
+                                                variants={staggerContainer}
+                                                initial="hidden"
+                                                whileInView="show"
+                                                viewport={{ once: true }}
+                                            >
+                                                {project.tech.map((item, index) => (
+                                                    <motion.span
+                                                        key={index}
+                                                        variants={textVariant}
+                                                        whileHover={{ y: -5, scale: 1.1 }}
+                                                    >
+                                                        {item}
+                                                    </motion.span>
+                                                ))}
+                                            </motion.div>
 
-            </div>
+                                        </div>
 
-            {/* BUTTONS */}
-            <motion.div
-              className="project-buttons"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.2 }}
-              viewport={{ once: true }}
-            >
-              <a
-                href={project.github}
-                target="_blank"
-                rel="noreferrer"
-                className="project-btn github_button"
-              >
-                <FaGithub size={18} />
-                GitHub
-              </a>
+                                        {/* BUTTONS */}
+                                        <motion.div
+                                            className="project-buttons"
+                                            initial={{ opacity: 0, y: 20 }}
+                                            whileInView={{ opacity: 1, y: 0 }}
+                                            transition={{ duration: 0.4, delay: 0.2 }}
+                                            viewport={{ once: true }}
+                                        >
+                                            <a
+                                                href={project.github}
+                                                target="_blank"
+                                                rel="noreferrer"
+                                                className="project-btn github_button"
+                                            >
+                                                <FaGithub size={18} />
+                                                GitHub
+                                            </a>
 
-              <a
-                href={project.live}
-                target="_blank"
-                rel="noreferrer"
-                className="project-btn primary"
-              >
-                <HiOutlineExternalLink size={18} />
-                Live Demo
-              </a>
-            </motion.div>
+                                            <a
+                                                href={project.live}
+                                                target="_blank"
+                                                rel="noreferrer"
+                                                className="project-btn primary"
+                                            >
+                                                <HiOutlineExternalLink size={18} />
+                                                Live Demo
+                                            </a>
+                                        </motion.div>
 
-          </div>
-        </motion.div>
+                                    </div>
+                                </motion.div>
 
-      </div>
-    ))}
-  </motion.div>
-</div>
+                            </div>
+                        ))}
+                    </motion.div>
+                </div>
             </div>
 
 

@@ -6,6 +6,8 @@ import { FaShareAlt } from "react-icons/fa";
 import "./QrCodeCard.css";
 import Footer2 from "../../footer/Footer2";
 import Navbar from "../../navbar/Navbar";
+import SEO from "../../seo/SEO";
+
 
 function QrCodeCard() {
     const [url, setUrl] = useState("");
@@ -95,6 +97,65 @@ function QrCodeCard() {
     };
     return (
         <>
+            <SEO
+                title="Free QR Code Generator with Custom Colors & Sharing | Prabhat Rana"
+                description="Create customizable QR codes online with Prabhat Rana's React.js QR Code Generator. Generate QR codes for URLs, text, contact details, and more with custom color palettes, instant sharing, downloading, and responsive design."
+                keywords="Free QR Code Generator, Custom QR Code Generator, QR Code Color Generator, QR Code with Logo, QR Code Sharing, QR Code Download, React QR Code Generator, QR Code Generator Online, JavaScript QR Code Generator, Prabhat Rana"
+                canonicalUrl="/qrcode"
+                type="website"
+                image="/logo.png"
+                structuredData={{
+                    "@context": "https://schema.org",
+                    "@type": "SoftwareApplication",
+                    "@id": "https://prabhatrana.online/qrcode#application",
+
+                    "name": "QR Code Generator",
+                    "applicationCategory": "UtilitiesApplication",
+                    "applicationSubCategory": "QR Code Generator",
+                    "operatingSystem": "Web",
+
+                    "url": "https://prabhatrana.online/qrcode",
+
+                    "description":
+                        "A free online QR Code Generator built with React.js that allows users to create customizable QR codes with custom color palettes, download QR codes, and share them instantly.",
+
+                    "featureList": [
+                        "Generate QR Codes",
+                        "Custom Color Palette",
+                        "Download QR Codes",
+                        "Share QR Codes",
+                        "Responsive Design",
+                        "Instant QR Generation",
+                        "URL QR Codes",
+                        "Text QR Codes",
+                        "Contact QR Codes"
+                    ],
+
+                    "creator": {
+                        "@type": "Person",
+                        "@id": "https://prabhatrana.online/#person",
+                        "name": "Prabhat Rana",
+                        "jobTitle": "Frontend Developer",
+                        "url": "https://prabhatrana.online",
+                        "sameAs": [
+                            "https://github.com/prabhatrana666",
+                            "https://www.linkedin.com/in/prabhat-rana"
+                        ]
+                    },
+
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "0",
+                        "priceCurrency": "USD",
+                        "availability": "https://schema.org/InStock"
+                    },
+
+                    "isPartOf": {
+                        "@type": "WebSite",
+                        "@id": "https://prabhatrana.online/#website"
+                    }
+                }}
+            />
             <Navbar />
             <div className={`container qr_cpode ${darkMode ? "dark" : ""}`}>
                 <div className="theme-toggle-wrapper">

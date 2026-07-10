@@ -49,6 +49,8 @@ import {
 import toast from "react-hot-toast";
 import upi from "../../assets/upi.png"
 import { useNavigate } from "react-router-dom";
+import SEO from "../seo/SEO";
+
 
 function Services() {
     const navigate = useNavigate();
@@ -278,6 +280,47 @@ ${formData.message}
     };
     return (
         <>
+            <SEO
+                title="Frontend Development Services | React.js & MERN Stack | Prabhat Rana"
+                description="Discover the frontend development services offered by Prabhat Rana, including React.js development, React Native, MERN Stack applications, Progressive Web Apps (PWAs), responsive website development, UI implementation, performance optimization, and modern web solutions."
+                keywords="Frontend Development Services, React.js Developer, React Native Developer, MERN Stack Developer, Web Development Services, Responsive Website Development, Progressive Web Apps, UI Development, JavaScript Developer, Prabhat Rana"
+                canonicalUrl="/services"
+                type="website"
+                image="/logo.png"
+                structuredData={{
+                    "@context": "https://schema.org",
+                    "@type": "Service",
+                    "@id": "https://prabhatrana.online/services#services",
+
+                    "name": "Frontend Development Services",
+                    "url": "https://prabhatrana.online/services",
+                    "description":
+                        "Professional frontend development services including React.js, React Native, MERN Stack development, Progressive Web Apps (PWAs), responsive website development, UI implementation, and performance optimization.",
+
+                    "provider": {
+                        "@type": "Person",
+                        "@id": "https://prabhatrana.online/#person",
+                        "name": "Prabhat Rana",
+                        "jobTitle": "Frontend Developer",
+                        "url": "https://prabhatrana.online",
+                        "sameAs": [
+                            "https://github.com/prabhatrana666",
+                            "https://www.linkedin.com/in/prabhat-rana"
+                        ]
+                    },
+
+                    "serviceType": [
+                        "React.js Development",
+                        "React Native Development",
+                        "Frontend Development",
+                        "MERN Stack Development",
+                        "Progressive Web App Development",
+                        "Responsive Web Development",
+                        "UI Development",
+                        "Website Performance Optimization"
+                    ]
+                }}
+            />
             <Navbar />
             <section className="services-section py-5">
 
@@ -672,7 +715,7 @@ ${formData.message}
                                     </p>
 
                                 </div>
- <div className="service-stat-card">
+                                <div className="service-stat-card">
 
                                     <h3>Pixel Perfect</h3>
                                     <p>Modern UI & UX Design</p>
@@ -694,7 +737,7 @@ ${formData.message}
 
                                 </div>
 
-                               
+
 
                             </div>
                             <div className="hero-highlights mt-4">

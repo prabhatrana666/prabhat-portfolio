@@ -88,9 +88,9 @@ function Navbar({ darkMode, setDarkMode }) {
             </a>
 
             {/* Desktop Menu (VISIBLE ONLY LG+) */}
-            <ul className="navbar-nav mx-auto gap-3 d-none d-lg-flex ">
+            <ul className="navbar-nav mx-auto gap-3 d-none d-lg-flex">
 
-                <li className="nav-item main_nav">
+                <li className="nav-item main_nav nav_desktop">
                     <a className="nav-link" href="/">
                         <House size={18} className="me-2" />
                         Home
@@ -100,21 +100,21 @@ function Navbar({ darkMode, setDarkMode }) {
 
 
 
-                <li className="nav-item main_nav">
-                    <a className="nav-link" href="/projects">
+                <li className="nav-item main_nav nav_desktop">
+                <a className="nav-link" href="/projects">
                         <FolderKanban size={18} className="me-2" />
                         Projects
                     </a>
                 </li>
 
 
-                <li className="nav-item main_nav">
+                <li className="nav-item main_nav nav_desktop">
                     <a className="nav-link" href="/about">
                         <Users size={18} className="me-2" />
                         About
                     </a>
                 </li>
-                <li className="nav-item main_nav">
+                <li className="nav-item main_nav nav_desktop">
                     <a className="nav-link" href="/contact">
                         <Phone size={18} className="me-2" />
                         Contact

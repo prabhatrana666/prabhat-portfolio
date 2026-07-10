@@ -4,6 +4,7 @@ import * as lucide from 'lucide-react';
 import './Weather.css';
 import Navbar from '../../navbar/Navbar'; // Adjust import path
 import Footer2 from '../../footer/Footer2'; // Adjust import path
+import SEO from '../../seo/SEO';
 
 
 const Weather = () => {
@@ -222,13 +223,69 @@ const Weather = () => {
             transition: { duration: 0.2 }
         }
     };
-  
+
     // ============================================
     // 🎨 RENDER UI
     // ============================================
     return (
 
         <>
+            <SEO
+                title="Weather App | Real-Time Weather Forecast | React.js Project | Prabhat Rana"
+                description="Check real-time weather conditions, temperature, humidity, wind speed, and weather forecasts with the Weather App built by Prabhat Rana. A fast, responsive React.js application providing accurate weather information."
+                keywords="Weather App, Weather Forecast, Real-Time Weather, Live Weather, React Weather App, JavaScript Weather App, Temperature, Weather Dashboard, Weather Application, Prabhat Rana"
+                canonicalUrl="/weather"
+                type="website"
+                image="/logo.png"
+                structuredData={{
+                    "@context": "https://schema.org",
+                    "@type": "SoftwareApplication",
+                    "@id": "https://prabhatrana.online/weather#application",
+
+                    "name": "Weather App",
+                    "applicationCategory": "WeatherApplication",
+                    "operatingSystem": "Web",
+                    "url": "https://prabhatrana.online/weather",
+
+                    "description":
+                        "A responsive Weather App built with React.js that provides real-time weather information, temperature, humidity, wind speed, and weather forecasts.",
+
+                    "featureList": [
+                        "Current Weather",
+                        "Real-Time Temperature",
+                        "Weather Forecast",
+                        "Humidity Information",
+                        "Wind Speed",
+                        "Location Search",
+                        "Responsive Design",
+                        "Fast Weather Updates"
+                    ],
+
+                    "creator": {
+                        "@type": "Person",
+                        "@id": "https://prabhatrana.online/#person",
+                        "name": "Prabhat Rana",
+                        "jobTitle": "Frontend Developer",
+                        "url": "https://prabhatrana.online",
+                        "sameAs": [
+                            "https://github.com/prabhatrana666",
+                            "https://www.linkedin.com/in/prabhat-rana"
+                        ]
+                    },
+
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "0",
+                        "priceCurrency": "USD",
+                        "availability": "https://schema.org/InStock"
+                    },
+
+                    "isPartOf": {
+                        "@type": "WebSite",
+                        "@id": "https://prabhatrana.online/#website"
+                    }
+                }}
+            />
             <Navbar />
 
             {/* ✅ FIX: Wrap with AnimatePresence and add key */}

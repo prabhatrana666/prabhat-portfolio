@@ -5,6 +5,7 @@ import * as lucide from 'lucide-react';
 import './Nasa.css';
 import Footer2 from '../../footer/Footer2';
 import Navbar from '../../navbar/Navbar';
+import SEO from '../../seo/SEO';
 
 const Nasa = () => {
     // ============================================
@@ -346,6 +347,65 @@ const Nasa = () => {
     // ============================================
     return (
         <>
+            <SEO
+                title="NASA Space Explorer | ISS Tracker, APOD & Asteroid Data | Prabhat Rana"
+                description="Explore space in real time with the NASA Space Explorer built by Prabhat Rana. Track the International Space Station (ISS) live, discover NASA's Astronomy Picture of the Day (APOD), monitor near-Earth asteroid data, and view the current astronauts aboard the ISS."
+                keywords="NASA API, NASA Space Explorer, ISS Tracker, Live ISS Location, Astronomy Picture of the Day, APOD, Near Earth Asteroids, NASA Projects, React NASA App, Space Explorer, Frontend Developer Portfolio, Prabhat Rana"
+                canonicalUrl="/nasa"
+                type="website"
+                image="/logo.png"
+                structuredData={{
+                    "@context": "https://schema.org",
+                    "@type": "SoftwareApplication",
+                    "@id": "https://prabhatrana.online/nasa#application",
+
+                    "name": "NASA Space Explorer",
+
+                    "applicationCategory": "EducationalApplication",
+                    "applicationSubCategory": "Space Exploration",
+                    "operatingSystem": "Web",
+
+                    "url": "https://prabhatrana.online/nasa",
+
+                    "description":
+                        "A React.js space exploration application powered by NASA and ISS APIs. Track the International Space Station in real time, explore NASA's Astronomy Picture of the Day (APOD), monitor near-Earth asteroid data, and view the astronauts currently aboard the ISS.",
+
+                    "featureList": [
+                        "Real-Time ISS Location Tracking",
+                        "Astronomy Picture of the Day (APOD)",
+                        "Near-Earth Asteroid Data",
+                        "Current ISS Crew Information",
+                        "NASA API Integration",
+                        "Interactive Space Dashboard",
+                        "Responsive Design",
+                        "Real-Time Data Updates"
+                    ],
+
+                    "creator": {
+                        "@type": "Person",
+                        "@id": "https://prabhatrana.online/#person",
+                        "name": "Prabhat Rana",
+                        "jobTitle": "Frontend Developer",
+                        "url": "https://prabhatrana.online",
+                        "sameAs": [
+                            "https://github.com/prabhatrana666",
+                            "https://www.linkedin.com/in/prabhat-rana"
+                        ]
+                    },
+
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "0",
+                        "priceCurrency": "USD",
+                        "availability": "https://schema.org/InStock"
+                    },
+
+                    "isPartOf": {
+                        "@type": "WebSite",
+                        "@id": "https://prabhatrana.online/#website"
+                    }
+                }}
+            />
             <Navbar />
             <motion.div
                 className="nasa-container"

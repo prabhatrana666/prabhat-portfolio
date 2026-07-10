@@ -12,6 +12,7 @@ import {
     MessageSquare,
     Briefcase,
 } from "lucide-react";
+import SEO from "../seo/SEO"
 import LazyGoogleMap from "../footer/LazyGoogleMap";
 import Footer2 from "../footer/Footer2";
 import { useNavigate } from "react-router-dom";
@@ -162,6 +163,36 @@ const ContactUs = () => {
     };
     return (
         <>
+            <SEO
+                title="Contact Prabhat Rana | Frontend Developer | Hire React.js Developer"
+                description="Get in touch with Prabhat Rana, a Frontend Developer specializing in React.js, React Native, JavaScript, MERN Stack, Progressive Web Apps (PWAs), and modern web development. Contact for freelance projects, collaborations, or full-time opportunities."
+                keywords="Contact Prabhat Rana, Hire React.js Developer, Frontend Developer Contact, React Native Developer, MERN Stack Developer, JavaScript Developer, Freelance Web Developer, UI Developer, Web Development Services, Portfolio Contact"
+                canonicalUrl="/contact"
+                type="website"
+                image="/logo.png"
+                structuredData={{
+                    "@context": "https://schema.org",
+                    "@type": "ContactPage",
+                    "@id": "https://prabhatrana.online/contact#contact",
+
+                    "url": "https://prabhatrana.online/contact",
+                    "name": "Contact Prabhat Rana",
+                    "description":
+                        "Contact Prabhat Rana for frontend development services, React.js projects, freelance opportunities, collaborations, and professional inquiries.",
+
+                    "mainEntity": {
+                        "@type": "Person",
+                        "@id": "https://prabhatrana.online/#person",
+                        "name": "Prabhat Rana",
+                        "jobTitle": "Frontend Developer",
+                        "url": "https://prabhatrana.online",
+                        "sameAs": [
+                            "https://github.com/prabhatrana666",
+                            "https://www.linkedin.com/in/prabhat-rana"
+                        ]
+                    }
+                }}
+            />
             <Navbar />
             {/* <section className="contact-section py-5" id="contact"> */}
             <motion.section

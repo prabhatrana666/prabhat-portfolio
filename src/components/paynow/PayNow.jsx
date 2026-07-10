@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import toast from "react-hot-toast";
 import upi from "../../assets/upi.png"
+import SEO from "../seo/SEO";
 
 function PayNow() {
     const [activeTab, setActiveTab] = useState("bank");
@@ -68,6 +69,41 @@ function PayNow() {
     };
     return (
         <>
+            <SEO
+                title="Secure Payment | Hire Prabhat Rana | Frontend Developer"
+                description="Make a secure online payment to Prabhat Rana for frontend development services, React.js projects, React Native applications, MERN Stack solutions, website development, and freelance web development services."
+                keywords="Secure Payment, Pay Prabhat Rana, Frontend Developer Payment, React.js Development Services, React Native Developer, MERN Stack Developer, Website Development Payment, Freelance Web Developer, Online Payment, Web Development Services"
+                canonicalUrl="/pay"
+                type="website"
+                image="/logo.png"
+                structuredData={{
+                    "@context": "https://schema.org",
+                    "@type": "WebPage",
+                    "@id": "https://prabhatrana.online/pay#payment",
+
+                    "url": "https://prabhatrana.online/pay",
+                    "name": "Secure Payment | Prabhat Rana",
+                    "description":
+                        "Secure payment page for frontend development services, React.js projects, React Native applications, MERN Stack solutions, website development, and freelance web development.",
+
+                    "mainEntity": {
+                        "@type": "Person",
+                        "@id": "https://prabhatrana.online/#person",
+                        "name": "Prabhat Rana",
+                        "jobTitle": "Frontend Developer",
+                        "url": "https://prabhatrana.online",
+                        "sameAs": [
+                            "https://github.com/prabhatrana666",
+                            "https://www.linkedin.com/in/prabhat-rana"
+                        ]
+                    },
+
+                    "isPartOf": {
+                        "@type": "WebSite",
+                        "@id": "https://prabhatrana.online/#website"
+                    }
+                }}
+            />
             <Navbar />
             <motion.section
                 className="pay-section py-5"

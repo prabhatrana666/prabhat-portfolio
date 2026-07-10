@@ -10,6 +10,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { HiOutlineExternalLink } from "react-icons/hi";
 import AllProjectsData from '../../data/AllProjectsData'
 import { useNavigate, Link } from "react-router-dom";
+import SEO from "../seo/SEO";
 
 function MainLandingPage() {
 
@@ -17,7 +18,62 @@ function MainLandingPage() {
     const navigate = useNavigate();
     return (
         <>
-          
+            <SEO
+                title="Prabhat Rana - Frontend Developer Portfolio | React.js Developer"
+                description="Prabhat Rana is a Frontend Developer specializing in React.js, React Native, JavaScript, MERN Stack, Progressive Web Apps (PWAs), responsive web development, and modern UI development."
+                keywords="Prabhat Rana, Frontend Developer, React.js Developer, React Native Developer, JavaScript Developer, MERN Stack Developer, Web Developer, UI Developer, Progressive Web Apps, Responsive Web Development, Portfolio"
+                canonicalUrl="/"
+                type="website"
+                image="/logore.png"
+                structuredData={{
+                    "@context": "https://schema.org",
+                    "@type": "Person",
+                    "@id": "https://prabhatrana.online/#person",
+
+                    "name": "Prabhat Rana",
+                    "givenName": "Prabhat",
+                    "familyName": "Rana",
+
+                    "url": "https://prabhatrana.online",
+                    "image": "https://prabhatrana.online/logo.png",
+
+                    "jobTitle": "Frontend Developer",
+
+                    "description":
+                        "Frontend Developer specializing in React.js, JavaScript, MERN Stack, Progressive Web Apps (PWA), responsive web development, and SEO-friendly websites.",
+
+                    "email": "mailto:your-email@example.com",
+
+                    "nationality": "Indian",
+
+                    "knowsAbout": [
+                        "React.js",
+                        "JavaScript",
+                        "TypeScript",
+                        "HTML5",
+                        "CSS3",
+                        "Bootstrap",
+                        "Tailwind CSS",
+                        "Redux",
+                        "React Router",
+                        "Node.js",
+                        "Express.js",
+                        "MongoDB",
+                        "REST API",
+                        "Firebase",
+                        "Git",
+                        "GitHub",
+                        "Progressive Web Apps",
+                        "SEO",
+                        "Responsive Web Design"
+                    ],
+
+                    "sameAs": [
+                        "https://github.com/prabhatrana666",
+                        "https://www.linkedin.com/in/prabhat-rana"
+                    ]
+                }}
+            />
             <section className="hero-section py-5">
                 <div className="container">
                     <div className="row align-items-center">
