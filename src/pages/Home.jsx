@@ -11,6 +11,7 @@ import MainLandingPage from "../components/hero/MainLandningPage";
 import MyTech from "../components/techandprojects/MyTech";
 
 
+
 function Home() {
   const [darkMode, setDarkMode] = useState(false);
 
@@ -25,19 +26,20 @@ function Home() {
 
   return (
     <>
-      <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
-      {/* <Hero /> */}
-      <main>
-        <MainLandingPage />
-        <AnimationCar />
-        {/* <OurGarage/> */}
-        <MyTech />
-        <Testimonials />
-        <ReadyToRoll />
-        {/* <Footer /> */}
-      </main>
+        <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
+        {/* <Hero /> */}
+        <main>
+          <MainLandingPage />
+          <AnimationCar />
+          {/* <OurGarage/> */}
+          <MyTech />
+          <Testimonials />
+          <ReadyToRoll />
+          {/* <Footer /> */}
+        </main>
 
-      <Footer2 />
+        <Footer2 />
+     
     </>
   );
 }

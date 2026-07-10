@@ -8,12 +8,15 @@ import "../styles/variables.css";
 import 'react-datepicker/dist/react-datepicker.css';
 import './index.css'
 import App from './App.jsx'
+import { HelmetProvider } from "react-helmet-async";
 
 
 createRoot(document.getElementById('root')).render(
 
-    <BrowserRouter>
+  <BrowserRouter>
+    <HelmetProvider>
       <App />
-    </BrowserRouter>
+    </HelmetProvider>
+  </BrowserRouter>
 
 )

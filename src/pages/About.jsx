@@ -15,9 +15,9 @@ import {
   Sparkles,
   LayoutDashboard,
   BriefcaseBusiness,
-  Smartphone 
+  Smartphone
 } from "lucide-react";
-
+import { Helmet } from "react-helmet-async";
 import {
   ShieldCheck,
   Crosshair,
@@ -25,6 +25,7 @@ import {
 } from "lucide-react";
 import "./About.css";
 import Footer2 from "../components/footer/Footer2";
+import { useEffect } from "react";
 
 const features = [
   {
@@ -43,9 +44,106 @@ const features = [
     desc: "Focused on performance, responsive design, accessibility, and pixel-perfect implementation to deliver production-ready applications.",
   },
 ];
+
 function About() {
+
+
+  useEffect(() => {
+    // Title
+    document.title =
+      "About Prabhat Rana | React.js Frontend Developer & MERN Stack Developer";
+
+    // Description
+    document
+      .querySelector('meta[name="description"]')
+      ?.setAttribute(
+        "content",
+        "Learn about Prabhat Rana, a React.js Frontend Developer with 1+ years of experience building responsive, high-performance web applications using React.js, JavaScript, HTML, CSS, Tailwind CSS and the MERN Stack."
+      );
+
+    // Keywords
+    document
+      .querySelector('meta[name="keywords"]')
+      ?.setAttribute(
+        "content",
+        "About Prabhat Rana, Prabhat Rana, React Developer, React.js Developer, Frontend Developer, MERN Stack Developer, JavaScript Developer, Web Developer, React Portfolio"
+      );
+
+    // Canonical
+    let canonical = document.querySelector("link[rel='canonical']");
+    if (!canonical) {
+      canonical = document.createElement("link");
+      canonical.setAttribute("rel", "canonical");
+      document.head.appendChild(canonical);
+    }
+    canonical.setAttribute(
+      "href",
+      "https://prabhatrana.online/about"
+    );
+
+    // Open Graph
+    const setMetaProperty = (property, content) => {
+      let tag = document.querySelector(`meta[property="${property}"]`);
+
+      if (!tag) {
+        tag = document.createElement("meta");
+        tag.setAttribute("property", property);
+        document.head.appendChild(tag);
+      }
+
+      tag.setAttribute("content", content);
+    };
+
+    setMetaProperty(
+      "og:title",
+      "About Prabhat Rana | React.js Frontend Developer & MERN Stack Developer"
+    );
+
+    setMetaProperty(
+      "og:description",
+      "Learn about Prabhat Rana, React.js Frontend Developer specializing in modern web applications."
+    );
+
+    setMetaProperty(
+      "og:url",
+      "https://prabhatrana.online/about"
+    );
+
+    setMetaProperty(
+      "og:image",
+      "https://prabhatrana.online/logo.png"
+    );
+
+    // Twitter
+    const setTwitterMeta = (name, content) => {
+      let tag = document.querySelector(`meta[name="${name}"]`);
+
+      if (!tag) {
+        tag = document.createElement("meta");
+        tag.setAttribute("name", name);
+        document.head.appendChild(tag);
+      }
+
+      tag.setAttribute("content", content);
+    };
+
+    setTwitterMeta("twitter:title", "About Prabhat Rana");
+    setTwitterMeta(
+      "twitter:description",
+      "React.js Frontend Developer & MERN Stack Developer"
+    );
+    setTwitterMeta(
+      "twitter:image",
+      "https://prabhatrana.online/logo.png"
+    );
+
+  }, []);
+
   return (
     <>
+   
+
+
       <Navbar />
 
 

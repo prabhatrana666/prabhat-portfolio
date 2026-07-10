@@ -39,7 +39,7 @@ function AppRoutes() {
         <Route path="/about" element={<About />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/gallery" element={<Gallery />} />
-        <Route path="/rent" element={<Rent />} />
+        {/* <Route path="/rent" element={<Rent />} /> */}
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/pay" element={<PayNow />} />
         <Route path="/projects" element={<Projects />} />
@@ -47,11 +47,11 @@ function AppRoutes() {
         <Route path="/nasa" element={<Nasa />} />
         <Route path="/Services" element={<Services />} />
         <Route path="/qrcode" element={<QrCodeCard />} />
-        <Route path="/refund" element={<RefundPolicy />} />
+        {/* <Route path="/refund" element={<RefundPolicy />} /> */}
         <Route path="/admin" element={<AdminLogin />} />
-        <Route path="/insurance" element={<InsurancePolicy />} />
+        {/* <Route path="/insurance" element={<InsurancePolicy />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
-        <Route path="/terms" element={<TermsandCond />} />
+        <Route path="/terms" element={<TermsandCond />} /> */}
       </Routes>
     </>
 

@@ -272,7 +272,7 @@
 .portfolio-enquiry-header .btn-close {
     position: absolute;
     top: 20px;
-    filter: invert(1);
+    filter: invert(0);
     right: 20px;
 }
 

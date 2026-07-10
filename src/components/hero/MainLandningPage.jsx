@@ -10,12 +10,14 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { HiOutlineExternalLink } from "react-icons/hi";
 import AllProjectsData from '../../data/AllProjectsData'
 import { useNavigate, Link } from "react-router-dom";
+
 function MainLandingPage() {
 
     // console.log(AllProjectsData)
     const navigate = useNavigate();
     return (
         <>
+          
             <section className="hero-section py-5">
                 <div className="container">
                     <div className="row align-items-center">
@@ -80,7 +82,7 @@ function MainLandingPage() {
                             >
 
                                 <Swiper
-                                    modules={[Pagination, Navigation,Autoplay, EffectCoverflow]}
+                                    modules={[Pagination, Navigation, Autoplay, EffectCoverflow]}
                                     navigation={{
                                         nextEl: ".hero-next",
                                         prevEl: ".hero-prev",
@@ -204,11 +206,11 @@ function MainLandingPage() {
                                 </Swiper>
                                 <div className="hero-navigation">
 
-                                    <button className="hero-prev"  aria-label="Previous slide">
+                                    <button className="hero-prev" aria-label="Previous slide">
                                         <ChevronLeft size={22} />
                                     </button>
 
-                                    <button className="hero-next"  aria-label="Next slide">
+                                    <button className="hero-next" aria-label="Next slide">
                                         <ChevronRight size={22} />
                                     </button>
 
@@ -222,6 +224,9 @@ function MainLandingPage() {
             </section>
         </>
     );
-}
+
+
+};
+
 
 export default MainLandingPage;
