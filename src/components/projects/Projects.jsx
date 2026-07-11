@@ -244,7 +244,7 @@ function Projects() {
                 </div>
                 <div className="container mt-5">
                     <motion.div
-                        className="row g-4"
+                        className="row g-4 main_card"
                         variants={staggerContainer}
                         initial="hidden"
                         whileInView="show"

@@ -183,3 +183,62 @@
     background: #1b1b1b;
     color: #fff;
 }
+
+/* Projects.css - Add this */
+
+/* Disable all row animations on mobile */
+@media (max-width: 768px) {
+  .main_card {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+  
+  .main_card [class*="col-"] {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+  /* .project-card.my_new_project_card {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+    will-change: auto !important;
+  }
+  
+  .project-card.my_new_project_card * {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  } */
+.project-inquiry-form.mb-5 {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+  
+  .project-inquiry-form.mb-5 * {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+  .section-header.text-center.mb-5.mt-5 {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+  
+  .section-header.text-center.mb-5.mt-5 * {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}

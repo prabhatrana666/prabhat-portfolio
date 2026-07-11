@@ -272,7 +272,7 @@ function Navbar({ darkMode, setDarkMode }) {
                 </ul>
 
                 <button
-                    className="btn login-btn w-100 mt-3"
+                    className="btn login-btn w-100 mt-3 mob_logib_button"
                     onClick={() => handleNavigate("/admin")}
                 >
                     Admin Login

@@ -338,3 +338,34 @@ textarea.form-control {
     font-size: 13px;
     color: #6b7280;
 }
+
+/* About.css or your component CSS - Add this */
+@media (max-width: 768px) {
+  /* Disable animations on the column */
+  .contact_us_left {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+  
+  .contact_us_left * {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+   .contact_us_right{
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+  
+  .contact_us_right * {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}

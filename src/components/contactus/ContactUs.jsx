@@ -278,7 +278,7 @@ const ContactUs = () => {
                         {/* Contact Form */}
 
                         <motion.div
-                            className="col-lg-7"
+                            className="col-lg-7 contact_us_left"
                             variants={fadeLeft}
                             initial="hidden"
                             whileInView="show"
@@ -407,7 +407,7 @@ const ContactUs = () => {
                         {/* Google Map */}
 
                         <motion.div
-                            className="col-lg-5 maps"
+                            className="col-lg-5 maps contact_us_right"
                             variants={fadeRight}
                             initial="hidden"
                             whileInView="show"
