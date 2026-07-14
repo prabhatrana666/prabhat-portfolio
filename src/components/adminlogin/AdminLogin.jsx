@@ -22,7 +22,7 @@ import upi from "../../../public/logo.png"
 import { useNavigate } from "react-router-dom";
 import { onAuthStateChanged } from "firebase/auth";
 import { sendPasswordResetEmail } from "firebase/auth";
-
+import {fetchSignInMethodsForEmail } from "firebase/auth";
 function AdminLogin() {
     const [showPassword, setShowPassword] = useState(false);
     const navigate = useNavigate();
@@ -71,31 +71,7 @@ function AdminLogin() {
         }
     };
 
-    const handleSendOTP = async () => {
-        if (!email) {
-            toast.error("Please enter your email address");
-            return;
-        }
-
-        try {
-            // Generate 6-digit OTP
-            const generatedOTP = Math.floor(100000 + Math.random() * 900000);
-
-            // Store OTP temporarily (you'll need to implement backend verification)
-            sessionStorage.setItem("resetOTP", generatedOTP);
-            sessionStorage.setItem("resetEmail", email);
-
-            // In real scenario, send email via backend API
-            toast.success(`OTP sent to ${email} 📧`);
-            setShowOTP(true);
-
-        } catch (error) {
-            toast.error("Failed to send OTP. Please try again.");
-        }
-    };
-
-    // check email and password
-
+   
     const handleLogin = async (e) => {
         e.preventDefault();
 
