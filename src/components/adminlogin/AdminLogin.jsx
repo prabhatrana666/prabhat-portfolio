@@ -21,6 +21,7 @@ import toast from "react-hot-toast";
 import upi from "../../../public/logo.png"
 import { useNavigate } from "react-router-dom";
 import { onAuthStateChanged } from "firebase/auth";
+import { sendPasswordResetEmail } from "firebase/auth";
 
 function AdminLogin() {
     const [showPassword, setShowPassword] = useState(false);
@@ -28,7 +29,8 @@ function AdminLogin() {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-
+    const [showOTP, setShowOTP] = useState(false);
+    const [otp, setOtp] = useState("");
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (user) => {
             if (!user || user.email !== "prabhatrana2024@gmail.com") {
@@ -38,6 +40,47 @@ function AdminLogin() {
 
         return unsubscribe;
     }, []);
+    const handleForgotPassword = async () => {
+        if (!email) {
+            toast.error("Please enter your email address first");
+            return;
+        }
+
+        try {
+            await sendPasswordResetEmail(auth, email);
+            toast.success("Password reset email sent!  Check your inbox.");
+        } catch (error) {
+            if (error.code === "auth/user-not-found") {
+                toast.error("No account found with this email");
+            } else {
+                toast.error(error.message);
+            }
+        }
+    };
+
+    const handleSendOTP = async () => {
+        if (!email) {
+            toast.error("Please enter your email address");
+            return;
+        }
+
+        try {
+            // Generate 6-digit OTP
+            const generatedOTP = Math.floor(100000 + Math.random() * 900000);
+
+            // Store OTP temporarily (you'll need to implement backend verification)
+            sessionStorage.setItem("resetOTP", generatedOTP);
+            sessionStorage.setItem("resetEmail", email);
+
+            // In real scenario, send email via backend API
+            toast.success(`OTP sent to ${email} 📧`);
+            setShowOTP(true);
+
+        } catch (error) {
+            toast.error("Failed to send OTP. Please try again.");
+        }
+    };
+
     // check email and password
 
     const handleLogin = async (e) => {
@@ -63,12 +106,12 @@ function AdminLogin() {
             }
 
         } catch (error) {
-    console.log(error);
-    console.log(error.code);
-    console.log(error.message);
+            console.log(error);
+            console.log(error.code);
+            console.log(error.message);
 
-    toast.error(error.message);
-}
+            toast.error(error.message);
+        }
     };
 
     // Motion Effect
@@ -257,7 +300,12 @@ function AdminLogin() {
 
                                         </div>
 
-                                        <a href="/" className="d-none">
+                                        <a href="/admin"
+                                            onClick={(e) => {
+                                                e.preventDefault();
+                                                handleForgotPassword();
+                                            }}
+                                            className="text-white text-decoration-none">
                                             Forgot Password?
                                         </a>
 
