@@ -40,18 +40,31 @@ function AdminLogin() {
 
         return unsubscribe;
     }, []);
+    // Modify your handleForgotPassword
     const handleForgotPassword = async () => {
+        console.log("🔍 Forgot password clicked");
+        console.log("📧 Email entered:", email);
+
         if (!email) {
+            console.log("❌ No email provided");
             toast.error("Please enter your email address first");
             return;
         }
 
         try {
+            console.log("📤 Sending password reset email to:", email);
             await sendPasswordResetEmail(auth, email);
-            toast.success("Password reset email sent!  Check your inbox.");
+            console.log("✅ Email sent successfully!");
+            toast.success("Password reset email sent! Check your inbox.");
         } catch (error) {
+            console.log("❌ Error details:", error);
+            console.log("❌ Error code:", error.code);
+            console.log("❌ Error message:", error.message);
+
             if (error.code === "auth/user-not-found") {
                 toast.error("No account found with this email");
+            } else if (error.code === "auth/invalid-email") {
+                toast.error("Invalid email format");
             } else {
                 toast.error(error.message);
             }
