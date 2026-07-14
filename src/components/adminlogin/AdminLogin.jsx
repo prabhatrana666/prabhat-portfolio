@@ -22,7 +22,8 @@ import upi from "../../../public/logo.png"
 import { useNavigate } from "react-router-dom";
 import { onAuthStateChanged } from "firebase/auth";
 import { sendPasswordResetEmail } from "firebase/auth";
-import {fetchSignInMethodsForEmail } from "firebase/auth";
+import { fetchSignInMethodsForEmail } from "firebase/auth";
+
 function AdminLogin() {
     const [showPassword, setShowPassword] = useState(false);
     const navigate = useNavigate();
@@ -40,38 +41,69 @@ function AdminLogin() {
 
         return unsubscribe;
     }, []);
+
+   
     // Modify your handleForgotPassword
     const handleForgotPassword = async () => {
         console.log("🔍 Forgot password clicked");
         console.log("📧 Email entered:", email);
 
         if (!email) {
-            console.log("❌ No email provided");
             toast.error("Please enter your email address first");
             return;
         }
 
         try {
-            console.log("📤 Sending password reset email to:", email);
+            console.log("🔍 Checking if email is registered...");
+
+            // Method 1: Try fetchSignInMethodsForEmail
+            const methods = await fetchSignInMethodsForEmail(auth, email);
+            console.log("📧 Sign-in methods:", methods);
+
+            // Method 2: If empty, try to send reset email directly
+            // Firebase will throw error if email doesn't exist
+            if (!methods || methods.length === 0) {
+                console.log("⚠️ No methods found, but trying to send reset email anyway...");
+
+                try {
+                    // Try sending reset email - if user exists, it will work
+                    await sendPasswordResetEmail(auth, email);
+                    console.log("✅ Reset email sent successfully!");
+                    toast.success("Password reset email sent! Check your inbox");
+                    return;
+                } catch (sendError) {
+                    // If this fails, user truly doesn't exist
+                    if (sendError.code === "auth/user-not-found") {
+                        console.log("❌ Email not registered (confirmed)");
+                        toast.error("This email is not registered. Please sign up first.");
+                    } else {
+                        throw sendError;
+                    }
+                    return;
+                }
+            }
+
+            // If methods exist, send reset email
+            console.log("✅ Email is registered. Sending reset link...");
             await sendPasswordResetEmail(auth, email);
-            console.log("✅ Email sent successfully!");
-            toast.success("Password reset email sent! Check your inbox.");
+            console.log("✅ Reset email sent successfully!");
+            toast.success("Password reset email sent! Check your inbox");
+
         } catch (error) {
             console.log("❌ Error details:", error);
             console.log("❌ Error code:", error.code);
-            console.log("❌ Error message:", error.message);
 
             if (error.code === "auth/user-not-found") {
-                toast.error("No account found with this email");
+                toast.error("This email is not registered. Please sign up first.");
             } else if (error.code === "auth/invalid-email") {
                 toast.error("Invalid email format");
+            } else if (error.code === "auth/too-many-requests") {
+                toast.error("Too many attempts. Please try again later.");
             } else {
-                toast.error(error.message);
+                toast.error("Something went wrong. Please try again.");
             }
         }
     };
-
-   
     const handleLogin = async (e) => {
         e.preventDefault();
 
