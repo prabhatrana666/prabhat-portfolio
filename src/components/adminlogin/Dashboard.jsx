@@ -117,7 +117,7 @@ function Dashboard() {
                     {/* Details */}
                     <div className="resume-details">
 
-                        <div>
+                        <div className="d-none">
                             <span>Storage</span>
                             <h6>Firebase Storage</h6>
                         </div>
