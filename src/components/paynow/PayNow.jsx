@@ -330,7 +330,7 @@ function PayNow() {
                                 Razorpay
                             </h4>
 
-                            <p className="text-white">
+                            {/* <p className="text-white">
                                 razorpay.me/@prabhatranadev
 
                                 <Copy
@@ -338,10 +338,10 @@ function PayNow() {
                                     className="copytext ms-3"
                                     onClick={() => copyText("razorpay.me/@prabhatranadev")}
                                 />
-                            </p>
+                            </p> */}
 
                             <button
-                                className="btn btn-primary"
+                                className="btn btn-primary mt-2"
                                 onClick={() =>
                                     window.open(
                                         "https://razorpay.me/@prabhatranadev",
