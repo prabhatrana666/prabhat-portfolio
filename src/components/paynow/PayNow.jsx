@@ -349,7 +349,7 @@ function PayNow() {
                                     )
                                 }
                             >
-                                Pay with Razorpay
+                                Pay with 
                             </button>
 
                         </div>
