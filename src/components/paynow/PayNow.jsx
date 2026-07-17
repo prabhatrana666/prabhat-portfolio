@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import {
     Building2,
     QrCode,
+    CreditCard,
     Globe,
     Copy,
     CheckCircle2,
@@ -17,7 +18,7 @@ import upi from "../../assets/upi.png"
 import SEO from "../seo/SEO";
 
 function PayNow() {
-    const [activeTab, setActiveTab] = useState("bank");
+    const [activeTab, setActiveTab] = useState("razorpay");
 
     const copyText = async (text) => {
         try {
@@ -150,7 +151,13 @@ function PayNow() {
                     {/* Tabs */}
 
                     <div className="payment-tabs mt-5">
-
+                        <button
+                            className={activeTab === "razorpay" ? "active" : ""}
+                            onClick={() => setActiveTab("razorpay")}
+                        >
+                            <CreditCard size={18} />
+                            Razorpay
+                        </button>
                         <button
                             className={activeTab === "bank" ? "active" : ""}
                             onClick={() => setActiveTab("bank")}
@@ -302,6 +309,47 @@ function PayNow() {
                                 }
                             >
                                 Pay with PayPal
+                            </button>
+
+                        </div>
+
+                    )}
+
+                    {/* Rozorpay */}
+
+                    {activeTab === "razorpay" && (
+
+                        <div className="payment-card text-center">
+
+                            <CreditCard 
+                                size={60}
+                                className="paypal-icon"
+                            />
+
+                            <h4 className="mt-3 text-white">
+                                Razorpay
+                            </h4>
+
+                            <p className="text-white">
+                                razorpay.me/@prabhatranadev
+
+                                <Copy
+                                    size={18}
+                                    className="copytext ms-3"
+                                    onClick={() => copyText("razorpay.me/@prabhatranadev")}
+                                />
+                            </p>
+
+                            <button
+                                className="btn btn-primary"
+                                onClick={() =>
+                                    window.open(
+                                        "https://razorpay.me/@prabhatranadev",
+                                        "_blank"
+                                    )
+                                }
+                            >
+                                Pay with Razorpay
                             </button>
 
                         </div>
