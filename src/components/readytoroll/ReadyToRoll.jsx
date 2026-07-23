@@ -178,7 +178,14 @@ export default function ReadyToRoll() {
                                         required
                                         placeholder="Your Phone"
                                         value={formData.phone}
-                                        onChange={handleChange}
+                                        onChange={(e) =>
+                                            handleChange({
+                                                target: {
+                                                    name: "phone",
+                                                    value: e.target.value.replace(/\D/g, "").slice(0, 10),
+                                                },
+                                            })
+                                        }
                                         className="rtr-input"
                                         pattern="[0-9]{10}"
                                         maxLength={10}
