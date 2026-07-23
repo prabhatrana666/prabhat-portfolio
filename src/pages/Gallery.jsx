@@ -3,7 +3,7 @@ import Footer from "../components/footer/Footer";
 import { ArrowRight, Users, Fuel, Settings, Phone, MessageCircle } from "lucide-react";
 import GalleryData from "./GalleryData";
 import "./Gallery.css"
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import BookingModal from "./BookingModal";
 import { motion } from "framer-motion";
 import { Maximize2, X } from "lucide-react";
@@ -16,6 +16,16 @@ function Rent() {
   const [selectedCar, setSelectedCar] = useState(null);
   const [selectedImage, setSelectedImage] = useState(null);
 
+  //lazy loading
+  const [visibleCount, setVisibleCount] = useState(9);
+
+  useEffect(() => {
+    if (window.innerWidth < 768) {
+      setVisibleCount(4); // Mobile
+    } else {
+      setVisibleCount(9); // Tablet/Desktop
+    }
+  }, []);
   const openBooking = (car) => {
     setSelectedCar(car);
     setShowModal(true);
@@ -105,7 +115,7 @@ function Rent() {
             initial="hidden"
             animate="show"
           >
-            {GalleryData.map((car, index) => (
+            {GalleryData.slice(0, visibleCount).map((car, index) => (
               <motion.div
                 className="col-lg-3 col-md-6"
                 key={index}
@@ -125,6 +135,8 @@ function Rent() {
                       src={car.image}
                       alt={car.name}
                       className="h11-gallery-image"
+                      loading="lazy"
+                      decoding="async"
                     />
 
                     <button
@@ -160,6 +172,20 @@ function Rent() {
             className="h11-gallery-modal-image"
             onClick={(e) => e.stopPropagation()}
           />
+        </div>
+      )}
+      {visibleCount < GalleryData.length && (
+        <div className="text-center mt-4">
+          <button
+            className="btn btn-primary"
+            onClick={() =>
+              setVisibleCount((prev) =>
+                Math.min(prev + (window.innerWidth < 768 ? 4 : 8), GalleryData.length)
+              )
+            }
+          >
+            Load More
+          </button>
         </div>
       )}
       <Footer2 />
