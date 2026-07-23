@@ -47,7 +47,7 @@ const Footer2 = () => {
             link: "/weather",
         },
         {
-            name: "NASA Space Explorer",
+            name: "Space Explorer",
             link: "/nasa",
         },
 

@@ -263,7 +263,7 @@ function Navbar({ darkMode, setDarkMode }) {
                     </li>
                     <li onClick={() => handleNavigate("/nasa")}>
                         <Rocket size={18} />
-                        <span>NASA Space Explorer</span>
+                        <span>Space Explorer</span>
                     </li>
                     <li onClick={() => handleNavigate("/services")} className="d-none">
                         <Ellipsis size={18} />
