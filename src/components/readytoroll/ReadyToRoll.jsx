@@ -13,7 +13,7 @@ import {
     ArrowRight,
     ShieldCheck,
     Code,
-    Mail ,
+    Mail,
     Layers,
     MessageSquare,
     Zap,
@@ -162,6 +162,16 @@ export default function ReadyToRoll() {
                             <div className="col-lg">
                                 <div className="rtr-input-wrapper">
                                     <Phone size={18} className="rtr-input-icon" />
+                                    {/* <input
+                                        type="tel"
+                                        name="phone"
+                                        required
+                                        pattern="[0-9]{10}"
+                                        placeholder="Your Phone"
+                                        value={formData.phone}
+                                        onChange={handleChange}
+                                        className="rtr-input"
+                                    /> */}
                                     <input
                                         type="tel"
                                         name="phone"
@@ -170,13 +180,17 @@ export default function ReadyToRoll() {
                                         value={formData.phone}
                                         onChange={handleChange}
                                         className="rtr-input"
+                                        pattern="[0-9]{10}"
+                                        maxLength={10}
+                                        inputMode="numeric"
+                                        title="Please enter a valid 10-digit phone number"
                                     />
                                 </div>
                             </div>
 
                             <div className="col-lg">
                                 <div className="rtr-input-wrapper">
-                                    <Mail  size={18} className="rtr-input-icon" />
+                                    <Mail size={18} className="rtr-input-icon" />
                                     <input
                                         type="email"
                                         name="email"
@@ -229,7 +243,7 @@ export default function ReadyToRoll() {
                                     ) : (
                                         <>
                                             Connect Now
-                                            <ArrowRight  className="rtr-arrow" size={18} />
+                                            <ArrowRight className="rtr-arrow" size={18} />
                                         </>
                                     )}
                                 </button>
