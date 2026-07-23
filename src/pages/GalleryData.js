@@ -1,4 +1,4 @@
-import coursera from "../assets/certificates/Coursera.png"
+import coursera from "../assets/certificates/Coursera.webp"
 import first from "../assets/certificates/reacts.png"
 import second from "../assets/certificates/mastercss.jpeg"
 import third from "../assets/certificates/masterjs.jpeg"
