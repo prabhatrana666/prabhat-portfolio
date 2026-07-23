@@ -26,10 +26,40 @@ function Rent() {
       setVisibleCount(9); // Tablet/Desktop
     }
   }, []);
-  const openBooking = (car) => {
-    setSelectedCar(car);
-    setShowModal(true);
-  };
+
+  //view more
+const itemsPerClick = window.innerWidth < 768 ? 4 : 8;
+const [isMobileViewMoreClicked, setIsMobileViewMoreClicked] = useState(false);
+
+const handleViewMore = () => {
+  setVisibleCount((prev) => Math.min(prev + itemsPerClick, GalleryData.length));
+  
+  // If on mobile, mark that view more has been clicked
+  if (window.innerWidth < 768) {
+    setIsMobileViewMoreClicked(true);
+  }
+};
+
+const hasMore = visibleCount < GalleryData.length;
+// Hide button on mobile if clicked, or if no more items to show
+const shouldShowButton = hasMore && !(window.innerWidth < 768 && isMobileViewMoreClicked);
+
+const openBooking = (car) => {
+  setSelectedCar(car);
+  setShowModal(true);
+};
+
+  // const itemsPerClick = window.innerWidth < 768 ? 4 : 8;
+
+  // const handleViewMore = () => {
+  //   setVisibleCount((prev) => Math.min(prev + itemsPerClick, GalleryData.length));
+  // };
+
+  // const hasMore = visibleCount < GalleryData.length;
+  // const openBooking = (car) => {
+  //   setSelectedCar(car);
+  //   setShowModal(true);
+  // };
 
   const closeBooking = () => {
     setShowModal(false);
@@ -153,6 +183,16 @@ function Rent() {
           </motion.div>
 
         </div>
+         {hasMore && (
+        <div className="text-center mt-4">
+          <button
+            className="btn btn-primary view_more_button"
+            onClick={handleViewMore}
+          >
+            View More
+          </button>
+        </div>
+      )}
       </section>
       {selectedImage && (
         <div
@@ -174,21 +214,32 @@ function Rent() {
           />
         </div>
       )}
-        {visibleCount < GalleryData.length && (
-          <div className="text-center mt-4">
-            <button
-              className="btn btn-primary view_more_button"
-              onClick={() =>
-                setVisibleCount((prev) =>
-                  Math.min(prev + (window.innerWidth < 768 ? 4 : 8), GalleryData.length)
-                )
-              }
-            >
-              View More
-            </button>
-          </div>
-      )}
+      {/* {visibleCount < GalleryData.length && (
+        <div className="text-center mt-4">
+          <button
+            className="btn btn-primary view_more_button"
+            onClick={() =>
+              setVisibleCount((prev) =>
+                Math.min(prev + (window.innerWidth < 768 ? 4 : 8), GalleryData.length)
+              )
+            }
+          >
+            View More
+          </button>
+        </div>
+      )} */}
+      {/* {hasMore && (
+        <div className="text-center mt-4">
+          <button
+            className="btn btn-primary view_more_button"
+            onClick={handleViewMore}
+          >
+            View More
+          </button>
+        </div>
+      )} */}
       <Footer2 />
+      
     </>
   );
 }
