@@ -223,3 +223,7 @@
     height: 100%;
     object-fit: contain !important;
 }
+.view_more_button{
+    width: 95%;
+    margin-bottom: 10px;
+}

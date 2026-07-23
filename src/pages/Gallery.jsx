@@ -21,7 +21,7 @@ function Rent() {
 
   useEffect(() => {
     if (window.innerWidth < 768) {
-      setVisibleCount(4); // Mobile
+      setVisibleCount(5); // Mobile
     } else {
       setVisibleCount(9); // Tablet/Desktop
     }
@@ -174,19 +174,19 @@ function Rent() {
           />
         </div>
       )}
-      {visibleCount < GalleryData.length && (
-        <div className="text-center mt-4">
-          <button
-            className="btn btn-primary"
-            onClick={() =>
-              setVisibleCount((prev) =>
-                Math.min(prev + (window.innerWidth < 768 ? 4 : 8), GalleryData.length)
-              )
-            }
-          >
-            Load More
-          </button>
-        </div>
+        {visibleCount < GalleryData.length && (
+          <div className="text-center mt-4">
+            <button
+              className="btn btn-primary view_more_button"
+              onClick={() =>
+                setVisibleCount((prev) =>
+                  Math.min(prev + (window.innerWidth < 768 ? 4 : 8), GalleryData.length)
+                )
+              }
+            >
+              View More
+            </button>
+          </div>
       )}
       <Footer2 />
     </>
