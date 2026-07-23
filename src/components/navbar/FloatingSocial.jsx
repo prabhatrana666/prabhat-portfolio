@@ -3,7 +3,7 @@ import { FaWhatsapp, FaInstagram } from "react-icons/fa";
 import { FaXTwitter, FaGithub, FaLinkedin, FaFacebookF, FaRegMessage } from "react-icons/fa6";
 import { HiPlus } from "react-icons/hi";
 import { useForm } from "react-hook-form";
-import logo from "../../../public/logo1.png";
+import logo from "../../../public/logo.png";
 import {
     FaUser,
     FaEnvelope,
