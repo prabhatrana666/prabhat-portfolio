@@ -1,3 +1,4 @@
+import coursera from "../assets/certificates/Coursera.png"
 import first from "../assets/certificates/reacts.png"
 import second from "../assets/certificates/mastercss.jpeg"
 import third from "../assets/certificates/masterjs.jpeg"
@@ -12,6 +13,9 @@ import eight from "../assets/certificates/isro.jpeg"
 // import twelve from "../assets/certificates/12.webp"
 
 const GalleryData = [
+    {
+        image: coursera,
+    },
     {
         image: first,
     },
