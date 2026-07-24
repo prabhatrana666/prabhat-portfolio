@@ -1,4 +1,22 @@
 [[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+from = "http://prabhatrana.online/*"
+to = "https://prabhatrana.online/:splat"
+status = 301
+force = true
+
+[[redirects]]
+from = "http://www.prabhatrana.online/*"
+to = "https://prabhatrana.online/:splat"
+status = 301
+force = true
+
+[[redirects]]
+from = "https://www.prabhatrana.online/*"
+to = "https://prabhatrana.online/:splat"
+status = 301
+force = true
+
+[[redirects]]
+from = "/*"
+to = "/index.html"
+status = 200
