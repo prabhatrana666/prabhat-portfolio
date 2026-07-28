@@ -128,7 +128,7 @@ const openBooking = (car) => {
 
           {/* HEADER */}
           <div className="h11-gallery-header">
-            <p className="h11-gallery-subtitle">CERTIFICATIONS</p>
+            <p className="h11-gallery-subtitle d-none d-md-block">CERTIFICATIONS</p>
 
             <h2 className="h11-gallery-title">
               MY <span>CERTIFICATES</span>
