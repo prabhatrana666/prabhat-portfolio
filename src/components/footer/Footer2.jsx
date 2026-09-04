@@ -167,7 +167,7 @@ const Footer2 = () => {
                         <ul className="list-unstyled footer-contact">
 
                             <li className="mb-3">
-                                <a href="tel:+919289918991" className="footer-link d-flex align-items-start">
+                                <a href="tel:+918851522173" className="footer-link d-flex align-items-start">
                                     <PhoneCall size={18} className="me-2 mt-1 flex-shrink-0" />
                                     <span>+91 88515 22173</span>
                                 </a>
