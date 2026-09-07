@@ -1,4 +1,4 @@
-#  👨‍💻 Prabhat Rana | Frontend Developer Portfolio 1
+#  👨‍💻 Prabhat Rana | Frontend Developer Portfolio
 
 
 <p align="center">
